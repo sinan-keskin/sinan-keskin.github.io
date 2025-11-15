@@ -25,14 +25,23 @@
             box-sizing: border-box;
         }
 
-        body {
+        html, body {
             margin: 0;
             padding: 0;
+        }
+
+        body {
             font-family: "Share Tech Mono", monospace;
             color: var(--text);
             background: radial-gradient(circle at top, #08131a 0, var(--bg) 45%, #000 100%);
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* Tüm görseller default responsive */
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* Matrix code rain canvas */
@@ -71,6 +80,10 @@
             letter-spacing: 2px;
         }
 
+        h1 {
+            font-size: 28px;
+        }
+
         h2 {
             font-size: 22px;
             margin-bottom: 20px;
@@ -79,7 +92,7 @@
         ul {
             max-width: 700px;
             margin: 0 auto;
-            padding-left: 20px;
+            padding-left: 24px;
             font-size: 16px;
             line-height: 1.6;
         }
@@ -103,6 +116,7 @@
         .tech-icons img {
             margin: 8px;
             filter: drop-shadow(0 0 6px rgba(0,255,65,0.6));
+            width: 60px;
         }
 
         .badges img {
@@ -113,12 +127,56 @@
             margin-top: 10px;
         }
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 22px;
+        .typing-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Stats img'lerini ayırmak için */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px 40px;
             }
+
             .card {
                 padding: 18px 14px;
+                margin: 18px 0;
+            }
+
+            h1 {
+                font-size: 22px;
+                line-height: 1.3;
+            }
+
+            h2 {
+                font-size: 18px;
+            }
+
+            ul {
+                font-size: 14px;
+                padding-left: 20px;
+            }
+
+            /* Header GIF'leri küçült */
+            h1 img {
+                width: 36px;
+            }
+
+            .tech-icons img {
+                width: 44px;
+                margin: 6px;
+            }
+
+            .stats-row {
+                flex-direction: column;
             }
         }
     </style>
@@ -139,7 +197,7 @@
         </h1>
 
         <p class="center top-typing">
-            <img src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Matrix!" />
+            <img class="typing-img" src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Matrix!" />
         </p>
     </div>
 
@@ -164,15 +222,15 @@
         <h2>🛠️ Tech Stack</h2>
 
         <p class="center tech-icons">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="60" alt="Node.js">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="60" alt="JavaScript">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="60" alt="Python">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="60" alt="React">
-            <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" width="60" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" width="60" alt="Docker">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" width="60" alt="PostgreSQL">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" width="60" alt="VS Code">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" width="60" alt="Git">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
+            <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code">
+            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
         </p>
     </div>
 
@@ -180,7 +238,7 @@
     <div class="card">
         <h2>📊 GitHub Stats</h2>
 
-        <p class="center">
+        <p class="center stats-row">
             <img src="https://github-readme-stats.vercel.app/api?username=sinan-keskin&show_icons=true&theme=radical&bg_color=00000000&hide_border=true" height="180" alt="GitHub Stats">
             <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sinan-keskin&layout=compact&langs_count=8&theme=radical&bg_color=00000000&hide_border=true" height="180" alt="Top Languages">
         </p>
