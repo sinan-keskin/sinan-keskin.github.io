@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinan Keskin | Developer Portfolio</title>
-    <meta name="description" content="Sinan Keskin'in geliştirdiği projeler, açık kaynak çalışmalar, araçlar ve teknolojik çözümler. Python, C++, JS, Bash ve daha fazlası.">
-    <meta name="keywords" content="Sinan Keskin, developer, software engineer, github, python, c++, javascript, portfolio">
+
+    <!-- SEO -->
+    <meta name="description" content="Developer portfolio of Sinan Keskin — open-source projects, backend tools, web apps, and learning snippets using Python, JavaScript, Java, Bash, C++ and more.">
+    <meta name="keywords" content="Sinan Keskin, developer, software engineer, github, python, javascript, java, bash, c++, portfolio, open source">
 
     <!-- Favicon -->
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
@@ -96,6 +98,15 @@
         h2 {
             font-size: 22px;
             margin-bottom: 20px;
+        }
+
+        .hero-subtitle {
+            max-width: 780px;
+            margin: 6px auto 18px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #c9ffd3;
         }
 
         /* Header row */
@@ -236,6 +247,23 @@
             color: #9cffb4;
         }
 
+        .about-text,
+        .projects-intro-text {
+            max-width: 780px;
+            margin: 10px auto;
+            font-size: 15px;
+            line-height: 1.7;
+            color: #d5ffe0;
+        }
+
+        .projects-intro-list {
+            max-width: 780px;
+            margin: 4px auto 16px;
+            padding-left: 22px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
         @media (max-width: 768px) {
             .page {
                 padding: 20px 8px 40px;
@@ -258,6 +286,11 @@
             ul {
                 font-size: 14px;
                 padding-left: 20px;
+            }
+
+            .about-text,
+            .projects-intro-text {
+                font-size: 14px;
             }
 
             .tech-icons img {
@@ -296,14 +329,22 @@
     <!-- HEADER SECTION -->
     <section class="section">
         <div class="card">
-            <h1 class="header-row">
+            <!-- SEO için net H1 -->
+            <h1>Sinan Keskin — Software Developer</h1>
+            <p class="hero-subtitle">
+                Building small tools, backend APIs, and web experiences with
+                <strong>Python</strong>, <strong>JavaScript</strong>, <strong>Java</strong>, <strong>Bash</strong> and more.
+                This is my main developer portfolio and open-source hub.
+            </p>
+
+            <div class="header-row">
                 <!-- İlk görseller kritik olduğu için lazy yok -->
                 <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"
                      alt="Code gif" width="80" height="80">
                 <span class="header-text">Hey there, I'm Sinan K. 🚀</span>
                 <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif"
                      alt="Rocket gif" width="80" height="80">
-            </h1>
+            </div>
 
             <p class="center top-typing">
                 <img class="typing-img"
@@ -318,12 +359,24 @@
         <div class="card">
             <h2>🧠 About Me</h2>
 
+            <p class="about-text">
+                I'm a self-taught developer focused on backend tools, automation scripts, and small web applications.
+                Most of my work lives on GitHub as open-source repositories — experiments, utilities and learning
+                projects that help me explore new technologies and share what I learn.
+            </p>
+
             <ul>
                 <li>🧩 Developer passionate about <strong>Python</strong>, <strong>Java</strong>, <strong>AI</strong>, and <strong>Web Technologies</strong></li>
                 <li>⚙️ I design, build, debug, and optimize things — repeat forever ♻️</li>
                 <li>☕ Coffee keeps my code alive</li>
                 <li>🎯 Aim: Turning ideas into interactive experiences</li>
             </ul>
+
+            <p class="about-text">
+                On this portfolio you will find Bash scripting helpers (<strong>bash-tools</strong>),
+                Express REST API examples (<strong>node-api</strong>), a minimal HTML/CSS/JS starter
+                (<strong>web-starter</strong>), Python and Java learning projects, Streamlit multi-tools and more.
+            </p>
 
             <p class="center" style="margin-top:25px;">
                 <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif"
@@ -355,12 +408,28 @@
     <section class="section" id="projects">
         <div class="card">
             <h2>📁 Projects</h2>
-            <p class="center" style="font-size: 13px; margin-bottom: 14px;">
-                Public GitHub repositories are listed automatically.
+
+            <p class="projects-intro-text">
+                Below you can explore my public GitHub repositories. They include command-line tools, REST APIs,
+                web starters and language learning snippets. Some highlighted projects:
             </p>
+
+            <ul class="projects-intro-list">
+                <li><strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).</li>
+                <li><strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.</li>
+                <li><strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.</li>
+                <li><strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.</li>
+                <li><strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.</li>
+            </ul>
+
+            <p class="center" style="font-size: 13px; margin-bottom: 14px;">
+                Latest public repositories from <strong>github.com/sinan-keskin</strong> are listed automatically:
+            </p>
+
             <div id="projects-list" class="projects-list">
                 <p class="center" style="font-size: 13px; color:#b4ffd0;">Loading public repositories...</p>
             </div>
+
             <p class="center" style="margin-top:14px; font-size:12px;">
                 <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer">→ View all on GitHub</a>
             </p>
@@ -414,6 +483,10 @@
 
             <p class="center" style="margin-top:10px;">
                 <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer" width="480" height="270" loading="lazy">
+            </p>
+
+            <p class="center" style="font-size:12px; margin-top:6px;">
+                This portfolio is hosted on <strong>GitHub Pages</strong> at <code>sinan-keskin.github.io</code>.
             </p>
         </div>
     </section>
