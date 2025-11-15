@@ -1,7 +1,3 @@
----
-title: Sinan Keskin
----
-
 <h1 align="center">
   <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="60">
   Hey there, I'm Sinan K. 🚀
