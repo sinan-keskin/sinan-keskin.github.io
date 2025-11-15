@@ -28,6 +28,8 @@
         html, body {
             margin: 0;
             padding: 0;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         body {
@@ -35,12 +37,6 @@
             color: var(--text);
             background: radial-gradient(circle at top, #08131a 0, var(--bg) 45%, #000 100%);
             min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
         }
 
         /* Matrix code rain canvas */
@@ -53,22 +49,32 @@
             pointer-events: none;
         }
 
-        .container {
+        .page {
             position: relative;
             z-index: 1;
-            max-width: 1000px;
+            width: 100%;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 30px 20px 60px;
+            padding: 30px 16px 60px;
+        }
+
+        .section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
 
         .card {
+            width: 100%;
+            max-width: 900px;
             background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(3,25,12,0.95));
             border: 1px solid rgba(0,255,65,0.35);
             border-radius: 18px;
-            padding: 25px 20px;
-            margin: 25px 0;
+            padding: 24px 18px;
+            margin: 18px 0;
             box-shadow: 0 0 25px rgba(0,255,65,0.18);
             backdrop-filter: blur(6px);
+            overflow: hidden; /* karttan taşma yok */
         }
 
         h1, h2 {
@@ -88,13 +94,27 @@
             margin-bottom: 20px;
         }
 
-        /* Başlık içeriğini flex ile tek satırda tut */
+        /* Header tek satır, container dışına taşma yok */
         .header-row {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
             flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .header-row img {
+            width: 50px;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            flex: 1 1 auto;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis; /* sığmazsa ... yap, taşma yok */
         }
 
         ul {
@@ -111,16 +131,23 @@
 
         a {
             color: var(--matrix-green-soft);
-            text-decoration: none; /* alt çizgi olmasın */
+            text-decoration: none;
         }
 
         a:hover {
             color: #ffffff;
-            text-decoration: underline; /* istersen kaldırabilirsin */
+            text-decoration: underline;
         }
 
         .center {
             text-align: center;
+        }
+
+        /* Kart içindeki tüm img'ler responsive */
+        .card img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
         }
 
         .tech-icons img {
@@ -150,28 +177,24 @@
             flex-wrap: wrap;
         }
 
+        .stats-row img {
+            max-width: 100%;
+            height: auto !important;
+        }
+
         @media (max-width: 768px) {
-            .container {
-                padding: 20px 10px 40px;
+            .page {
+                padding: 20px 8px 40px;
             }
 
             .card {
-                padding: 18px 14px;
-                margin: 18px 0;
+                padding: 18px 12px;
+                margin: 14px 0;
             }
 
             h1 {
                 font-size: 20px;
                 line-height: 1.2;
-                white-space: nowrap; /* metin 2. satıra inmesin */
-            }
-
-            .header-row {
-                gap: 6px;
-            }
-
-            h1 img {
-                width: 28px; /* header GIF’leri küçült */
             }
 
             h2 {
@@ -192,6 +215,22 @@
                 flex-direction: column;
             }
         }
+
+        @media (max-width: 600px) {
+            .header-row {
+                gap: 4px;
+                justify-content: space-between;
+                padding: 0 4px;
+            }
+
+            .header-row img {
+                width: 26px;
+            }
+
+            .header-text {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -199,96 +238,112 @@
 <!-- Matrix code rain canvas -->
 <canvas id="matrixCanvas"></canvas>
 
-<div class="container">
+<div class="page">
 
-    <!-- HEADER -->
-    <div class="card">
-        <h1 class="header-row">
-            <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="50" alt="Code gif">
-            Hey there, I'm Sinan K. 🚀
-            <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="50" alt="Rocket gif">
-        </h1>
+    <!-- HEADER SECTION -->
+    <section class="section">
+        <div class="card">
+            <h1 class="header-row">
+                <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" alt="Code gif">
+                <span class="header-text">Hey there, I'm Sinan K. 🚀</span>
+                <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="Rocket gif">
+            </h1>
 
-        <p class="center top-typing">
-            <img class="typing-img" src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Matrix!" alt="Typing text">
-        </p>
-    </div>
+            <p class="center top-typing">
+                <img class="typing-img"
+                     src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Github!"
+                     alt="Typing text">
+            </p>
+        </div>
+    </section>
 
-    <!-- ABOUT ME -->
-    <div class="card">
-        <h2>🧠 About Me</h2>
+    <!-- ABOUT SECTION -->
+    <section class="section">
+        <div class="card">
+            <h2>🧠 About Me</h2>
 
-        <ul>
-            <li>🧩 Developer passionate about <strong>Python</strong>, <strong>Java</strong>, <strong>AI</strong>, and <strong>Web Technologies</strong></li>
-            <li>⚙️ I design, build, debug, and optimize things — repeat forever ♻️</li>
-            <li>☕ Coffee keeps my code alive</li>
-            <li>🎯 Aim: Turning ideas into interactive experiences</li>
-        </ul>
+            <ul>
+                <li>🧩 Developer passionate about <strong>Python</strong>, <strong>Java</strong>, <strong>AI</strong>, and <strong>Web Technologies</strong></li>
+                <li>⚙️ I design, build, debug, and optimize things — repeat forever ♻️</li>
+                <li>☕ Coffee keeps my code alive</li>
+                <li>🎯 Aim: Turning ideas into interactive experiences</li>
+            </ul>
 
-        <p class="center" style="margin-top:25px;">
-            <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" width="520" alt="Coding gif">
-        </p>
-    </div>
+            <p class="center" style="margin-top:25px;">
+                <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coding gif">
+            </p>
+        </div>
+    </section>
 
-    <!-- TECH STACK -->
-    <div class="card">
-        <h2>🛠️ Tech Stack</h2>
+    <!-- TECH STACK SECTION -->
+    <section class="section">
+        <div class="card">
+            <h2>🛠️ Tech Stack</h2>
 
-        <p class="center tech-icons">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
-            <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code">
-            <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
-        </p>
-    </div>
+            <p class="center tech-icons">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
+                <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+            </p>
+        </div>
+    </section>
 
-    <!-- GITHUB STATS -->
-    <div class="card">
-        <h2>📊 GitHub Stats</h2>
+    <!-- STATS SECTION -->
+    <section class="section">
+        <div class="card">
+            <h2>📊 GitHub Stats</h2>
 
-        <p class="center stats-row">
-            <img src="https://github-readme-stats.vercel.app/api?username=sinan-keskin&show_icons=true&theme=radical&bg_color=00000000&hide_border=true" height="180" alt="GitHub Stats">
-            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sinan-keskin&layout=compact&langs_count=8&theme=radical&bg_color=00000000&hide_border=true" height="180" alt="Top Languages">
-        </p>
-    </div>
+            <p class="center stats-row">
+                <img src="https://github-readme-stats.vercel.app/api?username=sinan-keskin&show_icons=true&theme=radical&bg_color=00000000&hide_border=true"
+                     alt="GitHub Stats">
+                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sinan-keskin&layout=compact&langs_count=8&theme=radical&bg_color=00000000&hide_border=true"
+                     alt="Top Languages">
+            </p>
+        </div>
+    </section>
 
-    <!-- CONTACT -->
-    <div class="card">
-        <h2>🌍 Connect with Me</h2>
+    <!-- CONTACT SECTION -->
+    <section class="section">
+        <div class="card">
+            <h2>🌍 Connect with Me</h2>
 
-        <p class="center badges">
-            <a href="https://t.me/sinankeeeee" target="_blank">
-                <img src="https://img.shields.io/badge/Telegram-00AAFF?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
-            </a>
-            <a href="https://github.com/sinan-keskin" target="_blank">
-                <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/>
-            </a>
-        </p>
-    </div>
+            <p class="center badges">
+                <a href="https://t.me/sinankeeeee" target="_blank">
+                    <img src="https://img.shields.io/badge/Telegram-00AAFF?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
+                </a>
+                <a href="https://github.com/sinan-keskin" target="_blank">
+                    <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+                </a>
+            </p>
+        </div>
+    </section>
 
-    <!-- FOOTER -->
-    <div class="card">
-        <h2>🎬 Final Touch</h2>
+    <!-- FOOTER SECTION -->
+    <section class="section">
+        <div class="card">
+            <h2>🎬 Final Touch</h2>
 
-        <p class="center">
-            <img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" width="460" alt="Thanks GIF">
-        </p>
+            <p class="center">
+                <img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" alt="Thanks GIF">
+            </p>
 
-        <p class="center">
-            <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square" alt="Profile views">
-        </p>
+            <p class="center">
+                <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square" alt="Profile views">
+            </p>
 
-        <p class="center"><strong>⭐ Thanks for visiting my Matrix! ⭐</strong></p>
+            <p class="center"><strong>⭐ Thanks for visiting my Profile! ⭐</strong></p>
 
-        <p class="center" style="margin-top:10px;">
-            <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" width="260" alt="Animated Footer">
-        </p>
-    </div>
+            <p class="center" style="margin-top:10px;">
+                <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer">
+            </p>
+        </div>
+    </section>
 
 </div>
 
