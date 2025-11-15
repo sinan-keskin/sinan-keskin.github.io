@@ -129,6 +129,7 @@
             color: var(--matrix-green);
         }
 
+        /* Linkler: asla alt çizgi yok */
         a {
             color: var(--matrix-green-soft);
             text-decoration: none;
@@ -136,7 +137,7 @@
 
         a:hover {
             color: #ffffff;
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .center {
@@ -465,8 +466,13 @@
           return;
         }
 
-        // sadece public ve fork olmayan repolar
-        const repos = data.filter(repo => !repo.private && !repo.fork);
+        // sadece public, fork olmayan ve ismi "sinan-keskin" veya "sinan-keskin.github.io" OLMAYAN repolar
+        const repos = data.filter(repo =>
+          !repo.private &&
+          !repo.fork &&
+          repo.name !== 'sinan-keskin' &&
+          repo.name !== 'sinan-keskin.github.io'
+        );
 
         if (repos.length === 0) {
           projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#b4ffd0;">No public repositories yet.</p>';
