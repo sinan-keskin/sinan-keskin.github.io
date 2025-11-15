@@ -301,6 +301,10 @@
             .stats-row {
                 flex-direction: column;
             }
+            /* mobilde ağır GIF'leri gizle */
+            .hide-on-mobile {
+                display: none;
+            }
         }
 
         @media (max-width: 600px) {
@@ -471,7 +475,7 @@
         <div class="card">
             <h2>🎬 Final Touch</h2>
 
-            <p class="center">
+            <p class="center hide-on-mobile">
                 <img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" alt="Thanks GIF" width="480" height="270" loading="lazy">
             </p>
 
@@ -481,7 +485,7 @@
 
             <p class="center"><strong>⭐ Thanks for visiting my Profile! ⭐</strong></p>
 
-            <p class="center" style="margin-top:10px;">
+            <p class="center hide-on-mobile" style="margin-top:10px;">
                 <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer" width="480" height="270" loading="lazy">
             </p>
 
@@ -494,22 +498,27 @@
 </div>
 
 <script>
-  // MATRIX RAIN - requestAnimationFrame version
-  const canvas = document.getElementById("matrixCanvas");
-  const ctx = canvas.getContext("2d");
-  const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  const fontSize = 16;
-  let columns, drops;
+// MATRIX RAIN - requestAnimationFrame version
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 16;
+let columns, drops;
 
-  function resizeCanvas() {
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = window.innerHeight * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    columns = Math.floor(window.innerWidth / fontSize);
-    drops = Array(columns).fill(1);
-  }
+// mobil mi?
+const isMobile = window.matchMedia("(max-width: 600px)").matches;
 
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  canvas.width = window.innerWidth * dpr;
+  canvas.height = window.innerHeight * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  columns = Math.floor(window.innerWidth / fontSize);
+  drops = Array(columns).fill(1);
+}
+
+if (!isMobile) {
+  // sadece desktop / tablet için matrix
   window.addEventListener("resize", resizeCanvas);
   resizeCanvas();
 
@@ -536,58 +545,86 @@
     requestAnimationFrame(loop);
   }
   requestAnimationFrame(loop);
+} else {
+  // mobilde canvas'ı tamamen gizle
+  canvas.style.display = "none";
+}
 
   // GITHUB PUBLIC REPOS
-  const projectsContainer = document.getElementById('projects-list');
+// GITHUB PUBLIC REPOS - lazy load
+const projectsContainer = document.getElementById("projects-list");
+const projectsSection = document.getElementById("projects");
 
-  if (projectsContainer) {
-    fetch('https://api.github.com/users/sinan-keskin/repos?sort=updated&per_page=100')
-      .then(response => response.json())
-      .then(data => {
-        if (!Array.isArray(data)) {
-          projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#ff9b9b;">Unable to load repositories.</p>';
-          return;
-        }
+function loadRepos() {
+  if (!projectsContainer) return;
 
-        const repos = data.filter(repo =>
+  fetch("https://api.github.com/users/sinan-keskin/repos?sort=updated&per_page=100")
+    .then(response => response.json())
+    .then(data => {
+      if (!Array.isArray(data)) {
+        projectsContainer.innerHTML =
+          '<p class="center" style="font-size:13px;color:#ff9b9b;">Unable to load repositories.</p>';
+        return;
+      }
+
+      const repos = data.filter(
+        repo =>
           !repo.private &&
           !repo.fork &&
-          repo.name !== 'sinan-keskin' &&
-          repo.name !== 'sinan-keskin.github.io'
-        );
+          repo.name !== "sinan-keskin" &&
+          repo.name !== "sinan-keskin.github.io"
+      );
 
-        if (repos.length === 0) {
-          projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#b4ffd0;">No public repositories yet.</p>';
-          return;
-        }
+      if (repos.length === 0) {
+        projectsContainer.innerHTML =
+          '<p class="center" style="font-size:13px;color:#b4ffd0;">No public repositories yet.</p>';
+        return;
+      }
 
-        projectsContainer.innerHTML = '';
+      projectsContainer.innerHTML = "";
 
-        repos.forEach(repo => {
-          const desc = repo.description ? repo.description : 'No description provided.';
-          const lang = repo.language ? repo.language : 'Unknown';
-          const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : '';
+      repos.forEach(repo => {
+        const desc = repo.description ? repo.description : "No description provided.";
+        const lang = repo.language ? repo.language : "Unknown";
+        const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : "";
 
-          const div = document.createElement('div');
-          div.className = 'project-card';
-          div.innerHTML = `
-            <div class="project-title">
-              <a href="${repo.html_url}" target="_blank" rel="noreferrer">${repo.name}</a>
-              <span class="project-badge">${lang}</span>
-            </div>
-            <div class="project-desc">${desc}</div>
-            <div class="project-meta">
-              ⭐ ${repo.stargazers_count} &nbsp;•&nbsp; Last update: ${updated}
-            </div>
-          `;
-          projectsContainer.appendChild(div);
-        });
-      })
-      .catch(err => {
-        console.error(err);
-        projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#ff9b9b;">Error loading repositories.</p>';
+        const div = document.createElement("div");
+        div.className = "project-card";
+        div.innerHTML = `
+          <div class="project-title">
+            <a href="${repo.html_url}" target="_blank" rel="noreferrer">${repo.name}</a>
+            <span class="project-badge">${lang}</span>
+          </div>
+          <div class="project-desc">${desc}</div>
+          <div class="project-meta">
+            ⭐ ${repo.stargazers_count} &nbsp;•&nbsp; Last update: ${updated}
+          </div>
+        `;
+        projectsContainer.appendChild(div);
       });
-  }
+    })
+    .catch(err => {
+      console.error(err);
+      projectsContainer.innerHTML =
+        '<p class="center" style="font-size:13px;color:#ff9b9b;">Error loading repositories.</p>';
+    });
+}
+
+// sadece bölüm ekrana gelince yükle
+if (projectsSection && "IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadRepos();
+        observer.unobserve(projectsSection);
+      }
+    });
+  });
+  observer.observe(projectsSection);
+} else {
+  // destek yoksa normal şekilde yükle
+  loadRepos();
+}
 </script>
 
 </body>
