@@ -114,7 +114,7 @@
             min-width: 0;
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis; /* sığmazsa ... yap, taşma yok */
+            text-overflow: ellipsis;
         }
 
         ul {
@@ -180,6 +180,58 @@
         .stats-row img {
             max-width: 100%;
             height: auto !important;
+        }
+
+        /* Projects list */
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .project-card {
+            border-radius: 10px;
+            border: 1px solid rgba(0,255,65,0.25);
+            padding: 10px 12px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .project-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .project-title a {
+            color: var(--matrix-green-soft);
+        }
+
+        .project-title a:hover {
+            color: #ffffff;
+        }
+
+        .project-badge {
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 6px;
+            border: 1px solid rgba(0,255,65,0.4);
+            color: var(--matrix-green);
+            white-space: nowrap;
+        }
+
+        .project-desc {
+            font-size: 13px;
+            margin-top: 4px;
+            color: #c9ffd3;
+        }
+
+        .project-meta {
+            margin-top: 4px;
+            font-size: 11px;
+            color: #9cffb4;
         }
 
         @media (max-width: 768px) {
@@ -251,7 +303,7 @@
 
             <p class="center top-typing">
                 <img class="typing-img"
-                     src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Github!"
+                     src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Matrix!"
                      alt="Typing text">
             </p>
         </div>
@@ -290,6 +342,22 @@
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code">
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+            </p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section class="section" id="projects">
+        <div class="card">
+            <h2>📁 Projects</h2>
+            <p class="center" style="font-size: 13px; margin-bottom: 14px;">
+                Public GitHub repolarım otomatik listeleniyor.
+            </p>
+            <div id="projects-list" class="projects-list">
+                <p class="center" style="font-size: 13px; color:#b4ffd0;">Loading public repositories...</p>
+            </div>
+            <p class="center" style="margin-top:14px; font-size:12px;">
+                <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank">→ View all on GitHub</a>
             </p>
         </div>
     </section>
@@ -337,7 +405,7 @@
                 <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square" alt="Profile views">
             </p>
 
-            <p class="center"><strong>⭐ Thanks for visiting my Profile! ⭐</strong></p>
+            <p class="center"><strong>⭐ Thanks for visiting my Matrix! ⭐</strong></p>
 
             <p class="center" style="margin-top:10px;">
                 <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer">
@@ -347,8 +415,9 @@
 
 </div>
 
-<!-- Matrix rain script -->
+<!-- Matrix rain + GitHub repos script -->
 <script>
+  // MATRIX RAIN
   const canvas = document.getElementById("matrixCanvas");
   const ctx = canvas.getContext("2d");
 
@@ -383,6 +452,54 @@
   }
 
   setInterval(draw, 40);
+
+  // GITHUB PUBLIC REPOS
+  const projectsContainer = document.getElementById('projects-list');
+
+  if (projectsContainer) {
+    fetch('https://api.github.com/users/sinan-keskin/repos?sort=updated&per_page=100')
+      .then(response => response.json())
+      .then(data => {
+        if (!Array.isArray(data)) {
+          projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#ff9b9b;">Unable to load repositories.</p>';
+          return;
+        }
+
+        // sadece public ve fork olmayan repolar
+        const repos = data.filter(repo => !repo.private && !repo.fork);
+
+        if (repos.length === 0) {
+          projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#b4ffd0;">No public repositories yet.</p>';
+          return;
+        }
+
+        projectsContainer.innerHTML = '';
+
+        repos.forEach(repo => {
+          const desc = repo.description ? repo.description : 'No description provided.';
+          const lang = repo.language ? repo.language : 'Unknown';
+          const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : '';
+
+          const div = document.createElement('div');
+          div.className = 'project-card';
+          div.innerHTML = `
+            <div class="project-title">
+              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+              <span class="project-badge">${lang}</span>
+            </div>
+            <div class="project-desc">${desc}</div>
+            <div class="project-meta">
+              ⭐ ${repo.stargazers_count} &nbsp;•&nbsp; Last update: ${updated}
+            </div>
+          `;
+          projectsContainer.appendChild(div);
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        projectsContainer.innerHTML = '<p class="center" style="font-size:13px;color:#ff9b9b;">Error loading repositories.</p>';
+      });
+  }
 </script>
 
 </body>
