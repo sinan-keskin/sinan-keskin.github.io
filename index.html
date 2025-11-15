@@ -10,7 +10,9 @@
     <!-- Favicon -->
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
 
-    <!-- Google Font - Matrix tarzı -->
+    <!-- Google Font - Matrix style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <style>
@@ -76,7 +78,7 @@
             margin: 18px 0;
             box-shadow: 0 0 25px rgba(0,255,65,0.18);
             backdrop-filter: blur(6px);
-            overflow: hidden; /* karttan taşma yok */
+            overflow: hidden;
         }
 
         h1, h2 {
@@ -96,7 +98,7 @@
             margin-bottom: 20px;
         }
 
-        /* Header tek satır, container dışına taşma yok */
+        /* Header row */
         .header-row {
             display: flex;
             align-items: center;
@@ -131,7 +133,6 @@
             color: var(--matrix-green);
         }
 
-        /* Linkler: asla alt çizgi yok */
         a {
             color: var(--matrix-green-soft);
             text-decoration: none;
@@ -146,7 +147,6 @@
             text-align: center;
         }
 
-        /* Kart içindeki tüm img'ler responsive */
         .card img {
             max-width: 100%;
             height: auto;
@@ -185,7 +185,6 @@
             height: auto !important;
         }
 
-        /* Projects list */
         .projects-list {
             display: flex;
             flex-direction: column;
@@ -290,7 +289,6 @@
 </head>
 <body>
 
-<!-- Matrix code rain canvas -->
 <canvas id="matrixCanvas"></canvas>
 
 <div class="page">
@@ -299,15 +297,18 @@
     <section class="section">
         <div class="card">
             <h1 class="header-row">
-                <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" alt="Code gif">
+                <!-- İlk görseller kritik olduğu için lazy yok -->
+                <img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif"
+                     alt="Code gif" width="80" height="80">
                 <span class="header-text">Hey there, I'm Sinan K. 🚀</span>
-                <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" alt="Rocket gif">
+                <img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif"
+                     alt="Rocket gif" width="80" height="80">
             </h1>
 
             <p class="center top-typing">
                 <img class="typing-img"
                      src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Profile!"
-                     alt="Typing text">
+                     alt="Typing text" width="700" height="60" loading="lazy">
             </p>
         </div>
     </section>
@@ -325,7 +326,8 @@
             </ul>
 
             <p class="center" style="margin-top:25px;">
-                <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif" alt="Coding gif">
+                <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif"
+                     alt="Coding gif" width="480" height="270" loading="lazy">
             </p>
         </div>
     </section>
@@ -336,15 +338,15 @@
             <h2>🛠️ Tech Stack</h2>
 
             <p class="center tech-icons">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
-                <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" width="60" height="60" loading="lazy">
+                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" width="60" height="60" loading="lazy">
             </p>
         </div>
     </section>
@@ -354,13 +356,13 @@
         <div class="card">
             <h2>📁 Projects</h2>
             <p class="center" style="font-size: 13px; margin-bottom: 14px;">
-                Public GitHub repolarım otomatik listeleniyor.
+                Public GitHub repositories are listed automatically.
             </p>
             <div id="projects-list" class="projects-list">
                 <p class="center" style="font-size: 13px; color:#b4ffd0;">Loading public repositories...</p>
             </div>
             <p class="center" style="margin-top:14px; font-size:12px;">
-                <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank">→ View all on GitHub</a>
+                <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer">→ View all on GitHub</a>
             </p>
         </div>
     </section>
@@ -372,9 +374,9 @@
 
             <p class="center stats-row">
                 <img src="https://github-readme-stats.vercel.app/api?username=sinan-keskin&show_icons=true&theme=radical&bg_color=00000000&hide_border=true"
-                     alt="GitHub Stats">
+                     alt="GitHub Stats" width="450" height="180" loading="lazy">
                 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sinan-keskin&layout=compact&langs_count=8&theme=radical&bg_color=00000000&hide_border=true"
-                     alt="Top Languages">
+                     alt="Top Languages" width="350" height="180" loading="lazy">
             </p>
         </div>
     </section>
@@ -385,11 +387,11 @@
             <h2>🌍 Connect with Me</h2>
 
             <p class="center badges">
-                <a href="https://t.me/sinankeeeee" target="_blank">
-                    <img src="https://img.shields.io/badge/Telegram-00AAFF?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
+                <a href="https://t.me/sinankeeeee" target="_blank" rel="noreferrer">
+                    <img src="https://img.shields.io/badge/Telegram-00AAFF?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" width="160" height="40" loading="lazy">
                 </a>
-                <a href="https://github.com/sinan-keskin" target="_blank">
-                    <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+                <a href="https://github.com/sinan-keskin" target="_blank" rel="noreferrer">
+                    <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" width="150" height="40" loading="lazy">
                 </a>
             </p>
         </div>
@@ -401,40 +403,42 @@
             <h2>🎬 Final Touch</h2>
 
             <p class="center">
-                <img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" alt="Thanks GIF">
+                <img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" alt="Thanks GIF" width="480" height="270" loading="lazy">
             </p>
 
             <p class="center">
-                <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square" alt="Profile views">
+                <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square" alt="Profile views" width="120" height="20" loading="lazy">
             </p>
 
             <p class="center"><strong>⭐ Thanks for visiting my Profile! ⭐</strong></p>
 
             <p class="center" style="margin-top:10px;">
-                <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer">
+                <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer" width="480" height="270" loading="lazy">
             </p>
         </div>
     </section>
 
 </div>
 
-<!-- Matrix rain + GitHub repos script -->
 <script>
-  // MATRIX RAIN
+  // MATRIX RAIN - requestAnimationFrame version
   const canvas = document.getElementById("matrixCanvas");
   const ctx = canvas.getContext("2d");
-
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  window.addEventListener("resize", resizeCanvas);
-  resizeCanvas();
-
   const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const fontSize = 16;
-  let columns = Math.floor(canvas.width / fontSize);
-  let drops = Array(columns).fill(1);
+  let columns, drops;
+
+  function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    columns = Math.floor(window.innerWidth / fontSize);
+    drops = Array(columns).fill(1);
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
 
   function draw() {
     ctx.fillStyle = "rgba(0, 0, 0, 0.07)";
@@ -447,14 +451,18 @@
       const text = letters.charAt(Math.floor(Math.random() * letters.length));
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-      if (drops[i] * fontSize > canvas.height && Math.random() > 0.95) {
+      if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.95) {
         drops[i] = 0;
       }
       drops[i]++;
     }
   }
 
-  setInterval(draw, 40);
+  function loop() {
+    draw();
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(loop);
 
   // GITHUB PUBLIC REPOS
   const projectsContainer = document.getElementById('projects-list');
@@ -468,7 +476,6 @@
           return;
         }
 
-        // sadece public, fork olmayan ve ismi "sinan-keskin" veya "sinan-keskin.github.io" OLMAYAN repolar
         const repos = data.filter(repo =>
           !repo.private &&
           !repo.fork &&
@@ -492,7 +499,7 @@
           div.className = 'project-card';
           div.innerHTML = `
             <div class="project-title">
-              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+              <a href="${repo.html_url}" target="_blank" rel="noreferrer">${repo.name}</a>
               <span class="project-badge">${lang}</span>
             </div>
             <div class="project-desc">${desc}</div>
