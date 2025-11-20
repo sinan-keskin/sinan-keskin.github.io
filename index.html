@@ -8,13 +8,13 @@
     <!-- SEO -->
     <meta name="description" content="Developer portfolio of Sinan Keskin — open-source projects, backend tools, web apps, and learning snippets using Python, JavaScript, Java, Bash, C++ and more.">
     <meta name="keywords" content="Sinan Keskin, developer, software engineer, github, python, javascript, java, bash, c++, portfolio, open source">
-    <link rel="preload" href="fonts/share-tech-mono.woff2" as="font" type="font/woff2" crossorigin>
     <meta name="robots" content="index,follow">
-    <!-- Favicon -->
+    <link rel="canonical" href="https://sinan-keskin.github.io/">
+
+    <link rel="preload" href="fonts/share-tech-mono.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
 
     <style>
-        /* latin */
         @font-face {
           font-family: 'Share Tech Mono';
           font-style: normal;
@@ -22,7 +22,7 @@
           font-display: swap;
           src: url('fonts/share-tech-mono.woff2') format('woff2');
         }
-        
+
         :root {
             --bg: #02030a;
             --bg2: #050812;
@@ -32,9 +32,7 @@
             --accent: #ff4bff;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         html, body {
             margin: 0;
@@ -50,7 +48,6 @@
             min-height: 100vh;
         }
 
-        /* Matrix code rain canvas */
         #matrixCanvas {
             position: fixed;
             inset: 0;
@@ -96,14 +93,8 @@
             letter-spacing: 2px;
         }
 
-        h1 {
-            font-size: 28px;
-        }
-
-        h2 {
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
+        h1 { font-size: 28px; }
+        h2 { font-size: 22px; margin-bottom: 20px; }
 
         .hero-subtitle {
             max-width: 780px;
@@ -114,7 +105,6 @@
             color: #c9ffd3;
         }
 
-        /* Header row */
         .header-row {
             display: flex;
             align-items: center;
@@ -122,11 +112,6 @@
             gap: 10px;
             flex-wrap: nowrap;
             width: 100%;
-        }
-
-        .header-row img {
-            width: 50px;
-            flex-shrink: 0;
         }
 
         .header-text {
@@ -145,9 +130,7 @@
             line-height: 1.6;
         }
 
-        ul li::marker {
-            color: var(--matrix-green);
-        }
+        ul li::marker { color: var(--matrix-green); }
 
         a {
             color: var(--matrix-green-soft);
@@ -159,9 +142,7 @@
             text-decoration: none;
         }
 
-        .center {
-            text-align: center;
-        }
+        .center { text-align: center; }
 
         .card img {
             max-width: 100%;
@@ -175,18 +156,10 @@
             width: 60px;
         }
 
-        .badges img {
-            margin: 5px;
-        }
+        .badges img { margin: 5px; }
 
-        .top-typing {
-            margin-top: 10px;
-        }
-
-        .typing-img {
-            max-width: 100%;
-            height: auto;
-        }
+        .top-typing { margin-top: 10px; }
+        .typing-img { max-width: 100%; height: auto; }
 
         .stats-row {
             display: flex;
@@ -201,59 +174,7 @@
             height: auto !important;
         }
 
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .project-card {
-            border-radius: 10px;
-            border: 1px solid rgba(0,255,65,0.25);
-            padding: 10px 12px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .project-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-            font-size: 15px;
-        }
-
-        .project-title a {
-            color: var(--matrix-green-soft);
-        }
-
-        .project-title a:hover {
-            color: #ffffff;
-        }
-
-        .project-badge {
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,255,65,0.4);
-            color: var(--matrix-green);
-            white-space: nowrap;
-        }
-
-        .project-desc {
-            font-size: 13px;
-            margin-top: 4px;
-            color: #c9ffd3;
-        }
-
-        .project-meta {
-            margin-top: 4px;
-            font-size: 11px;
-            color: #9cffb4;
-        }
-
-        .about-text,
-        .projects-intro-text {
+        .about-text {
             max-width: 780px;
             margin: 10px auto;
             font-size: 15px;
@@ -261,18 +182,29 @@
             color: #d5ffe0;
         }
 
-        .projects-intro-list {
-            max-width: 780px;
-            margin: 4px auto 16px;
-            padding-left: 22px;
+        /* Projects button */
+        .projects-btn-wrapper {
+            margin-top: 22px;
+            text-align: center;
+        }
+
+        .projects-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,255,65,0.6);
+            background: rgba(0,0,0,0.7);
             font-size: 14px;
-            line-height: 1.6;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .projects-btn:hover {
+            background: rgba(0,255,65,0.15);
         }
 
         @media (max-width: 768px) {
-            .page {
-                padding: 20px 8px 40px;
-            }
+            .page { padding: 20px 8px 40px; }
 
             .card {
                 padding: 18px 12px;
@@ -284,32 +216,23 @@
                 line-height: 1.2;
             }
 
-            h2 {
-                font-size: 18px;
-            }
+            h2 { font-size: 18px; }
 
             ul {
                 font-size: 14px;
                 padding-left: 20px;
             }
 
-            .about-text,
-            .projects-intro-text {
-                font-size: 14px;
-            }
+            .about-text { font-size: 14px; }
 
             .tech-icons img {
                 width: 44px;
                 margin: 6px;
             }
 
-            .stats-row {
-                flex-direction: column;
-            }
-            /* mobilde ağır GIF'leri gizle */
-            .hide-on-mobile {
-                display: none;
-            }
+            .stats-row { flex-direction: column; }
+
+            .hide-on-mobile { display: none; }
         }
 
         @media (max-width: 600px) {
@@ -319,13 +242,7 @@
                 padding: 0 4px;
             }
 
-            .header-row img {
-                width: 26px;
-            }
-
-            .header-text {
-                font-size: 16px;
-            }
+            .header-text { font-size: 16px; }
         }
     </style>
 </head>
@@ -338,7 +255,6 @@
     <!-- HEADER SECTION -->
     <section class="section">
         <div class="card">
-            <!-- SEO için net H1 -->
             <h1>Sinan Keskin — Software Developer</h1>
             <p class="hero-subtitle">
                 Building small tools, backend APIs, and web experiences with
@@ -347,9 +263,7 @@
             </p>
 
             <div class="header-row">
-
                 <span class="center header-text">Hey there, I'm Sinan K. 🚀</span>
-
             </div>
 
             <p class="center top-typing">
@@ -357,6 +271,10 @@
                      src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Profile!"
                      alt="Typing text" width="700" height="60" loading="lazy">
             </p>
+
+            <div class="projects-btn-wrapper">
+                <a class="projects-btn" href="/projects/">→ View Projects & Open-Source Work</a>
+            </div>
         </div>
     </section>
 
@@ -379,9 +297,8 @@
             </ul>
 
             <p class="about-text">
-                On this portfolio you will find Bash scripting helpers (<strong>bash-tools</strong>),
-                Express REST API examples (<strong>node-api</strong>), a minimal HTML/CSS/JS starter
-                (<strong>web-starter</strong>), Python and Java learning projects, Streamlit multi-tools and more.
+                On this portfolio you will find Bash scripting helpers, Express REST API examples,
+                minimal web starters, Python and Java learning projects, Streamlit multi-tools and more.
             </p>
 
             <p class="center hide-on-mobile" style="margin-top:25px;">
@@ -406,38 +323,6 @@
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="60" height="60" loading="lazy">
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" width="60" height="60" loading="lazy">
                 <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" width="60" height="60" loading="lazy">
-            </p>
-        </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section class="section" id="projects">
-        <div class="card">
-            <h2>📁 Projects</h2>
-
-            <p class="projects-intro-text">
-                Below you can explore my public GitHub repositories. They include command-line tools, REST APIs,
-                web starters and language learning snippets. Some highlighted projects:
-            </p>
-
-            <ul class="projects-intro-list">
-                <li><strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).</li>
-                <li><strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.</li>
-                <li><strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.</li>
-                <li><strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.</li>
-                <li><strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.</li>
-            </ul>
-
-            <p class="center" style="font-size: 13px; margin-bottom: 14px;">
-                Latest public repositories from <strong>github.com/sinan-keskin</strong> are listed automatically:
-            </p>
-
-            <div id="projects-list" class="projects-list">
-                <p class="center" style="font-size: 13px; color:#b4ffd0;">Loading public repositories...</p>
-            </div>
-
-            <p class="center" style="margin-top:14px; font-size:12px;">
-                <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer">→ View all on GitHub</a>
             </p>
         </div>
     </section>
@@ -500,14 +385,12 @@
 </div>
 
 <script>
-// MATRIX RAIN - requestAnimationFrame version
+// MATRIX RAIN
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const fontSize = 16;
 let columns, drops;
-
-// mobil mi?
 const isMobile = window.matchMedia("(max-width: 600px)").matches;
 
 function resizeCanvas() {
@@ -520,7 +403,6 @@ function resizeCanvas() {
 }
 
 if (!isMobile) {
-  // sadece desktop / tablet için matrix
   window.addEventListener("resize", resizeCanvas);
   resizeCanvas();
 
@@ -548,84 +430,7 @@ if (!isMobile) {
   }
   requestAnimationFrame(loop);
 } else {
-  // mobilde canvas'ı tamamen gizle
   canvas.style.display = "none";
-}
-
-  // GITHUB PUBLIC REPOS
-// GITHUB PUBLIC REPOS - lazy load
-const projectsContainer = document.getElementById("projects-list");
-const projectsSection = document.getElementById("projects");
-
-function loadRepos() {
-  if (!projectsContainer) return;
-
-  fetch("https://api.github.com/users/sinan-keskin/repos?sort=updated&per_page=100")
-    .then(response => response.json())
-    .then(data => {
-      if (!Array.isArray(data)) {
-        projectsContainer.innerHTML =
-          '<p class="center" style="font-size:13px;color:#ff9b9b;">Unable to load repositories.</p>';
-        return;
-      }
-
-      const repos = data.filter(
-        repo =>
-          !repo.private &&
-          !repo.fork &&
-          repo.name !== "sinan-keskin" &&
-          repo.name !== "sinan-keskin.github.io"
-      );
-
-      if (repos.length === 0) {
-        projectsContainer.innerHTML =
-          '<p class="center" style="font-size:13px;color:#b4ffd0;">No public repositories yet.</p>';
-        return;
-      }
-
-      projectsContainer.innerHTML = "";
-
-      repos.forEach(repo => {
-        const desc = repo.description ? repo.description : "No description provided.";
-        const lang = repo.language ? repo.language : "Unknown";
-        const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : "";
-
-        const div = document.createElement("div");
-        div.className = "project-card";
-        div.innerHTML = `
-          <div class="project-title">
-            <a href="${repo.html_url}" target="_blank" rel="noreferrer">${repo.name}</a>
-            <span class="project-badge">${lang}</span>
-          </div>
-          <div class="project-desc">${desc}</div>
-          <div class="project-meta">
-            ⭐ ${repo.stargazers_count} &nbsp;•&nbsp; Last update: ${updated}
-          </div>
-        `;
-        projectsContainer.appendChild(div);
-      });
-    })
-    .catch(err => {
-      console.error(err);
-      projectsContainer.innerHTML =
-        '<p class="center" style="font-size:13px;color:#ff9b9b;">Error loading repositories.</p>';
-    });
-}
-
-// sadece bölüm ekrana gelince yükle
-if (projectsSection && "IntersectionObserver" in window) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        loadRepos();
-        observer.unobserve(projectsSection);
-      }
-    });
-  });
-  observer.observe(projectsSection);
-} else {
-  // destek yoksa normal şekilde yükle
-  loadRepos();
 }
 </script>
 
