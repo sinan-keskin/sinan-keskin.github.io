@@ -85,7 +85,9 @@ a:hover {
   overflow: hidden;
 }
 
-.center { text-align: center; }
+.center {
+  text-align: center;
+}
 
 .card img {
   max-width: 100%;
@@ -94,15 +96,21 @@ a:hover {
 }
 
 /* HEADINGS */
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   margin: 0;
   color: var(--matrix-green-soft);
   text-shadow: 0 0 12px rgba(0,255,65,0.7);
   letter-spacing: 2px;
 }
-h1 { font-size: 28px; }
-h2 { font-size: 22px; margin-bottom: 20px; }
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
 
 .hero-subtitle {
   max-width: 780px;
@@ -209,8 +217,13 @@ h2 { font-size: 22px; margin-bottom: 20px; }
   text-overflow: ellipsis;
 }
 
-.top-typing { margin-top: 10px; }
-.typing-img { max-width: 100%; height: auto; }
+.top-typing {
+  margin-top: 10px;
+}
+.typing-img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* TYPOGRAPHY */
 ul {
@@ -293,6 +306,11 @@ ul li::marker {
 .btn-back:hover {
   background: rgba(110, 38, 255, 0.9);
   box-shadow: 0 0 20px rgba(164, 97, 255, 0.6);
+}
+
+/* BUTON İKONLARI */
+.btn-icon {
+  font-size: 16px;
 }
 
 /* CONNECT SECTION (Telegram / GitHub butonları) */
@@ -379,57 +397,7 @@ ul li::marker {
   color: #9cffb4;
 }
 
-/* CONTACT PAGE EXTRA */
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 18px 0 8px;
-}
-.contact-list li {
-  margin: 8px 0;
-  font-size: 15px;
-}
-.contact-label {
-  color: #9cffb4;
-  margin-right: 4px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .page { padding: 20px 8px 40px; }
-
-  .card {
-    padding: 18px 12px;
-    margin: 14px 0;
-  }
-
-  h1 {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-
-  h2 { font-size: 18px; }
-
-  ul {
-    font-size: 14px;
-    padding-left: 20px;
-  }
-
-  .about-text,
-  .projects-intro-text {
-    font-size: 14px;
-  }
-
-  .tech-icons img {
-    width: 44px;
-    margin: 6px;
-  }
-
-  .stats-row { flex-direction: column; }
-
-  .nav-links { gap: 8px; font-size: 13px; }
-}
-/* İletişim sayfasındaki ikinci buton grubu (email/ig/tg/github) */
+/* CONTACT PAGE SECONDARY BUTTONS */
 .contact-buttons-secondary {
   display: flex;
   flex-wrap: wrap;
@@ -445,7 +413,7 @@ ul li::marker {
   padding: 8px 16px;
 }
 
-/* Renk varyantları */
+/* renk varyantları */
 .btn-email {
   border-color: #00ff9d;
 }
@@ -478,6 +446,51 @@ ul li::marker {
 .btn-github-small:hover {
   background: #111111;
   box-shadow: 0 0 18px rgba(255,255,255,0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .page {
+    padding: 20px 8px 40px;
+  }
+
+  .card {
+    padding: 18px 12px;
+    margin: 14px 0;
+  }
+
+  h1 {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  ul {
+    font-size: 14px;
+    padding-left: 20px;
+  }
+
+  .about-text,
+  .projects-intro-text {
+    font-size: 14px;
+  }
+
+  .tech-icons img {
+    width: 44px;
+    margin: 6px;
+  }
+
+  .stats-row {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    gap: 8px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 600px) {
