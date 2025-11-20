@@ -1,237 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects | Sinan Keskin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Sinan Keskin</title>
 
-    <!-- SEO -->
-    <meta name="description" content="Open-source projects and public repositories by Sinan Keskin — command-line tools, REST APIs, web starters and learning snippets.">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://sinan-keskin.github.io/projects/">
+  <meta name="description" content="Open-source projects and public repositories by Sinan Keskin — command-line tools, REST APIs, web starters and learning snippets.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sinan-keskin.github.io/projects/">
 
-    <link rel="preload" href="../fonts/share-tech-mono.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
-
-    <style>
-        @font-face {
-          font-family: 'Share Tech Mono';
-          font-style: normal;
-          font-weight: 400;
-          font-display: swap;
-          src: url('../fonts/share-tech-mono.woff2') format('woff2');
-        }
-
-        :root {
-            --bg: #02030a;
-            --bg2: #050812;
-            --matrix-green: #00ff41;
-            --matrix-green-soft: #26ff7c;
-            --text: #e5ffe5;
-            --accent: #ff4bff;
-        }
-
-        * { box-sizing: border-box; }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: "Share Tech Mono", monospace;
-            color: var(--text);
-            background: radial-gradient(circle at top, #08131a 0, var(--bg) 45%, #000 100%);
-            min-height: 100vh;
-        }
-
-        #matrixCanvas {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .page {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 16px 60px;
-        }
-
-        .section {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .card {
-            width: 100%;
-            max-width: 900px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(3,25,12,0.95));
-            border: 1px solid rgba(0,255,65,0.35);
-            border-radius: 18px;
-            padding: 24px 18px;
-            margin: 18px 0;
-            box-shadow: 0 0 25px rgba(0,255,65,0.18);
-            backdrop-filter: blur(6px);
-            overflow: hidden;
-        }
-
-        h1, h2 {
-            text-align: center;
-            margin: 0;
-            color: var(--matrix-green-soft);
-            text-shadow: 0 0 12px rgba(0,255,65,0.7);
-            letter-spacing: 2px;
-        }
-
-        h1 { font-size: 26px; }
-        h2 { font-size: 22px; margin-bottom: 16px; }
-
-        .center { text-align: center; }
-
-        a {
-            color: var(--matrix-green-soft);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .projects-intro-text {
-            max-width: 780px;
-            margin: 10px auto 14px;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #d5ffe0;
-        }
-
-        .projects-intro-list {
-            max-width: 780px;
-            margin: 4px auto 16px;
-            padding-left: 22px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .projects-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .project-card {
-            border-radius: 10px;
-            border: 1px solid rgba(0,255,65,0.25);
-            padding: 10px 12px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-        .project-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 8px;
-            font-size: 15px;
-        }
-
-        .project-badge {
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 6px;
-            border: 1px solid rgba(0,255,65,0.4);
-            color: var(--matrix-green);
-            white-space: nowrap;
-        }
-
-        .project-desc {
-            font-size: 13px;
-            margin-top: 4px;
-            color: #c9ffd3;
-        }
-
-        .project-meta {
-            margin-top: 4px;
-            font-size: 11px;
-            color: #9cffb4;
-        }
-
-        .back-link {
-            font-size: 13px;
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            margin-bottom: 12px;
-        }
-
-        @media (max-width: 768px) {
-            .page { padding: 20px 8px 40px; }
-
-            .card {
-                padding: 18px 12px;
-                margin: 14px 0;
-            }
-
-            h1 {
-                font-size: 20px;
-                line-height: 1.2;
-            }
-
-            h2 { font-size: 18px; }
-
-            .projects-intro-text { font-size: 14px; }
-            .projects-intro-list { font-size: 13px; }
-        }
-    </style>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
 </head>
 <body>
+
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="nav-brand" href="/">Sinan<span>_Keskin</span></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="/" class="nav-link">Home</a>
+        <a href="/projects/" class="nav-link active">Projects</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </div>
+      <div class="lang-switch">
+        <a href="#" class="lang-link active">EN</a>|
+        <a href="#" class="lang-link">TR</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <canvas id="matrixCanvas"></canvas>
 
 <div class="page" role="main">
 
-    <section class="section">
-        <div class="card">
-            <a class="back-link" href="/">
-                ← Back to Home
-            </a>
-            <h1>Projects & Repositories</h1>
-            <p class="projects-intro-text">
-                This page lists my public GitHub repositories. They include command-line tools, REST APIs,
-                web starters and language learning snippets.
-            </p>
+  <section class="section">
+    <div class="card">
+      <p class="center">
+        <a href="/" class="btn btn-back">← Back to Home</a>
+      </p>
 
-            <ul class="projects-intro-list">
-                <li><strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).</li>
-                <li><strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.</li>
-                <li><strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.</li>
-                <li><strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.</li>
-                <li><strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.</li>
-            </ul>
+      <h1>Projects & Repositories</h1>
 
-            <p class="center" style="font-size: 13px; margin-bottom: 14px;">
-                Latest public repositories from <strong>github.com/sinan-keskin</strong> are listed automatically:
-            </p>
+      <p class="projects-intro-text">
+        This page lists my public GitHub repositories. They include command-line tools, REST APIs,
+        web starters and language learning snippets.
+      </p>
 
-            <div id="projects-list" class="projects-list">
-                <p class="center" style="font-size: 13px; color:#b4ffd0;">Loading public repositories...</p>
-            </div>
+      <ul class="projects-intro-list">
+        <li><strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).</li>
+        <li><strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.</li>
+        <li><strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.</li>
+        <li><strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.</li>
+        <li><strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.</li>
+      </ul>
 
-            <p class="center" style="margin-top:14px; font-size:12px;">
-                <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer">→ View all on GitHub</a>
-            </p>
-        </div>
-    </section>
+      <p class="center" style="font-size: 13px; margin-bottom: 14px;">
+        Latest public repositories from <strong>github.com/sinan-keskin</strong> are listed automatically:
+      </p>
+
+      <div id="projects-list" class="projects-list">
+        <p class="center" style="font-size: 13px; color:#b4ffd0;">Loading public repositories...</p>
+      </div>
+
+      <p class="center" style="margin-top:14px; font-size:12px;">
+        <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer">→ View all on GitHub</a>
+      </p>
+    </div>
+  </section>
 
 </div>
 
@@ -284,7 +121,7 @@ if (!isMobile) {
   canvas.style.display = "none";
 }
 
-// GITHUB PUBLIC REPOS
+// GITHUB REPOS
 const projectsContainer = document.getElementById("projects-list");
 
 function loadRepos() {
@@ -342,7 +179,6 @@ function loadRepos() {
     });
 }
 
-// direkt yükle (burada IntersectionObserver gerek yok)
 loadRepos();
 </script>
 
