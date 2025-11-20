@@ -14,18 +14,19 @@
 </head>
 <body>
 
+<!-- NAVBAR -->
 <nav class="top-nav">
   <div class="top-nav-inner">
     <a class="nav-brand" href="/">Sinan<span>_Keskin</span></a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/projects/" class="nav-link">Projects</a>
-        <a href="/contact/" class="nav-link active">Contact</a>
+        <a href="/" class="nav-link" data-i18n="navHome">Home</a>
+        <a href="/projects/" class="nav-link" data-i18n="navProjects">Projects</a>
+        <a href="/contact/" class="nav-link active" data-i18n="navContact">Contact</a>
       </div>
       <div class="lang-switch">
-        <a href="#" class="lang-link active">EN</a>|
-        <a href="#" class="lang-link">TR</a>
+        <a href="#" class="lang-link active" data-lang="en">EN</a>|
+        <a href="#" class="lang-link" data-lang="tr">TR</a>
       </div>
     </div>
   </div>
@@ -38,29 +39,27 @@
   <section class="section">
     <div class="card">
 
+      <!-- Connect Title -->
       <div class="connect-title">
         <span class="connect-globe">🌍</span>
-        <span>Connect with Me</span>
+        <span data-i18n="connectTitle">Connect with Me</span>
       </div>
 
-      <!-- Telegram / GitHub Butonları -->
+      <!-- Main Buttons (Telegram / GitHub) -->
       <div class="connect-buttons" style="margin-bottom:20px;">
-      <!-- İkincil iletişim butonları (soldaki kırmızı kutu) -->
-      <div class="contact-buttons-secondary">
-        <a class="btn btn-instagram" href="https://instagram.com/sinankeeeee" target="_blank" rel="noreferrer">
+        <a class="btn btn-instagram" href="https://instagram.com/sinankeeeee" target="_blank" rel="noreferrer" data-i18n="instaBtn">
           Instagram: @sinankeeeee
         </a>
-        <a class="btn btn-telegram-small" href="https://t.me/sinankeeeee" target="_blank" rel="noreferrer">
+        <a class="btn btn-telegram-small" href="https://t.me/sinankeeeee" target="_blank" rel="noreferrer" data-i18n="telegramBtn">
           Telegram: @sinankeeeee
         </a>
-        <a class="btn btn-github-small" href="https://github.com/sinan-keskin" target="_blank" rel="noreferrer">
+        <a class="btn btn-github-small" href="https://github.com/sinan-keskin" target="_blank" rel="noreferrer" data-i18n="githubBtn">
           GitHub: sinan-keskin
         </a>
       </div>
 
-      </div>
-
-      <p class="center" style="margin-top:18px;">
+      <!-- Footer Text -->
+      <p class="center" style="margin-top:18px;" data-i18n="fastReply">
         I usually reply fast! 🚀
       </p>
 
@@ -69,8 +68,8 @@
 
 </div>
 
+<!-- MATRIX RAIN -->
 <script>
-// MATRIX RAIN
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -102,9 +101,9 @@ if (!isMobile) {
       const text = letters.charAt(Math.floor(Math.random() * letters.length));
       ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-      if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.95) {
+      if (drops[i] * fontSize > window.innerHeight && Math.random() > 0.95)
         drops[i] = 0;
-      }
+
       drops[i]++;
     }
   }
@@ -117,6 +116,79 @@ if (!isMobile) {
 } else {
   canvas.style.display = "none";
 }
+</script>
+
+<!-- FULL I18N SCRIPT -->
+<script>
+(function () {
+  const translations = {
+    en: {
+      navHome: "Home",
+      navProjects: "Projects",
+      navContact: "Contact",
+
+      backHome: "← Back to Home",
+      connectTitle: "Connect with Me",
+
+      telegramBig: "TELEGRAM",
+      githubBig: "GITHUB",
+
+      emailBtn: "Email: info@sinankeskin.com.tr",
+      instaBtn: "Instagram: @sinankeeeee",
+      telegramBtn: "Telegram: @sinankeeeee",
+      githubBtn: "GitHub: sinan-keskin",
+
+      fastReply: "I usually reply fast! 🚀"
+    },
+
+    tr: {
+      navHome: "Ana Sayfa",
+      navProjects: "Projeler",
+      navContact: "İletişim",
+
+      backHome: "← Anasayfaya Dön",
+      connectTitle: "Benimle İletişime Geç",
+
+      telegramBig: "TELEGRAM",
+      githubBig: "GITHUB",
+
+      emailBtn: "E-posta: info@sinankeskin.com.tr",
+      instaBtn: "Instagram: @sinankeeeee",
+      telegramBtn: "Telegram: @sinankeeeee",
+      githubBtn: "GitHub: sinan-keskin",
+
+      fastReply: "Genelde hızlı cevap veririm! 🚀"
+    }
+  };
+
+  const langLinks = document.querySelectorAll(".lang-link");
+
+  function applyLang(lang) {
+    if (!translations[lang]) lang = "en";
+    document.documentElement.setAttribute("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      const value = translations[lang][key];
+      if (value !== undefined) el.innerHTML = value;
+    });
+
+    langLinks.forEach(link => {
+      link.classList.toggle("active", link.dataset.lang === lang);
+    });
+
+    localStorage.setItem("siteLang", lang);
+  }
+
+  langLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      applyLang(this.dataset.lang);
+    });
+  });
+
+  applyLang(localStorage.getItem("siteLang") || "en");
+})();
 </script>
 
 </body>
