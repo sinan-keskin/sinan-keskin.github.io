@@ -1,391 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sinan Keskin | Developer Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sinan Keskin | Developer Portfolio</title>
 
-    <!-- SEO -->
-    <meta name="description" content="Developer portfolio of Sinan Keskin — open-source projects, backend tools, web apps, and learning snippets using Python, JavaScript, Java, Bash, C++ and more.">
-    <meta name="keywords" content="Sinan Keskin, developer, software engineer, github, python, javascript, java, bash, c++, portfolio, open source">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://sinan-keskin.github.io/">
+  <meta name="description" content="Developer portfolio of Sinan Keskin — open-source projects, backend tools, web apps, and learning snippets using Python, JavaScript, Java, Bash, C++ and more.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sinan-keskin.github.io/">
 
-    <link rel="preload" href="fonts/share-tech-mono.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
-
-    <style>
-        @font-face {
-          font-family: 'Share Tech Mono';
-          font-style: normal;
-          font-weight: 400;
-          font-display: swap;
-          src: url('fonts/share-tech-mono.woff2') format('woff2');
-        }
-
-        :root {
-            --bg: #02030a;
-            --bg2: #050812;
-            --matrix-green: #00ff41;
-            --matrix-green-soft: #26ff7c;
-            --text: #e5ffe5;
-            --accent: #ff4bff;
-        }
-
-        * { box-sizing: border-box; }
-
-        html, body {
-            margin: 0;
-            padding: 0;
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            font-family: "Share Tech Mono", monospace;
-            color: var(--text);
-            background: radial-gradient(circle at top, #08131a 0, var(--bg) 45%, #000 100%);
-            min-height: 100vh;
-        }
-
-        #matrixCanvas {
-            position: fixed;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .page {
-            position: relative;
-            z-index: 1;
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 30px 16px 60px;
-        }
-
-        .section {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-
-        .card {
-            width: 100%;
-            max-width: 900px;
-            background: linear-gradient(135deg, rgba(0,0,0,0.85), rgba(3,25,12,0.95));
-            border: 1px solid rgba(0,255,65,0.35);
-            border-radius: 18px;
-            padding: 24px 18px;
-            margin: 18px 0;
-            box-shadow: 0 0 25px rgba(0,255,65,0.18);
-            backdrop-filter: blur(6px);
-            overflow: hidden;
-        }
-
-        h1, h2 {
-            text-align: center;
-            margin: 0;
-            color: var(--matrix-green-soft);
-            text-shadow: 0 0 12px rgba(0,255,65,0.7);
-            letter-spacing: 2px;
-        }
-
-        h1 { font-size: 28px; }
-        h2 { font-size: 22px; margin-bottom: 20px; }
-
-        .hero-subtitle {
-            max-width: 780px;
-            margin: 6px auto 18px;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.6;
-            color: #c9ffd3;
-        }
-
-        .header-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: nowrap;
-            width: 100%;
-        }
-
-        .header-text {
-            flex: 1 1 auto;
-            min-width: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        ul {
-            max-width: 700px;
-            margin: 0 auto;
-            padding-left: 24px;
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        ul li::marker { color: var(--matrix-green); }
-
-        a {
-            color: var(--matrix-green-soft);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .center { text-align: center; }
-
-        .card img {
-            max-width: 100%;
-            height: auto;
-            display: inline-block;
-        }
-
-        .tech-icons img {
-            margin: 8px;
-            filter: drop-shadow(0 0 6px rgba(0,255,65,0.6));
-            width: 60px;
-        }
-
-        .badges img { margin: 5px; }
-
-        .top-typing { margin-top: 10px; }
-        .typing-img { max-width: 100%; height: auto; }
-
-        .stats-row {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
-        .stats-row img {
-            max-width: 100%;
-            height: auto !important;
-        }
-
-        .about-text {
-            max-width: 780px;
-            margin: 10px auto;
-            font-size: 15px;
-            line-height: 1.7;
-            color: #d5ffe0;
-        }
-
-        /* Projects button */
-        .projects-btn-wrapper {
-            margin-top: 22px;
-            text-align: center;
-        }
-
-        .projects-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 999px;
-            border: 1px solid rgba(0,255,65,0.6);
-            background: rgba(0,0,0,0.7);
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .projects-btn:hover {
-            background: rgba(0,255,65,0.15);
-        }
-
-        @media (max-width: 768px) {
-            .page { padding: 20px 8px 40px; }
-
-            .card {
-                padding: 18px 12px;
-                margin: 14px 0;
-            }
-
-            h1 {
-                font-size: 20px;
-                line-height: 1.2;
-            }
-
-            h2 { font-size: 18px; }
-
-            ul {
-                font-size: 14px;
-                padding-left: 20px;
-            }
-
-            .about-text { font-size: 14px; }
-
-            .tech-icons img {
-                width: 44px;
-                margin: 6px;
-            }
-
-            .stats-row { flex-direction: column; }
-
-            .hide-on-mobile { display: none; }
-        }
-
-        @media (max-width: 600px) {
-            .header-row {
-                gap: 4px;
-                justify-content: space-between;
-                padding: 0 4px;
-            }
-
-            .header-text { font-size: 16px; }
-        }
-    </style>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
 </head>
 <body>
+
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <a class="nav-brand" href="/">Sinan<span>_Keskin</span></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/projects/" class="nav-link">Projects</a>
+        <a href="/contact/" class="nav-link">Contact</a>
+      </div>
+      <div class="lang-switch">
+        <a href="#" class="lang-link active">EN</a>|
+        <a href="#" class="lang-link">TR</a>
+      </div>
+    </div>
+  </div>
+</nav>
 
 <canvas id="matrixCanvas"></canvas>
 
 <div class="page" role="main">
 
-    <!-- HEADER SECTION -->
-    <section class="section">
-        <div class="card">
-            <h1>Sinan Keskin — Software Developer</h1>
-            <p class="hero-subtitle">
-                Building small tools, backend APIs, and web experiences with
-                <strong>Python</strong>, <strong>JavaScript</strong>, <strong>Java</strong>, <strong>Bash</strong> and more.
-                This is my main developer portfolio and open-source hub.
-            </p>
+  <!-- HEADER -->
+  <section class="section">
+    <div class="card">
+      <h1>Sinan Keskin — Software Developer</h1>
+      <p class="hero-subtitle">
+        Building small tools, backend APIs, and web experiences with
+        <strong>Python</strong>, <strong>JavaScript</strong>, <strong>Java</strong>, <strong>Bash</strong> and more.
+        This is my main developer portfolio and open-source hub.
+      </p>
 
-            <div class="header-row">
-                <span class="center header-text">Hey there, I'm Sinan K. 🚀</span>
-            </div>
+      <div class="header-row">
+        <span class="center header-text">Hey there, I'm Sinan K. 🚀</span>
+      </div>
 
-            <p class="center top-typing">
-                <img class="typing-img"
-                     src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Profile!"
-                     alt="Typing text" width="700" height="60" loading="lazy">
-            </p>
+      <p class="center top-typing">
+        <img class="typing-img"
+          src="https://readme-typing-svg.herokuapp.com?color=00FF41&size=26&center=true&vCenter=true&width=700&lines=💻+Just+a+guy+who+loves+to+code;☕+Learning+and+experimenting+every+day;🚀+Building+small+things+that+work;🔥+Welcome+to+my+Profile!"
+          alt="Typing text" width="700" height="60" loading="lazy">
+      </p>
+    </div>
+  </section>
 
-            <div class="projects-btn-wrapper">
-                <a class="projects-btn" href="/projects/">→ View Projects & Open-Source Work</a>
-            </div>
-        </div>
-    </section>
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="card">
+      <h2>🧠 About Me</h2>
 
-    <!-- ABOUT SECTION -->
-    <section class="section">
-        <div class="card">
-            <h2>🧠 About Me</h2>
+      <p class="about-text">
+        I'm a self-taught developer focused on backend tools, automation scripts, and small web applications.
+        Most of my work lives on GitHub as open-source repositories — experiments, utilities and learning
+        projects that help me explore new technologies and share what I learn.
+      </p>
 
-            <p class="about-text">
-                I'm a self-taught developer focused on backend tools, automation scripts, and small web applications.
-                Most of my work lives on GitHub as open-source repositories — experiments, utilities and learning
-                projects that help me explore new technologies and share what I learn.
-            </p>
+      <ul>
+        <li>🧩 Developer passionate about <strong>Python</strong>, <strong>Java</strong>, <strong>AI</strong>, and <strong>Web Technologies</strong></li>
+        <li>⚙️ I design, build, debug, and optimize things — repeat forever ♻️</li>
+        <li>☕ Coffee keeps my code alive</li>
+        <li>🎯 Aim: Turning ideas into interactive experiences</li>
+      </ul>
 
-            <ul>
-                <li>🧩 Developer passionate about <strong>Python</strong>, <strong>Java</strong>, <strong>AI</strong>, and <strong>Web Technologies</strong></li>
-                <li>⚙️ I design, build, debug, and optimize things — repeat forever ♻️</li>
-                <li>☕ Coffee keeps my code alive</li>
-                <li>🎯 Aim: Turning ideas into interactive experiences</li>
-            </ul>
+      <p class="about-text">
+        On this portfolio you will find Bash scripting helpers, Express REST API examples,
+        minimal web starters, Python and Java learning projects, Streamlit multi-tools and more.
+      </p>
 
-            <p class="about-text">
-                On this portfolio you will find Bash scripting helpers, Express REST API examples,
-                minimal web starters, Python and Java learning projects, Streamlit multi-tools and more.
-            </p>
+      <p class="center" style="margin-top:25px;">
+        <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif"
+          alt="Coding gif" width="480" height="270" loading="lazy">
+      </p>
+    </div>
+  </section>
 
-            <p class="center hide-on-mobile" style="margin-top:25px;">
-                <img src="https://media.giphy.com/media/SWoSkN6DxTszqIKEqv/giphy.gif"
-                     alt="Coding gif" width="480" height="270" loading="lazy">
-            </p>
-        </div>
-    </section>
+  <!-- TECH STACK -->
+  <section class="section">
+    <div class="card">
+      <h2>🛠️ Tech Stack</h2>
 
-    <!-- TECH STACK SECTION -->
-    <section class="section">
-        <div class="card">
-            <h2>🛠️ Tech Stack</h2>
+      <p class="center tech-icons">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" loading="lazy">
+        <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" loading="lazy">
+        <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" loading="lazy">
+      </p>
+    </div>
+  </section>
 
-            <p class="center tech-icons">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/gilbarbara/logos/master/logos/openai-icon.svg" alt="OpenAI" style="background:#fff; border-radius:12px; padding:8px;" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code" width="60" height="60" loading="lazy">
-                <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" width="60" height="60" loading="lazy">
-            </p>
-        </div>
-    </section>
+  <!-- STATS -->
+  <section class="section">
+    <div class="card">
+      <h2>📊 GitHub Stats</h2>
+      <p class="center stats-row">
+        <img src="https://github-readme-stats.vercel.app/api?username=sinan-keskin&show_icons=true&theme=radical&bg_color=00000000&hide_border=true"
+          alt="GitHub Stats" width="450" height="180" loading="lazy">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sinan-keskin&layout=compact&langs_count=8&theme=radical&bg_color=00000000&hide_border=true"
+          alt="Top Languages" width="350" height="180" loading="lazy">
+      </p>
+    </div>
+  </section>
 
-    <!-- STATS SECTION -->
-    <section class="section">
-        <div class="card">
-            <h2>📊 GitHub Stats</h2>
+  <!-- CONNECT WITH ME SECTION (ANA SAYFA VERSİYONU) -->
+  <section class="section">
+    <div class="card">
+      <div class="connect-title">
+        <span class="connect-globe">🌍</span>
+        <span>Connect with Me</span>
+      </div>
 
-            <p class="center stats-row">
-                <img src="https://github-readme-stats.vercel.app/api?username=sinan-keskin&show_icons=true&theme=radical&bg_color=00000000&hide_border=true"
-                     alt="GitHub Stats" width="450" height="180" loading="lazy">
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sinan-keskin&layout=compact&langs_count=8&theme=radical&bg_color=00000000&hide_border=true"
-                     alt="Top Languages" width="350" height="180" loading="lazy">
-            </p>
-        </div>
-    </section>
+      <div class="connect-buttons">
+        <a class="btn btn-telegram" href="https://t.me/sinankeeeee" target="_blank" rel="noreferrer">
+          TELEGRAM
+        </a>
+        <a class="btn btn-github" href="https://github.com/sinan-keskin" target="_blank" rel="noreferrer">
+          GITHUB
+        </a>
+      </div>
+    </div>
+  </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="section">
-        <div class="card">
-            <h2>🌍 Connect with Me</h2>
+  <!-- FOOTER -->
+  <section class="section">
+    <div class="card">
+      <p class="center">
+        <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square"
+          alt="Profile views" width="120" height="20" loading="lazy">
+      </p>
 
-            <p class="center badges">
-                <a href="https://t.me/sinankeeeee" target="_blank" rel="noreferrer">
-                    <img src="https://img.shields.io/badge/Telegram-00AAFF?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" width="160" height="40" loading="lazy">
-                </a>
-                <a href="https://github.com/sinan-keskin" target="_blank" rel="noreferrer">
-                    <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" width="150" height="40" loading="lazy">
-                </a>
-            </p>
-        </div>
-    </section>
+      <p class="center"><strong>⭐ Thanks for visiting my Profile! ⭐</strong></p>
 
-    <!-- FOOTER SECTION -->
-    <section class="section">
-        <div class="card">
-            <h2>🎬 Final Touch</h2>
-
-            <p class="center hide-on-mobile">
-                <img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" alt="Thanks GIF" width="480" height="270" loading="lazy">
-            </p>
-
-            <p class="center">
-                <img src="https://komarev.com/ghpvc/?username=sinan-keskin&color=00ff41&style=flat-square" alt="Profile views" width="120" height="20" loading="lazy">
-            </p>
-
-            <p class="center"><strong>⭐ Thanks for visiting my Profile! ⭐</strong></p>
-
-            <p class="center hide-on-mobile" style="margin-top:10px;">
-                <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer" width="480" height="270" loading="lazy">
-            </p>
-
-            <p class="center" style="font-size:12px; margin-top:6px;">
-                This portfolio is hosted on <strong>GitHub Pages</strong> at <code>sinan-keskin.github.io</code>.
-            </p>
-        </div>
-    </section>
+      <p class="center" style="margin-top:10px;">
+        <img src="https://media.giphy.com/media/Yl5VGZsyCLk4M/giphy.gif" alt="Animated Footer" width="480" height="270" loading="lazy">
+      </p>
+    </div>
+  </section>
 
 </div>
 
 <script>
-// MATRIX RAIN
+// MATRIX RAIN (hepsi için aynı script)
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
