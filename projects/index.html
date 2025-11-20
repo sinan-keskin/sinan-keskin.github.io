@@ -19,13 +19,13 @@
     <a class="nav-brand" href="/">Sinan<span>_Keskin</span></a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/projects/" class="nav-link active">Projects</a>
-        <a href="/contact/" class="nav-link">Contact</a>
+        <a href="/" class="nav-link" data-i18n="navHome">Home</a>
+        <a href="/projects/" class="nav-link active" data-i18n="navProjects">Projects</a>
+        <a href="/contact/" class="nav-link" data-i18n="navContact">Contact</a>
       </div>
       <div class="lang-switch">
-        <a href="#" class="lang-link active">EN</a>|
-        <a href="#" class="lang-link">TR</a>
+        <a href="#" class="lang-link active" data-lang="en">EN</a>|
+        <a href="#" class="lang-link" data-lang="tr">TR</a>
       </div>
     </div>
   </div>
@@ -37,23 +37,26 @@
 
   <section class="section">
     <div class="card">
+      <p class="center">
+        <a href="/" class="btn btn-back" data-i18n="backHome">← Back to Home</a>
+      </p>
 
-      <h1>Projects & Repositories</h1>
+      <h1 data-i18n="projectsTitle">Projects & Repositories</h1>
 
-      <p class="projects-intro-text">
+      <p class="projects-intro-text" data-i18n="projectsIntro">
         This page lists my public GitHub repositories. They include command-line tools, REST APIs,
         web starters and language learning snippets.
       </p>
 
       <ul class="projects-intro-list">
-        <li><strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).</li>
-        <li><strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.</li>
-        <li><strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.</li>
-        <li><strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.</li>
-        <li><strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.</li>
+        <li data-i18n="projectsLi1"><strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).</li>
+        <li data-i18n="projectsLi2"><strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.</li>
+        <li data-i18n="projectsLi3"><strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.</li>
+        <li data-i18n="projectsLi4"><strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.</li>
+        <li data-i18n="projectsLi5"><strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.</li>
       </ul>
 
-      <p class="center" style="font-size: 13px; margin-bottom: 14px;">
+      <p class="center" style="font-size: 13px; margin-bottom: 14px;" data-i18n="projectsAuto">
         Latest public repositories from <strong>github.com/sinan-keskin</strong> are listed automatically:
       </p>
 
@@ -62,7 +65,9 @@
       </div>
 
       <p class="center" style="margin-top:14px; font-size:12px;">
-        <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer">→ View all on GitHub</a>
+        <a href="https://github.com/sinan-keskin?tab=repositories" target="_blank" rel="noreferrer" data-i18n="projectsViewAll">
+          → View all on GitHub
+        </a>
       </p>
     </div>
   </section>
@@ -70,7 +75,7 @@
 </div>
 
 <script>
-// MATRIX RAIN
+/* MATRIX RAIN (aynı script) */
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext("2d");
 const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -177,6 +182,137 @@ function loadRepos() {
 }
 
 loadRepos();
+</script>
+
+<!-- I18N SCRIPT – TÜM SAYFALARDA AYNI -->
+<script>
+(function () {
+  const translations = {
+    en: {
+      navHome: "Home",
+      navProjects: "Projects",
+      navContact: "Contact",
+
+      heroTitle: "Sinan Keskin — Software Developer",
+      heroSubtitle: "Building small tools, backend APIs, and web experiences with <strong>Python</strong>, <strong>JavaScript</strong>, <strong>Java</strong>, <strong>Bash</strong> and more. This is my main developer portfolio and open-source hub.",
+      heroHeaderText: "Hey there, I'm Sinan K. 🚀",
+
+      aboutTitle: "🧠 About Me",
+      aboutP1: "I'm a self-taught developer focused on backend tools, automation scripts, and small web applications. Most of my work lives on GitHub as open-source repositories — experiments, utilities and learning projects that help me explore new technologies and share what I learn.",
+      aboutLi1: "🧩 Developer passionate about <strong>Python</strong>, <strong>Java</strong>, <strong>AI</strong>, and <strong>Web Technologies</strong>",
+      aboutLi2: "⚙️ I design, build, debug, and optimize things — repeat forever ♻️",
+      aboutLi3: "☕ Coffee keeps my code alive",
+      aboutLi4: "🎯 Aim: Turning ideas into interactive experiences",
+      aboutP2: "On this portfolio you will find Bash scripting helpers, Express REST API examples, minimal web starters, Python and Java learning projects, Streamlit multi-tools and more.",
+
+      techTitle: "🛠️ Tech Stack",
+      statsTitle: "📊 GitHub Stats",
+
+      connectTitle: "Connect with Me",
+      footerThanks: "⭐ Thanks for visiting my Profile! ⭐",
+
+      telegramBig: "TELEGRAM",
+      githubBig: "GITHUB",
+
+      /* Projects page */
+      projectsTitle: "Projects & Repositories",
+      projectsIntro: "This page lists my public GitHub repositories. They include command-line tools, REST APIs, web starters and language learning snippets.",
+      projectsLi1: "<strong>bash-tools</strong> – production-ready Bash scripting helpers (logging, retries, error handling).",
+      projectsLi2: "<strong>public-all-in-one</strong> – multi-tool Streamlit app with SteamID finder, QR generator and bulk image downloader.",
+      projectsLi3: "<strong>node-api</strong> – Express based REST API starter with validation, security middleware and tests.",
+      projectsLi4: "<strong>web-starter</strong> – minimal HTML/CSS/JS boilerplate for fast web experiments.",
+      projectsLi5: "<strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – small learning repos for key language concepts.",
+      projectsAuto: "Latest public repositories from <strong>github.com/sinan-keskin</strong> are listed automatically:",
+      projectsViewAll: "→ View all on GitHub",
+
+      backHome: "← Back to Home",
+
+      /* Contact page */
+      fastReply: "I usually reply fast! 🚀",
+      emailBtn: "Email: info@sinankeskin.com.tr",
+      instaBtn: "Instagram: @sinankeeeee",
+      telegramBtn: "Telegram: @sinankeeeee",
+      githubBtn: "GitHub: sinan-keskin"
+    },
+
+    tr: {
+      navHome: "Ana Sayfa",
+      navProjects: "Projeler",
+      navContact: "İletişim",
+
+      heroTitle: "Sinan Keskin — Yazılım Geliştirici",
+      heroSubtitle: "Küçük araçlar, backend API'ler ve web deneyimleri geliştiriyorum; <strong>Python</strong>, <strong>JavaScript</strong>, <strong>Java</strong>, <strong>Bash</strong> ve daha fazlasıyla. Burası benim ana portföyüm ve açık kaynak merkezim.",
+      heroHeaderText: "Selam, ben Sinan K. 🚀",
+
+      aboutTitle: "🧠 Hakkımda",
+      aboutP1: "Kendi kendini yetiştirmiş bir geliştiriciyim; ağırlıklı olarak backend araçları, otomasyon scriptleri ve küçük web uygulamaları üzerine çalışıyorum. Çalışmalarımın çoğu GitHub'da açık kaynak depolar olarak duruyor; denemeler, yardımcı araçlar ve öğrendiklerimi paylaştığım projeler.",
+      aboutLi1: "🧩 <strong>Python</strong>, <strong>Java</strong>, <strong>Yapay Zekâ</strong> ve <strong>Web Teknolojileri</strong> ile uğraşmayı seviyorum.",
+      aboutLi2: "⚙️ Tasarlıyorum, geliştiriyorum, debug ediyorum ve optimize ediyorum — döngü sonsuza kadar ♻️",
+      aboutLi3: "☕ Kahve kodlarımı hayatta tutuyor.",
+      aboutLi4: "🎯 Hedefim: Fikirleri etkileşimli deneyimlere dönüştürmek.",
+      aboutP2: "Bu portföyde Bash script yardımcıları, Express tabanlı REST API örnekleri, minimal web starter'ları, Python ve Java öğrenme projeleri, Streamlit çoklu araçları ve daha fazlasını bulacaksın.",
+
+      techTitle: "🛠️ Teknoloji Yığını",
+      statsTitle: "📊 GitHub İstatistikleri",
+
+      connectTitle: "Benimle İletişime Geç",
+      footerThanks: "⭐ Ziyaret ettiğin için teşekkürler! ⭐",
+
+      telegramBig: "TELEGRAM",
+      githubBig: "GITHUB",
+
+      projectsTitle: "Projeler & Depolar",
+      projectsIntro: "Bu sayfada herkese açık GitHub depolarımı bulacaksın. Komut satırı araçları, REST API'ler, web başlangıç şablonları ve farklı dilleri öğrenmek için küçük projeler içeriyor.",
+      projectsLi1: "<strong>bash-tools</strong> – production seviyesinde Bash script yardımcıları (loglama, tekrar deneme, hata yönetimi).",
+      projectsLi2: "<strong>public-all-in-one</strong> – SteamID bulucu, QR oluşturucu ve toplu görsel indirici içeren Streamlit çoklu araç uygulaması.",
+      projectsLi3: "<strong>node-api</strong> – doğrulama, security middleware ve testleri olan Express tabanlı REST API başlangıç projesi.",
+      projectsLi4: "<strong>web-starter</strong> – hızlı web denemeleri için minimal HTML/CSS/JS iskeleti.",
+      projectsLi5: "<strong>cpp-snippets</strong>, <strong>python-demo</strong>, <strong>java-basics</strong> – farklı dillerin temel kavramlarını çalıştığım küçük öğrenme depoları.",
+      projectsAuto: "<strong>github.com/sinan-keskin</strong> üzerindeki son herkese açık depolar otomatik olarak listelenir:",
+      projectsViewAll: "→ Tümünü GitHub'da gör",
+
+      backHome: "← Anasayfaya Dön",
+
+      fastReply: "Genelde oldukça hızlı cevap veririm! 🚀",
+      emailBtn: "E-posta: info@sinankeskin.com.tr",
+      instaBtn: "Instagram: @sinankeeeee",
+      telegramBtn: "Telegram: @sinankeeeee",
+      githubBtn: "GitHub: sinan-keskin"
+    }
+  };
+
+  const langLinks = document.querySelectorAll(".lang-link");
+  if (!langLinks.length) return;
+
+  function applyLang(lang) {
+    if (!translations[lang]) lang = "en";
+    document.documentElement.setAttribute("lang", lang);
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      const value = translations[lang][key];
+      if (value !== undefined) {
+        el.innerHTML = value;
+      }
+    });
+
+    langLinks.forEach(link => {
+      link.classList.toggle("active", link.dataset.lang === lang);
+    });
+
+    localStorage.setItem("siteLang", lang);
+  }
+
+  langLinks.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      applyLang(this.dataset.lang);
+    });
+  });
+
+  const saved = localStorage.getItem("siteLang") || "en";
+  applyLang(saved);
+})();
 </script>
 
 </body>
