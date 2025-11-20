@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Sinan Keskin</title>
+
+    <meta name="description" content="Contact Sinan Keskin via email, Telegram, Instagram and GitHub.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://sinan-keskin.github.io/contact/">
+
+    <link rel="preload" href="../fonts/share-tech-mono.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" type="image/png">
+
+    <style>
+        @font-face {
+          font-family: 'Share Tech Mono';
+          src: url('../fonts/share-tech-mono.woff2') format('woff2');
+          font-weight: 400;
+          font-style: normal;
+        }
+
+        :root {
+            --bg: #02030a;
+            --matrix-green: #00ff41;
+            --matrix-green-soft: #26ff7c;
+            --text: #e5ffe5;
+        }
+
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; overflow-x: hidden; }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: radial-gradient(circle at top, #08131a 0, var(--bg) 50%, #000 100%);
+            color: var(--text);
+        }
+
+        #matrixCanvas {
+            position: fixed; inset: 0;
+            width: 100%; height: 100%;
+            z-index: 0; pointer-events: none;
+        }
+
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+
+        .card {
+            background: rgba(0,0,0,0.82);
+            border: 1px solid rgba(0,255,65,0.4);
+            padding: 24px;
+            border-radius: 14px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 20px rgba(0,255,65,0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--matrix-green-soft);
+            text-shadow: 0 0 10px rgba(0,255,65,0.8);
+            margin: 0 0 14px 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .contact-list li {
+            margin: 14px 0;
+            font-size: 16px;
+        }
+
+        .contact-list a {
+            color: var(--matrix-green-soft);
+            text-decoration: none;
+        }
+
+        .contact-list a:hover { color: #fff; }
+
+        .icon-img {
+            width: 22px;
+            vertical-align: middle;
+            margin-right: 8px;
+            filter: drop-shadow(0 0 6px rgba(0,255,65,0.6));
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="matrixCanvas"></canvas>
+
+<div class="page">
+    <div class="card">
+        <a class="back-link" href="/">← Back to Home</a>
+        <h1>Contact</h1>
+
+        <p style="text-align:center;">
+            You can reach me through the platforms below:
+        </p>
+
+        <ul class="contact-list">
+            <li>
+                <img class="icon-img" src="https://cdn-icons-png.flaticon.com/512/732/732200.png">
+                Email: <a href="mailto:info@sinankeskin.com.tr">info@sinankeskin.com.tr</a>
+            </li>
+
+            <li>
+                <img class="icon-img" src="https://img.icons8.com/ios-filled/50/00ff41/telegram-app.png">
+                Telegram: <a href="https://t.me/sinankeeeee" target="_blank">@sinankeeeee</a>
+            </li>
+
+            <li>
+                <img class="icon-img" src="https://img.icons8.com/ios-filled/50/00ff41/instagram-new.png">
+                Instagram: <a href="https://instagram.com/sinankeeeee" target="_blank">@sinankeeeee</a>
+            </li>
+
+            <li>
+                <img class="icon-img" src="https://img.icons8.com/ios-glyphs/60/00ff41/github.png">
+                GitHub: <a href="https://github.com/sinan-keskin" target="_blank">sinan-keskin</a>
+            </li>
+        </ul>
+
+        <p style="text-align:center; margin-top:20px;">
+            I usually reply fast! 🚀
+        </p>
+    </div>
+</div>
+
+<script>
+// MATRIX EFECT
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext("2d");
+const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 16;
+let drops = [];
+let columns;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  columns = canvas.width / fontSize;
+  drops = new Array(Math.floor(columns)).fill(1);
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+function draw() {
+  ctx.fillStyle = "rgba(0,0,0,0.05)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = "#0F0";
+  ctx.font = fontSize + "px monospace";
+
+  for (let i = 0; i < drops.length; i++) {
+    const char = letters.charAt(Math.floor(Math.random() * letters.length));
+    ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+    if (drops[i] * fontSize > canvas.height && Math.random() > 0.95)
+      drops[i] = 0;
+
+    drops[i]++;
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
+
+</body>
+</html>
