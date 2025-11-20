@@ -429,6 +429,56 @@ ul li::marker {
 
   .nav-links { gap: 8px; font-size: 13px; }
 }
+/* İletişim sayfasındaki ikinci buton grubu (email/ig/tg/github) */
+.contact-buttons-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+.contact-buttons-secondary .btn {
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: 0;
+  padding: 8px 16px;
+}
+
+/* Renk varyantları */
+.btn-email {
+  border-color: #00ff9d;
+}
+.btn-email:hover {
+  background: rgba(0, 255, 157, 0.15);
+}
+
+.btn-instagram {
+  border-color: #ff4bff;
+  background: rgba(80, 0, 80, 0.9);
+}
+.btn-instagram:hover {
+  background: rgba(140, 0, 140, 0.95);
+  box-shadow: 0 0 18px rgba(255, 75, 255, 0.6);
+}
+
+.btn-telegram-small {
+  background: linear-gradient(135deg, #0088cc, #00aaff);
+  border-color: #00aaff;
+}
+.btn-telegram-small:hover {
+  background: linear-gradient(135deg, #00aaff, #33c8ff);
+  box-shadow: 0 0 18px rgba(0,170,255,0.7);
+}
+
+.btn-github-small {
+  background: #000000;
+  border-color: #ffffff;
+}
+.btn-github-small:hover {
+  background: #111111;
+  box-shadow: 0 0 18px rgba(255,255,255,0.35);
+}
 
 @media (max-width: 600px) {
   .top-nav-inner {
