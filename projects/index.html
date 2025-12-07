@@ -137,13 +137,15 @@ function loadRepos() {
         return;
       }
 
-      const repos = data.filter(
-        repo =>
+      // 🔥 Filtre + son güncellenme tarihine göre sırala (yeniden eskiye)
+      const repos = data
+        .filter(repo =>
           !repo.private &&
           !repo.fork &&
           repo.name !== "sinan-keskin" &&
           repo.name !== "sinan-keskin.github.io"
-      );
+        )
+        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
       if (repos.length === 0) {
         projectsContainer.innerHTML =
