@@ -137,7 +137,7 @@ function loadRepos() {
         return;
       }
 
-      // 🔥 Filtre + son güncellenme tarihine göre sırala (yeniden eskiye)
+      // Filtre + son commit (pushed_at) tarihine göre sırala (yeniden eskiye)
       const repos = data
         .filter(repo =>
           !repo.private &&
@@ -145,7 +145,7 @@ function loadRepos() {
           repo.name !== "sinan-keskin" &&
           repo.name !== "sinan-keskin.github.io"
         )
-        .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
       if (repos.length === 0) {
         projectsContainer.innerHTML =
@@ -158,7 +158,7 @@ function loadRepos() {
       repos.forEach(repo => {
         const desc = repo.description ? repo.description : "No description provided.";
         const lang = repo.language ? repo.language : "Unknown";
-        const updated = repo.updated_at ? new Date(repo.updated_at).toLocaleDateString() : "";
+        const lastCommit = repo.pushed_at ? new Date(repo.pushed_at).toLocaleDateString() : "";
 
         const div = document.createElement("div");
         div.className = "project-card";
@@ -169,7 +169,7 @@ function loadRepos() {
           </div>
           <div class="project-desc">${desc}</div>
           <div class="project-meta">
-            ⭐ ${repo.stargazers_count} &nbsp;•&nbsp; Last update: ${updated}
+            ⭐ ${repo.stargazers_count} &nbsp;•&nbsp; Last commit: ${lastCommit}
           </div>
         `;
         projectsContainer.appendChild(div);
