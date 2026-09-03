@@ -87,8 +87,8 @@
       </div>
       <nav class="hidden md:flex items-center gap-space-xs p-space-2xs rounded-xl bg-surface-container/60 backdrop-blur-md">
         <a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="home" href="/"><span data-i18n="nav-home">ANA SAYFA</span></a>
-        <a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="projects"><span data-i18n="nav-projects">PROJELER</span></a>
-        <a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="contact"><span data-i18n="nav-contact">İLETİŞİM</span></a>
+        <a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="projects" href="/projects"><span data-i18n="nav-projects">PROJELER</span></a>
+        <a class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors" data-path="contact" href="/contact"><span data-i18n="nav-contact">İLETİŞİM</span></a>
       </nav>
       <div class="flex items-center gap-space-sm">
         <button id="mobile-menu-toggle" aria-label="Toggle Mobile Menu" class="md:hidden w-8 h-8 rounded-lg bg-surface-container/80 hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors" type="button">
@@ -190,7 +190,7 @@
           <span class="material-symbols-outlined text-sm">arrow_back</span>
           <span data-i18n="nav-home">ANA SAYFAYA DÖN</span>
         </a>
-        <a href="privacy" class="text-on-surface-variant hover:text-primary font-label-md uppercase transition-colors">
+        <a href="/privacy" class="text-on-surface-variant hover:text-primary font-label-md uppercase transition-colors">
           <span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span> ↗
         </a>
       </div>
@@ -207,13 +207,22 @@
           <span class="font-label-telemetry text-label-telemetry text-primary"><span data-i18n="footer-sync">GITHUB SENKRON // SH-2849F</span></span>
         </div>
       </div>
-      <div class="flex flex-wrap items-center gap-x-space-md gap-y-space-xs font-label-telemetry text-label-telemetry">
-        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="home" href="/"><span data-i18n="footer-index">İNDEKS</span></a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="projects" href="projects"><span data-i18n="footer-repo">DEPO</span></a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="contact" href="contact"><span data-i18n="footer-transmit">İLETİŞİM</span></a>
-        <span class="text-outline/30 hidden sm:inline">|</span>
-        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" href="privacy"><span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span></a>
-        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" href="terms"><span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span></a>
+      <div class="flex flex-wrap items-center gap-space-md font-label-telemetry text-label-telemetry">
+        <div class="flex items-center gap-space-md">
+          <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="home" href="/"><span data-i18n="footer-index">İNDEKS</span></a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="projects" href="/projects"><span data-i18n="footer-repo">DEPO</span></a>
+          <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="contact" href="/contact"><span data-i18n="footer-transmit">İLETİŞİM</span></a>
+        </div>
+        <div class="flex items-center gap-space-xs">
+          <a class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-all uppercase text-[11px] font-mono tracking-wider flex items-center gap-1.5 shadow-sm" href="/privacy">
+            <span class="material-symbols-outlined text-[14px] text-primary-container">shield</span>
+            <span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span>
+          </a>
+          <a class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-all uppercase text-[11px] font-mono tracking-wider flex items-center gap-1.5 shadow-sm" href="/terms">
+            <span class="material-symbols-outlined text-[14px] text-primary-container">description</span>
+            <span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span>
+          </a>
+        </div>
       </div>
     </div>
   </footer>
