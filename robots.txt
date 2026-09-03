@@ -1,4 +1,16 @@
+# Robots.txt for Sinan Keskin Digital Universe
+# Domain: https://sinankeskin.com.tr
+
 User-agent: *
 Allow: /
+Allow: /index.html
+Allow: /projects.html
+Allow: /contact.html
+Allow: /assets/css/
+Allow: /assets/js/
 
-Sitemap: https://www.sinankeskin.com.tr/sitemap.xml
+# Crawl-delay for courteous crawling
+Crawl-delay: 1
+
+# Sitemap Location
+Sitemap: https://sinankeskin.com.tr/sitemap.xml

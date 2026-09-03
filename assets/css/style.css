@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Sinan Keskin - Digital Universe // Aetheric Terminal CSS System
+   ========================================================================== */
+
+:root {
+  --color-void: #090a0f;
+  --color-abyssal: #0e1017;
+  --color-cyan: #38e1ff;
+  --color-azure: #60a5fa;
+  --color-border: #222738;
+}
+
+/* Base custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 3px;
+  border: 1px solid rgba(56, 225, 255, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38e1ff;
+  box-shadow: 0 0 10px rgba(56, 225, 255, 0.5);
+}
+
+/* Subtle CRT scanline overlay */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  ), linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.02),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.02)
+  );
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+}
+
+/* Glassmorphic border glow */
+.hud-glass {
+  background: rgba(14, 16, 23, 0.72);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(56, 225, 255, 0.12);
+}
+
+.hud-glass-hover:hover {
+  border-color: rgba(56, 225, 255, 0.4);
+  box-shadow: 0 0 24px -4px rgba(56, 225, 255, 0.15);
+}
+
+/* Corner accent indicators */
+.corner-cross {
+  position: relative;
+}
+
+.corner-cross::before,
+.corner-cross::after {
+  content: '+';
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: rgba(56, 225, 255, 0.4);
+  line-height: 1;
+}
+
+.corner-cross::before {
+  top: 4px;
+  left: 6px;
+}
+
+.corner-cross::after {
+  bottom: 4px;
+  right: 6px;
+}
+
+/* Glowing text and pulse */
+.glow-cyan {
+  text-shadow: 0 0 16px rgba(56, 225, 255, 0.5), 0 0 32px rgba(56, 225, 255, 0.2);
+}
+
+/* Audio active equalizer animation */
+@keyframes eq-pulse {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+.eq-bar-active {
+  animation: eq-pulse 0.8s ease-in-out infinite alternate;
+}
+
+/* Mobile drawer animation */
+.mobile-nav-drawer {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Interactive card micro-lifts */
+.project-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(56, 225, 255, 0.2);
+}

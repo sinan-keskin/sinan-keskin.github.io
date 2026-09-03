@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="16" fill="#121318" />
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="#27d9f7" stroke-width="1.5" stroke-opacity="0.4" />
+  <!-- Orbital pulse indicator -->
+  <circle cx="50" cy="14" r="3" fill="#38e1ff" />
+  <circle cx="50" cy="14" r="5.5" fill="none" stroke="#38e1ff" stroke-width="1" stroke-opacity="0.5" />
+  <!-- Monogram SK -->
+  <text x="32" y="42" font-family="'Space Grotesk', 'Inter', -apple-system, sans-serif" font-weight="700" font-size="24" fill="#c2f3ff" text-anchor="middle" letter-spacing="-1">SK</text>
+</svg>
