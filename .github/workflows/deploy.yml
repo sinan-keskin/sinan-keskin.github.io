@@ -24,15 +24,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Inject Secret Keys into Contact Page
-        run: |
-          if [ -n "${{ secrets.WEB3FORMS_ACCESS_KEY }}" ]; then
-            sed -i "s/__WEB3FORMS_ACCESS_KEY__/${{ secrets.WEB3FORMS_ACCESS_KEY }}/g" contact.html
-            echo "Successfully injected WEB3FORMS_ACCESS_KEY from GitHub Secrets"
-          else
-            echo "Notice: WEB3FORMS_ACCESS_KEY secret not found in repository settings, fallback active"
-          fi
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
