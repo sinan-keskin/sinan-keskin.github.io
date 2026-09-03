@@ -90,5 +90,5 @@ Karmaşık yazılım katmanlarının altında yatan derin mekanizmaları keşfet
 ---
 
 <div align="center">
-  <sub>© 2026 SİNAN KESKİN • BUILT WITH ZERO MATRICES, PURE COMPUTATION • ALL RIGHTS RESERVED</sub>
+  <sub>© 2026 SİNAN KESKİN • ALL RIGHTS RESERVED</sub>
 </div>
