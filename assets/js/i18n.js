@@ -599,7 +599,7 @@
 
     // 1. Update all elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
+      const key = (el.getAttribute('data-i18n') || '').trim();
       if (dict[key] !== undefined) {
         el.textContent = dict[key];
       }

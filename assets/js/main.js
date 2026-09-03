@@ -5,10 +5,14 @@
 (function() {
   'use strict';
 
-  // 0. Clean URL: Ensure 'index.html' is never displayed in the address bar
+    // 0. Clean URL: Ensure '.html' is never displayed in the address bar
   try {
-    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
-      const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') || '/';
+    const p = window.location.pathname;
+    if (p.endsWith('/index.html') || p === '/index.html') {
+      const cleanPath = p.replace(/\/index\.html$/, '/') || '/';
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    } else if (p.endsWith('.html')) {
+      const cleanPath = p.replace(/\.html$/, '');
       window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
     }
   } catch (e) {}
