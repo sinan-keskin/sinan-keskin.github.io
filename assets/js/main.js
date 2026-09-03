@@ -165,25 +165,37 @@
     setInterval(update, 1000);
   }
 
-  // 5. Initialize on DOM ready
-  document.addEventListener('DOMContentLoaded', () => {
-    initMobileNav();
-    initAmbientAudio();
-    initLiveClock();
-  });
+  // Set Google Analytics Measurement ID
+  window.GA_MEASUREMENT_ID = 'G-4V1J2BMG8C';
 
-  window.showHUDToast = showHUDToast;
-})();
+  // Google Analytics Dynamic Bootstrapper (Call with your G-XXXXXXXXXX key)
+  window.loadGoogleAnalytics = function(measurementId) {
+    if (localStorage.getItem('sinan_cookie_consent') !== 'accepted') return;
+    if (window.gtagScriptLoaded) return;
+    window.gtagScriptLoaded = true;
 
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script);
 
-  // 3. Cyberpunk Cookie & Telemetry HUD Banner (Google Analytics Ready)
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', measurementId, { 'anonymize_ip': true });
+    console.log('[GA] Google Analytics initialized successfully:', measurementId);
+  };
+
+  // 5. Cyberpunk Cookie & Telemetry HUD Banner (Google Analytics Ready)
   function initCookieConsent() {
     const CONSENT_KEY = 'sinan_cookie_consent';
     const currentConsent = localStorage.getItem(CONSENT_KEY);
 
     // If user already decided, don't show banner, but load GA if accepted
     if (currentConsent === 'accepted') {
-      window.dispatchEvent(new CustomEvent('cookieConsentGranted'));
+      if (window.GA_MEASUREMENT_ID && typeof window.loadGoogleAnalytics === 'function') {
+        window.loadGoogleAnalytics(window.GA_MEASUREMENT_ID);
+      }
       return;
     } else if (currentConsent === 'essential') {
       return;
@@ -254,20 +266,13 @@
     document.getElementById('cookie-accept-essential')?.addEventListener('click', () => dismiss('essential'));
   }
 
-  // Google Analytics Dynamic Bootstrapper (Call with your G-XXXXXXXXXX key)
-  window.loadGoogleAnalytics = function(measurementId) {
-    if (localStorage.getItem('sinan_cookie_consent') !== 'accepted') return;
-    if (window.gtagScriptLoaded) return;
-    window.gtagScriptLoaded = true;
+  // 6. Initialize on DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    initMobileNav();
+    initAmbientAudio();
+    initLiveClock();
+    initCookieConsent();
+  });
 
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', measurementId, { 'anonymize_ip': true });
-    console.log('[GA] Google Analytics initialized successfully:', measurementId);
-  };
+  window.showHUDToast = showHUDToast;
+})();
