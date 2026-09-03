@@ -55,9 +55,10 @@ Karmaşık yazılım katmanlarının altında yatan derin mekanizmaları keşfet
 > Yapılandırılmış JSON loglama, üstel geri çekilme (exponential backoff) ve gelişmiş hata yakalama mimarisine sahip prodüksiyon odaklı Bash araçları.  
 > `Bash` `POSIX` `Daemon Runner` `Telemetry`
 
-### 2. [PUBLIC-ALL-IN-ONE](https://github.com/sinan-keskin/public-all-in-one)
+### 2. [PUBLIC-ALL-IN-ONE](https://all-in-public.streamlit.app/)
 > **Multi-utility Real-Time Processing Suite**  
 > SteamID çözümleyici, dinamik QR oluşturucu, görsel işleme ve veri dönüştürücüler içeren yüksek performanslı Streamlit uygulaması.  
+> 🚀 **Canlı Uygulama**: [all-in-public.streamlit.app](https://all-in-public.streamlit.app/) • 📦 **Kaynak Kodu**: [GitHub](https://github.com/sinan-keskin/public-all-in-one)  
 > `Python` `Streamlit` `Automation` `Utility Suite`
 
 ### 3. [NODE-API](https://sinankeskin.com.tr/projects.html#)
