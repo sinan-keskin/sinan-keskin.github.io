@@ -8,6 +8,22 @@
 
   const translations = {
     en: {
+      // Legal & Cookies
+      'page-title-privacy': 'Privacy Policy — Sinan Keskin',
+      'page-title-terms': 'Terms of Service — Sinan Keskin',
+      'footer-privacy': 'PRIVACY',
+      'footer-terms': 'TERMS',
+      'cookie-hud-title': 'TELEMETRY & COOKIE PROTOCOL // v2026',
+      'cookie-hud-desc': 'This digital universe uses technical cookies to persist language preferences and anonymous telemetry (Google Analytics) to measure system performance. Zero intrusive tracking.',
+      'cookie-btn-accept': 'ACCEPT ALL',
+      'cookie-btn-essential': 'ESSENTIAL ONLY',
+      'cookie-btn-policy': 'PRIVACY POLICY',
+      'privacy-hero-tag': '[ LEGAL PROTOCOL // 01 ]',
+      'privacy-hero-title': 'PRIVACY POLICY & DATA GOVERNANCE',
+      'privacy-hero-subtitle': 'Transparent disclosure regarding data acquisition, telemetry protocols, and KVKK/GDPR compliance.',
+      'terms-hero-tag': '[ LEGAL PROTOCOL // 02 ]',
+      'terms-hero-title': 'TERMS OF SERVICE & CONDUCT',
+      'terms-hero-subtitle': 'Terms governing access to this digital universe, open-source repositories, and interactive surfaces.',
       // Page Titles
       'page-title-home': 'Sinan Keskin — Software Developer & System Architect',
       'page-title-projects': 'Projects & Experiments — Sinan Keskin',
@@ -266,6 +282,22 @@
     },
 
     tr: {
+      // Legal & Cookies
+      'page-title-privacy': 'Gizlilik Politikası — Sinan Keskin',
+      'page-title-terms': 'Kullanıcı Sözleşmesi — Sinan Keskin',
+      'footer-privacy': 'GİZLİLİK',
+      'footer-terms': 'SÖZLEŞME',
+      'cookie-hud-title': 'TELEMETRİ & ÇEREZ PROTOKOLÜ // v2026',
+      'cookie-hud-desc': 'Bu dijital evren, dil tercihinizi hatırlamak ve sistem performansını anonim ölçmek (Google Analytics) amacıyla teknik çerezler kullanır. İstilacı reklam takibi yapılmaz.',
+      'cookie-btn-accept': 'TÜMÜNÜ KABUL ET',
+      'cookie-btn-essential': 'YALNIZCA GEREKLİLER',
+      'cookie-btn-policy': 'GİZLİLİK POLİTİKASI',
+      'privacy-hero-tag': '[ HUKUKİ PROTOKOL // 01 ]',
+      'privacy-hero-title': 'GİZLİLİK POLİTİKASI & VERİ GÜVENLİĞİ',
+      'privacy-hero-subtitle': 'Veri toplama, telemetri protokolleri, KVKK ve GDPR uyumluluğu hakkında şeffaf bilgilendirme.',
+      'terms-hero-tag': '[ HUKUKİ PROTOKOL // 02 ]',
+      'terms-hero-title': 'KULLANICI SÖZLEŞMESİ & ŞARTLAR',
+      'terms-hero-subtitle': 'Bu dijital evrene, açık kaynaklı yazılım depolarına ve etkileşimli alanlara erişim koşulları.',
       // Page Titles
       'page-title-home': 'Sinan Keskin — Yazılım Geliştirici & Sistem Mimarı',
       'page-title-projects': 'Projeler & Deneyler — Sinan Keskin',
@@ -584,10 +616,14 @@
         // 0. Dynamic Document Title Translation
     const currentPath = (window.location.pathname || '').toLowerCase();
     let newTitle = '';
-    if (currentPath.includes('project')) {
+        if (currentPath.includes('project')) {
       newTitle = dict['page-title-projects'] || 'Projects & Experiments — Sinan Keskin';
     } else if (currentPath.includes('contact')) {
       newTitle = dict['page-title-contact'] || 'Contact & Transmission Chamber — Sinan Keskin';
+    } else if (currentPath.includes('privacy')) {
+      newTitle = dict['page-title-privacy'] || 'Privacy Policy — Sinan Keskin';
+    } else if (currentPath.includes('terms')) {
+      newTitle = dict['page-title-terms'] || 'Terms of Service — Sinan Keskin';
     } else {
       newTitle = dict['page-title-home'] || 'Sinan Keskin — Software Developer & System Architect';
     }

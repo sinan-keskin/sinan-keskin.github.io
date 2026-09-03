@@ -174,3 +174,100 @@
 
   window.showHUDToast = showHUDToast;
 })();
+
+
+  // 3. Cyberpunk Cookie & Telemetry HUD Banner (Google Analytics Ready)
+  function initCookieConsent() {
+    const CONSENT_KEY = 'sinan_cookie_consent';
+    const currentConsent = localStorage.getItem(CONSENT_KEY);
+
+    // If user already decided, don't show banner, but load GA if accepted
+    if (currentConsent === 'accepted') {
+      window.dispatchEvent(new CustomEvent('cookieConsentGranted'));
+      return;
+    } else if (currentConsent === 'essential') {
+      return;
+    }
+
+    // Create HUD Element
+    const banner = document.createElement('div');
+    banner.id = 'cookie-consent-hud';
+    banner.className = 'fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:max-w-md z-[9990] p-space-md rounded-xl bg-surface-container-lowest/95 backdrop-blur-2xl border border-outline-variant/40 shadow-[0_8px_32px_rgba(0,0,0,0.6)] flex flex-col gap-space-sm transition-all duration-500 translate-y-8 opacity-0';
+    
+    banner.innerHTML = `
+      <div class="flex items-center justify-between border-b border-outline-variant/20 pb-space-2xs">
+        <div class="flex items-center gap-space-2xs text-primary font-label-telemetry text-label-telemetry uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+          <span data-i18n="cookie-hud-title">TELEMETRİ & ÇEREZ PROTOKOLÜ // v2026</span>
+        </div>
+        <span class="font-label-telemetry text-[9px] text-outline">KVKK / GDPR</span>
+      </div>
+      <p class="font-body-md text-xs text-on-surface-variant leading-relaxed" data-i18n="cookie-hud-desc">
+        Bu dijital evren, dil tercihinizi hatırlamak ve sistem performansını anonim ölçmek (Google Analytics) amacıyla teknik çerezler kullanır. İstilacı reklam takibi yapılmaz.
+      </p>
+      <div class="flex flex-wrap items-center gap-space-xs pt-space-2xs">
+        <button id="cookie-accept-all" type="button" class="flex-1 py-1.5 px-space-sm rounded bg-primary-container hover:bg-primary text-on-primary-container font-label-md text-xs font-bold uppercase tracking-wider transition-all shadow-md">
+          <span data-i18n="cookie-btn-accept">TÜMÜNÜ KABUL ET</span>
+        </button>
+        <button id="cookie-accept-essential" type="button" class="py-1.5 px-space-sm rounded bg-surface-container hover:bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-md text-xs uppercase tracking-wider transition-all">
+          <span data-i18n="cookie-btn-essential">YALNIZCA GEREKLİLER</span>
+        </button>
+        <a href="/privacy" class="py-1.5 px-space-xs text-outline hover:text-primary font-label-telemetry text-[10px] uppercase tracking-wider transition-colors ml-auto">
+          <span data-i18n="cookie-btn-policy">GİZLİLİK POLİTİKASI ↗</span>
+        </a>
+      </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    // Trigger reveal animation
+    setTimeout(() => {
+      banner.classList.remove('translate-y-8', 'opacity-0');
+    }, 400);
+
+    // Language sync
+    if (window.i18n && typeof window.i18n.setLanguage === 'function') {
+      const curLang = localStorage.getItem('user_lang') || 'tr';
+      const dict = window.i18n.translations[curLang] || window.i18n.translations.tr;
+      banner.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (dict[k]) el.textContent = dict[k];
+      });
+    }
+
+    function dismiss(consentType) {
+      localStorage.setItem(CONSENT_KEY, consentType);
+      banner.classList.add('translate-y-8', 'opacity-0');
+      setTimeout(() => {
+        banner.remove();
+      }, 500);
+
+      if (consentType === 'accepted') {
+        window.dispatchEvent(new CustomEvent('cookieConsentGranted'));
+        if (window.GA_MEASUREMENT_ID && typeof window.loadGoogleAnalytics === 'function') {
+          window.loadGoogleAnalytics(window.GA_MEASUREMENT_ID);
+        }
+      }
+    }
+
+    document.getElementById('cookie-accept-all')?.addEventListener('click', () => dismiss('accepted'));
+    document.getElementById('cookie-accept-essential')?.addEventListener('click', () => dismiss('essential'));
+  }
+
+  // Google Analytics Dynamic Bootstrapper (Call with your G-XXXXXXXXXX key)
+  window.loadGoogleAnalytics = function(measurementId) {
+    if (localStorage.getItem('sinan_cookie_consent') !== 'accepted') return;
+    if (window.gtagScriptLoaded) return;
+    window.gtagScriptLoaded = true;
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', measurementId, { 'anonymize_ip': true });
+    console.log('[GA] Google Analytics initialized successfully:', measurementId);
+  };

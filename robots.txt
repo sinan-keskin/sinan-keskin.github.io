@@ -3,9 +3,10 @@
 
 User-agent: *
 Allow: /
-Allow: /index.html
-Allow: /projects.html
-Allow: /contact.html
+Allow: /projects
+Allow: /contact
+Allow: /privacy
+Allow: /terms
 Allow: /assets/css/
 Allow: /assets/js/
 
