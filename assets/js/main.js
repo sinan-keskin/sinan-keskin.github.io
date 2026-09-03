@@ -5,6 +5,15 @@
 (function() {
   'use strict';
 
+  // 0. Clean URL: Ensure 'index.html' is never displayed in the address bar
+  try {
+    if (window.location.pathname.endsWith('/index.html') || window.location.pathname === '/index.html') {
+      const cleanPath = window.location.pathname.replace(/\/index\.html$/, '/') || '/';
+      window.history.replaceState(null, '', cleanPath + window.location.search + window.location.hash);
+    }
+  } catch (e) {}
+
+
   // 1. Mobile Menu Drawer Toggle
   function initMobileNav() {
     const toggleBtn = document.getElementById('mobile-menu-toggle');
