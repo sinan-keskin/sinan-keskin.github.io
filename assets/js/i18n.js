@@ -8,6 +8,10 @@
 
   const translations = {
     en: {
+      // Page Titles
+      'page-title-home': 'Sinan Keskin — Software Developer & System Architect',
+      'page-title-projects': 'Projects & Experiments — Sinan Keskin',
+      'page-title-contact': 'Contact & Transmission Chamber — Sinan Keskin',
       // Global Header & Navigation
       'nav-home': 'HOME',
       'nav-projects': 'PROJECTS',
@@ -262,6 +266,10 @@
     },
 
     tr: {
+      // Page Titles
+      'page-title-home': 'Sinan Keskin — Yazılım Geliştirici & Sistem Mimarı',
+      'page-title-projects': 'Projeler & Deneyler — Sinan Keskin',
+      'page-title-contact': 'İletişim & Mesaj İletim Odası — Sinan Keskin',
       // Global Header & Navigation
       'nav-home': 'ANA SAYFA',
       'nav-projects': 'PROJELER',
@@ -572,6 +580,22 @@
     document.documentElement.lang = lang;
 
     const dict = translations[lang] || translations.tr;
+
+        // 0. Dynamic Document Title Translation
+    const currentPath = (window.location.pathname || '').toLowerCase();
+    let newTitle = '';
+    if (currentPath.includes('project')) {
+      newTitle = dict['page-title-projects'] || 'Projects & Experiments — Sinan Keskin';
+    } else if (currentPath.includes('contact')) {
+      newTitle = dict['page-title-contact'] || 'Contact & Transmission Chamber — Sinan Keskin';
+    } else {
+      newTitle = dict['page-title-home'] || 'Sinan Keskin — Software Developer & System Architect';
+    }
+    document.title = newTitle;
+    const titleElement = document.querySelector('title');
+    if (titleElement) {
+      titleElement.textContent = newTitle;
+    }
 
     // 1. Update all elements with data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {

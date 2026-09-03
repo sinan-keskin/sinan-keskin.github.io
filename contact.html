@@ -3,7 +3,24 @@
 <html class="dark" lang="en">
 
 <head>
-  <title>İletişim & Mesaj İletim Odası — Sinan Keskin Digital Universe</title>
+  <title data-i18n="page-title-contact">İletişim & Mesaj İletim Odası — Sinan Keskin</title>
+  <script>
+    (function () {
+      try {
+        var savedLang = localStorage.getItem('user_lang') || (navigator.language && navigator.language.startsWith('tr') ? 'tr' : 'en');
+        var p = (window.location.pathname || '').toLowerCase();
+        if (savedLang === 'en') {
+          if (p.includes('project')) document.title = 'Projects & Experiments — Sinan Keskin';
+          else if (p.includes('contact')) document.title = 'Contact & Transmission Chamber — Sinan Keskin';
+          else document.title = 'Sinan Keskin — Software Developer & System Architect';
+        } else {
+          if (p.includes('project')) document.title = 'Projeler & Deneyler — Sinan Keskin';
+          else if (p.includes('contact')) document.title = 'İletişim & Mesaj İletim Odası — Sinan Keskin';
+          else document.title = 'Sinan Keskin — Yazılım Geliştirici & Sistem Mimarı';
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta name="description"
     content="Sinan Keskin - Creative Technologist, Software Engineer, and Digital Universe Architect." />
   <link rel="stylesheet" href="assets/css/style.css" />
@@ -72,23 +89,28 @@
   </div>
   <div
     class="fixed top-4 left-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-coords">[ 40°47'17.8" K, 29°22'07.8" D // KOCAELİ ]</span></div>
+    <span data-i18n="telemetry-coords">[ 40°47'17.8" K, 29°22'07.8" D // KOCAELİ ]</span>
+  </div>
   <div
     class="fixed top-4 right-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-core">[ ÇEKİRDEK MİMARİ // SEVİYE-00 ]</span></div>
+    <span data-i18n="telemetry-core">[ ÇEKİRDEK MİMARİ // SEVİYE-00 ]</span>
+  </div>
   <div
     class="fixed bottom-4 left-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-init">+ 00 // BAŞLATILDI</span></div>
+    <span data-i18n="telemetry-init">+ 00 // BAŞLATILDI</span>
+  </div>
   <div
     class="fixed bottom-4 right-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-cyber">DİJİTAL SİBERNETİK +</span></div>
+    <span data-i18n="telemetry-cyber">DİJİTAL SİBERNETİK +</span>
+  </div>
   <header
     class="fixed top-0 w-full z-50 bg-surface-container-lowest/70 backdrop-blur-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
     <div
       class="h-20 w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between">
       <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="home"
           href="index.html">
-<img src="assets/img/logo.png" alt="Sinan Keskin Logo" class="w-9 h-9 rounded-lg object-contain shadow-md group-hover:scale-105 transition-transform" />
+          <img src="assets/img/logo.png" alt="Sinan Keskin Logo"
+            class="w-9 h-9 rounded-lg object-contain shadow-md group-hover:scale-105 transition-transform" />
           <div class="flex flex-col"><span
               class="font-label-lg text-label-lg text-on-surface tracking-wider font-semibold">SINAN KESKIN</span>
             <div class="flex items-center gap-space-2xs"><span
@@ -100,7 +122,8 @@
         <div class="hidden xl:flex items-center pl-space-lg text-outline/30">|</div>
         <div
           class="hidden xl:flex items-center font-label-telemetry text-label-telemetry text-on-surface-variant tracking-widest">
-          <span data-i18n="header-coords">ENLEM: 40°47'17.8" K // BOYLAM: 29°22'07.8" D // KOCAELİ</span></div>
+          <span data-i18n="header-coords">ENLEM: 40°47'17.8" K // BOYLAM: 29°22'07.8" D // KOCAELİ</span>
+        </div>
       </div>
       <nav
         class="hidden md:flex items-center gap-space-xs p-space-2xs rounded-xl bg-surface-container/60 backdrop-blur-md"
@@ -435,10 +458,11 @@
                   <span class="font-label-telemetry text-label-telemetry text-on-surface-variant" id="form-char-count">0
                     / 2048 B</span>
                 </div>
-                                <!-- Honeypot Spam Protection -->
+                <!-- Honeypot Spam Protection -->
                 <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                 <!-- Web3Forms hCaptcha Widget (Dark Theme) -->
-                <div class="h-captcha my-space-sm flex justify-center w-full" data-captcha="true" data-theme="dark"></div>
+                <div class="h-captcha my-space-sm flex justify-center w-full" data-captcha="true" data-theme="dark">
+                </div>
                 <button
                   class="w-full mt-space-xs py-space-md rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-label-md text-label-md font-bold uppercase tracking-widest flex items-center justify-center gap-space-xs shadow-lg transition-all active:scale-[0.98]"
                   id="submit-payload-btn" type="submit">
@@ -603,7 +627,7 @@
                   }
                   form.reset();
                   if (charCounter) charCounter.textContent = '0 / 2048 B';
-                  if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch(e) {} }
+                  if (window.hcaptcha) { try { window.hcaptcha.reset(); } catch (e) { } }
                 } else {
                   throw new Error(result.message || 'API_ERROR');
                 }
@@ -668,7 +692,7 @@ ${payloadVal}`);
     <div class="flex flex-col gap-6">
       <div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
         <div class="flex items-center gap-2">
-<img src="assets/img/logo.png" alt="Sinan Keskin Logo" class="w-8 h-8 rounded-lg object-contain shadow-md" />
+          <img src="assets/img/logo.png" alt="Sinan Keskin Logo" class="w-8 h-8 rounded-lg object-contain shadow-md" />
           <span class="font-mono text-xs font-semibold tracking-wider text-on-surface"><span
               data-i18n="drawer-nav">NAVİGASYON</span></span>
         </div>
@@ -707,7 +731,7 @@ ${payloadVal}`);
     </div>
   </div>
 
-<script src="https://web3forms.com/client/script.js" async defer></script>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
 </body>
 
 </html>
