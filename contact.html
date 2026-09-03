@@ -491,6 +491,12 @@
                   <span id="submit-label" data-i18n="form-submit-btn">İLETİMİ BAŞLAT</span>
                   <span class="material-symbols-outlined text-[18px]">north_east</span>
                 </button>
+                <div class="mt-space-sm text-center font-label-telemetry text-[11px] text-outline leading-tight">
+                  <span data-i18n="form-legal-notice">Mesaj ileterek</span>
+                  <a href="privacy" class="text-primary hover:underline"><span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span></a>
+                  <span data-i18n="form-legal-and">ve</span>
+                  <a href="terms" class="text-primary hover:underline"><span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span></a><span data-i18n="form-legal-suffix">'ni kabul etmiş olursunuz.</span>
+                </div>
               </form>
               <div
                 class="hidden mt-space-md p-space-sm rounded-lg bg-surface-container-highest text-primary font-label-md text-label-md text-center shadow-md animate-fade-in"
@@ -695,13 +701,14 @@ ${payloadVal}`);
             class="font-label-telemetry text-label-telemetry text-primary"><span data-i18n="footer-sync">GITHUB SENKRON
               // SH-2849F</span></span></div>
       </div>
-      <div class="flex items-center gap-space-lg font-label-telemetry text-label-telemetry"><a
-          class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="home"
-          href="/"><span data-i18n="footer-index">İNDEKS</span></a><a
-          class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="projects"
-          href="projects"><span data-i18n="footer-repo">DEPO</span></a><a
-          class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="contact"
-          href="contact"><span data-i18n="footer-transmit">İLETİŞİM</span></a></div>
+      <div class="flex flex-wrap items-center gap-x-space-md gap-y-space-xs font-label-telemetry text-label-telemetry">
+        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="home" href="/"><span data-i18n="footer-index">İNDEKS</span></a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="projects" href="projects"><span data-i18n="footer-repo">DEPO</span></a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="contact" href="contact"><span data-i18n="footer-transmit">İLETİŞİM</span></a>
+        <span class="text-outline/30 hidden sm:inline">|</span>
+        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" href="privacy"><span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span></a>
+        <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" href="terms"><span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span></a>
+      </div>
     </div>
   </footer>
   <!-- Mobile Navigation Drawer -->
@@ -745,6 +752,11 @@ ${payloadVal}`);
             data-i18n="drawer-link-telegram">TELEGRAM</span></a>
         <a href="mailto:info@sinankeskin.com.tr" class="hover:text-primary transition-colors text-xs font-mono"><span
             data-i18n="drawer-link-email">E-POSTA</span></a>
+      </div>
+      <div class="flex items-center gap-2 pt-2 text-[10px] font-mono text-outline border-t border-outline-variant/10">
+        <a href="privacy" class="hover:text-primary transition-colors"><span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span></a>
+        <span>•</span>
+        <a href="terms" class="hover:text-primary transition-colors"><span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span></a>
       </div>
       <div class="font-mono text-[9px] text-outline/60"><span data-i18n="drawer-sys-version">SİSTEM_AKTİF //
           v2026.4</span></div>
