@@ -1,1008 +1,1603 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en">
+<html lang="tr" class="dark scroll-smooth">
 
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-4V1J2BMG8C"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-4V1J2BMG8C', { 'anonymize_ip': true });
   </script>
-  <title data-i18n="page-title-home">Sinan Keskin — Yazılım Geliştirici & Sistem Mimarı</title>
-  <script>
-    (function () {
-      try {
-        var savedLang = localStorage.getItem('user_lang') || (navigator.language && navigator.language.startsWith('tr') ? 'tr' : 'en');
-        var p = (window.location.pathname || '').toLowerCase();
-        if (savedLang === 'en') {
-          if (p.includes('project')) document.title = 'Projects & Experiments — Sinan Keskin';
-          else if (p.includes('contact')) document.title = 'Contact & Transmission Chamber — Sinan Keskin';
-          else document.title = 'Sinan Keskin — Software Developer & System Architect';
-        } else {
-          if (p.includes('project')) document.title = 'Projeler & Deneyler — Sinan Keskin';
-          else if (p.includes('contact')) document.title = 'İletişim & Mesaj İletim Odası — Sinan Keskin';
-          else document.title = 'Sinan Keskin — Yazılım Geliştirici & Sistem Mimarı';
-        }
-      } catch (e) {}
-    })();
-  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sinan Keskin — Web Tasarım &amp; Yazılım Ajansı | Scrollytelling &amp; Özel Yazılımlar</title>
   <meta name="description"
-    content="Sinan Keskin - Creative Technologist, Software Engineer, and Digital Universe Architect." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+    content="Sinan Keskin - Yüksek dönüşümlü 60 FPS Scrollytelling kurumsal web siteleri, özel müşteri portalları, CRM sistemleri ve yapay zeka iş akışı otomasyonları geliştiren yeni nesil web & yazılım ajansı." />
+  <meta name="keywords"
+    content="Sinan Keskin, web tasarım ajansı, yazılım ajansı, scrollytelling web sitesi, özel yazılım geliştirme, müşteri portalı, CRM, yapay zeka otomasyon, Kocaeli yazılım, GSAP scrolltrigger" />
+  <meta name="author" content="Sinan Keskin" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://sinankeskin.com.tr" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://sinankeskin.com.tr" />
+  <meta property="og:title" content="Sinan Keskin — Web Tasarım &amp; Yazılım Ajansı" />
+  <meta property="og:description"
+    content="Markanızı büyüten 60 FPS animasyonlu Scrollytelling web siteleri, özel müşteri portalları ve yapay zeka otomasyonları." />
+  <meta property="og:image" content="https://sinankeskin.com.tr/assets/img/logo.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://sinankeskin.com.tr" />
+  <meta name="twitter:title" content="Sinan Keskin — Web Tasarım &amp; Yazılım Ajansı" />
+  <meta name="twitter:description"
+    content="Markanızı büyüten 60 FPS animasyonlu Scrollytelling web siteleri, özel müşteri portalları ve yapay zeka otomasyonları." />
+  <meta name="twitter:image" content="https://sinankeskin.com.tr/assets/img/logo.png" />
+
+  <!-- Favicons -->
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="manifest.json" />
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <link href="https://fonts.googleapis.com" rel="preconnect" />
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
   <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     rel="stylesheet" />
-  <style>
-    @layer base {
 
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-      }
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css" />
 
-      body {
-        overscroll-behavior: none;
-      }
-
-      main>:first-child {
-        margin-top: 0 !important;
-      }
-
-      main>:last-child {
-        margin-bottom: 0 !important;
-      }
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
-    #three-universe-container {
-      pointer-events: none;
-    }
-
-    #cursor-follower {
-      pointer-events: none;
-      transform: translate(-50%, -50%);
-      transition: transform 0.08s ease-out, width 0.2s ease, height 0.2s ease;
-    }
-  </style>
+  <!-- Tailwind CSS CDN with Custom Theme -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script
-    id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "tertiary": "#d6eeff", "primary-fixed": "#a6eeff", "on-error": "#690005", "secondary-fixed-dim": "#a4c9ff", "on-primary-container": "#00616f", "error-container": "#93000a", "inverse-primary": "#006878", "tertiary-container": "#92d7ff", "surface": "#121318", "on-tertiary-fixed-variant": "#004c69", "on-surface": "#e3e1e9", "surface-container": "#1e1f25", "surface-tint": "#27d9f7", "primary-fixed-dim": "#27d9f7", "surface-container-lowest": "#0d0e13", "on-background": "#e3e1e9", "on-tertiary-container": "#005e81", "background": "#121318", "tertiary-fixed": "#c4e7ff", "surface-container-high": "#292a2f", "outline": "#859397", "secondary-container": "#0267b8", "secondary": "#a4c9ff", "on-primary": "#00363f", "surface-container-highest": "#34343a", "on-surface-variant": "#bbc9cd", "primary": "#c2f3ff", "inverse-surface": "#e3e1e9", "outline-variant": "#3c494c", "tertiary-fixed-dim": "#7bd0ff", "surface-dim": "#121318", "surface-bright": "#38393f", "on-secondary-fixed-variant": "#004883", "on-secondary-container": "#d6e5ff", "primary-container": "#38e1ff", "on-secondary": "#00315d", "on-secondary-fixed": "#001c39", "on-primary-fixed": "#001f25", "inverse-on-surface": "#2f3036", "surface-variant": "#34343a", "error": "#ffb4ab", "surface-container-low": "#1a1b21", "on-tertiary": "#00354a", "on-tertiary-fixed": "#001e2c", "secondary-fixed": "#d4e3ff", "on-error-container": "#ffdad6", "on-primary-fixed-variant": "#004e5b" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "margin-desktop": "4rem", "gutter-desktop": "2rem", "space-md": "1rem", "section-gap-md": "8rem", "section-gap-lg": "14rem", "space-2xl": "3rem", "space-4xl": "6rem", "space-lg": "1.5rem", "space-xl": "2rem", "margin-tablet": "2.5rem", "space-3xl": "4.5rem", "space-xs": "0.5rem", "margin-mobile": "1.25rem", "section-gap-sm": "4rem", "space-2xs": "0.25rem", "gutter-mobile": "1rem", "space-sm": "0.75rem" }, "fontFamily": { "body-md": ["geist"], "headline-md": ["spaceGrotesk"], "label-md": ["jetbrainsMono"], "body-lg": ["geist"], "headline-lg": ["spaceGrotesk"], "headline-xl-mobile": ["spaceGrotesk"], "body-xl": ["geist"], "headline-hero": ["spaceGrotesk"], "label-lg": ["jetbrainsMono"], "headline-lg-mobile": ["spaceGrotesk"], "label-telemetry": ["jetbrainsMono"], "headline-hero-mobile": ["spaceGrotesk"], "headline-xl": ["spaceGrotesk"] }, "fontSize": { "body-md": ["14px", { "lineHeight": "22px", "letterSpacing": "0.01em", "fontWeight": "400" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-md": ["11px", { "lineHeight": "16px", "letterSpacing": "0.12em", "fontWeight": "500" }], "body-lg": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }], "headline-lg": ["40px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "headline-xl-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "500" }], "body-xl": ["20px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-hero": ["96px", { "lineHeight": "96px", "letterSpacing": "-0.04em", "fontWeight": "600" }], "label-lg": ["13px", { "lineHeight": "18px", "letterSpacing": "0.08em", "fontWeight": "500" }], "headline-lg-mobile": ["26px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-telemetry": ["9px", { "lineHeight": "12px", "letterSpacing": "0.2em", "fontWeight": "400" }], "headline-hero-mobile": ["44px", { "lineHeight": "48px", "letterSpacing": "-0.03em", "fontWeight": "600" }], "headline-xl": ["64px", { "lineHeight": "68px", "letterSpacing": "-0.03em", "fontWeight": "500" }] } } } }</script>
-  
   <script>
-    try {
-      var p = window.location.pathname;
-      if (p.endsWith('/index.html') || p === '/index.html') {
-        window.history.replaceState(null, '', (p.replace(/\/index\.html$/, '/') || '/') + window.location.search + window.location.hash);
-      } else if (p.endsWith('.html')) {
-        window.history.replaceState(null, '', p.replace(/\.html$/, '') + window.location.search + window.location.hash);
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            void: "#090a0f",
+            surface: "#121318",
+            "surface-card": "#161821",
+            "surface-highlight": "#1e2230",
+            primary: "#38e1ff",
+            "primary-glow": "rgba(56, 225, 255, 0.4)",
+            accent: "#60a5fa",
+            emerald: "#10b981",
+          },
+          fontFamily: {
+            sans: ["'Plus Jakarta Sans'", "sans-serif"],
+            headline: ["'Space Grotesk'", "sans-serif"],
+            mono: ["'JetBrains Mono'", "monospace"],
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Structured Data (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://sinankeskin.com.tr/#agency",
+        "name": "Sinan Keskin Web Tasarım & Yazılım Ajansı",
+        "url": "https://sinankeskin.com.tr",
+        "logo": "https://sinankeskin.com.tr/assets/img/logo.png",
+        "image": "https://sinankeskin.com.tr/assets/img/logo.png",
+        "description": "Scrollytelling animasyonlu kurumsal web siteleri, özel müşteri portalları, CRM ve yapay zeka otomasyon sistemleri geliştiren yeni nesil dijital ajans.",
+        "telephone": "+905000000000",
+        "email": "info@sinankeskin.com.tr",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kocaeli",
+          "addressCountry": "TR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.788264",
+          "longitude": "29.368845"
+        },
+        "priceRange": "$$",
+        "sameAs": [
+          "https://github.com/sinan-keskin",
+          "https://t.me/sinankeeeee",
+          "https://instagram.com/sinankeeeee"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://sinankeskin.com.tr/#person",
+        "name": "Sinan Keskin",
+        "jobTitle": "Creative Technologist & Yazılım Mimarı",
+        "worksFor": {
+          "@id": "https://sinankeskin.com.tr/#agency"
+        },
+        "url": "https://sinankeskin.com.tr",
+        "email": "info@sinankeskin.com.tr"
       }
-    } catch (e) {}
+    ]
+  }
+  </script>
+
+  <!-- Google Translate Website Translator (Automatic for Non-Turkish Browsers) -->
+  <div id="google_translate_element" style="display:none;"></div>
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'tr',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    (function() {
+      try {
+        var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (userLang && !userLang.startsWith('tr')) {
+          var targetLang = userLang.split('-')[0] || 'en';
+          var cookieVal = '/tr/' + targetLang;
+          document.cookie = 'googtrans=' + cookieVal + '; path=/; domain=' + window.location.hostname;
+          document.cookie = 'googtrans=' + cookieVal + '; path=/';
+          
+          var gtScript = document.createElement('script');
+          gtScript.type = 'text/javascript';
+          gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          gtScript.async = true;
+          document.head.appendChild(gtScript);
+        }
+      } catch (e) {
+        console.warn('Google Translate auto-init handled:', e);
+      }
+    })();
   </script>
 </head>
 
-<body
-  class="bg-surface font-body-md text-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container relative min-h-screen">
-  <div
-    class="fixed z-[9999] w-3 h-3 rounded-full bg-primary-container/80 shadow-[0_0_12px_rgba(56,225,255,0.6)] hidden lg:block"
-    id="cursor-follower"></div>
-  <div class="fixed inset-0 z-0 opacity-80 overflow-hidden" id="three-universe-container">
-    <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-container/5 via-surface-container-lowest/80 to-surface-container-lowest">
-    </div>
+<body class="bg-void text-gray-200 font-sans antialiased selection:bg-primary selection:text-void min-h-screen relative overflow-x-hidden">
+
+  <!-- =========================================================================
+       1. FIXED FULLSCREEN BACKGROUND CANVAS & CINEMATIC OVERLAY
+       ========================================================================= -->
+  <div class="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <!-- WebP Frame Sequence Canvas -->
+    <canvas id="scrolly-canvas" class="w-full h-full object-cover"></canvas>
+    
+    <!-- Dark Vignette Gradient Overlay: ensures text readability with rich contrast -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#090a0f]/85 via-[#090a0f]/55 to-[#090a0f]/95 backdrop-blur-[0.5px]"></div>
+    
+    <!-- Soft Ambient Lighting Orbs -->
+    <div class="absolute top-1/4 -left-48 w-96 h-96 bg-primary/10 rounded-full blur-[140px]"></div>
+    <div class="absolute bottom-1/3 -right-48 w-96 h-96 bg-accent/10 rounded-full blur-[140px]"></div>
   </div>
-  <div
-    class="fixed top-4 left-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-coords">[ 40°47'17.8" K, 29°22'07.8" D // KOCAELİ ]</span>
-  </div>
-  <div
-    class="fixed top-4 right-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-core">[ ÇEKİRDEK MİMARİ // SEVİYE-00 ]</span>
-  </div>
-  <div
-    class="fixed bottom-4 left-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-init">+ 00 // BAŞLATILDI</span>
-  </div>
-  <div
-    class="fixed bottom-4 right-4 z-20 font-label-telemetry text-label-telemetry text-outline/40 pointer-events-none hidden lg:block">
-    <span data-i18n="telemetry-cyber">DİJİTAL SİBERNETİK +</span>
-  </div>
-  <header
-    class="fixed top-0 w-full z-50 bg-surface-container-lowest/70 backdrop-blur-2xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-    <div
-      class="h-20 w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between">
-      <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs group" data-path="home"
-          href="/"><img src="assets/img/logo.png" alt="Sinan Keskin Logo"
-            class="w-9 h-9 rounded-lg object-contain shadow-md group-hover:scale-105 transition-transform" />
-          <div class="flex flex-col"><span
-              class="font-label-lg text-label-lg text-on-surface tracking-wider font-semibold">SINAN KESKIN</span>
-            <div class="flex items-center gap-space-2xs"><span
-                class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></span><span
-                class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase"><span
-                  class="live-clock-target">SYS_ONLINE / 2026</span></span></div>
-          </div>
-        </a>
-        <div class="hidden xl:flex items-center pl-space-lg text-outline/30">|</div>
-        <div
-          class="hidden xl:flex items-center font-label-telemetry text-label-telemetry text-on-surface-variant tracking-widest">
-          <span data-i18n="header-coords">ENLEM: 40°47'17.8" K // BOYLAM: 29°22'07.8" D // KOCAELİ</span>
+
+  <!-- =========================================================================
+       2. STICKY HEADER & MODERN NAVIGATION
+       ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#090a0f]/80 backdrop-blur-2xl border-b border-white/5 transition-all duration-300" id="main-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Title -->
+      <a href="#hero" class="flex items-center gap-3.5 group">
+        <div class="relative w-10 h-10 rounded-xl overflow-hidden p-0.5 bg-gradient-to-tr from-primary to-accent/40 shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform">
+          <img src="assets/img/logo.png" alt="Sinan Keskin Logo" class="w-full h-full object-cover rounded-[10px]" />
         </div>
+        <div class="flex flex-col">
+          <span class="font-headline font-bold text-lg text-white tracking-tight notranslate">Sinan Keskin</span>
+          <div class="flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse"></span>
+            <span class="font-mono text-[10px] uppercase tracking-wider text-primary font-medium">Web &amp; Yazılım Ajansı</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-surface/70 border border-white/10 backdrop-blur-xl">
+        <a href="#hizmetler" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hizmetler</a>
+        <a href="#projeler" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Projeler</a>
+        <a href="#github" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">GitHub Repoları</a>
+        <a href="#hakkimda" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hakkımda</a>
+        <a href="#iletisim" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">İletişim</a>
+      </nav>
+
+      <!-- Header CTA & Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="#teklif" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-primary to-accent text-void font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all active:scale-95">
+          <span>Hızlı Teklif Al</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-btn" type="button" aria-label="Menüyü Aç" class="md:hidden w-10 h-10 rounded-xl bg-surface/80 border border-white/10 flex items-center justify-center text-primary hover:bg-surface-highlight transition-colors">
+          <span class="material-symbols-outlined text-[24px]">menu</span>
+        </button>
       </div>
-      <nav
-        class="hidden md:flex items-center gap-space-xs p-space-2xs rounded-xl bg-surface-container/60 backdrop-blur-md"
-        data-active-classes="bg-primary-container text-on-primary-container font-bold rounded-lg"><a
-          class="px-space-md py-space-xs uppercase tracking-wider transition-colors bg-primary-container text-on-primary-container font-bold rounded-lg"
-          data-path="home" href="/" aria-current="page"><span data-i18n="nav-home">ANA SAYFA</span></a><a
-          class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
-          data-path="projects" href="/projects"><span data-i18n="nav-projects">PROJELER</span></a><a
-          class="px-space-md py-space-xs font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
-          data-path="contact" href="/contact"><span data-i18n="nav-contact">İLETİŞİM</span></a></nav>
-      <div class="flex items-center gap-space-sm"><button id="mobile-menu-toggle" aria-label="Toggle Mobile Menu"
-          class="md:hidden w-8 h-8 rounded-lg bg-surface-container/80 hover:bg-surface-container-high flex items-center justify-center text-primary transition-colors"
-          type="button"><span class="material-symbols-outlined text-[20px]">menu</span></button>
-        <div class="flex items-center bg-surface-container/80 rounded-lg p-1 gap-1 border border-outline-variant/30">
-          <button class="lang-btn-tr px-2 py-1 rounded flex items-center justify-center transition-all cursor-pointer"
-            type="button" title="Türkçe" aria-label="Türkçe">
-            <svg class="w-5 h-3.5 rounded-[2px] shadow-sm pointer-events-none" viewBox="0 0 1200 800"
-              xmlns="http://www.w3.org/2000/svg">
-              <rect width="1200" height="800" fill="#E30A17" />
-              <circle cx="425" cy="400" r="200" fill="#ffffff" />
-              <circle cx="475" cy="400" r="160" fill="#E30A17" />
-              <polygon points="583.3,400 706.3,440 630.3,335.3 630.3,464.7 706.3,360" fill="#ffffff" />
-            </svg>
-          </button>
-          <button class="lang-btn-en px-2 py-1 rounded flex items-center justify-center transition-all cursor-pointer"
-            type="button" title="English" aria-label="English">
-            <svg class="w-5 h-3.5 rounded-[2px] shadow-sm pointer-events-none" viewBox="0 0 640 480"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill="#bd3d44" d="M0 0h640v480H0z" />
-              <path stroke="#fff" stroke-width="37"
-                d="M0 55.5h640M0 129.5h640M0 203.5h640M0 277.5h640M0 351.5h640M0 425.5h640" />
-              <path fill="#192f5d" d="M0 0h256v259H0z" />
-              <g fill="#fff">
-                <circle cx="32" cy="24" r="6" />
-                <circle cx="96" cy="24" r="6" />
-                <circle cx="160" cy="24" r="6" />
-                <circle cx="224" cy="24" r="6" />
-                <circle cx="64" cy="50" r="6" />
-                <circle cx="128" cy="50" r="6" />
-                <circle cx="192" cy="50" r="6" />
-                <circle cx="32" cy="76" r="6" />
-                <circle cx="96" cy="76" r="6" />
-                <circle cx="160" cy="76" r="6" />
-                <circle cx="224" cy="76" r="6" />
-                <circle cx="64" cy="102" r="6" />
-                <circle cx="128" cy="102" r="6" />
-                <circle cx="192" cy="102" r="6" />
-                <circle cx="32" cy="128" r="6" />
-                <circle cx="96" cy="128" r="6" />
-                <circle cx="160" cy="128" r="6" />
-                <circle cx="224" cy="128" r="6" />
-                <circle cx="64" cy="154" r="6" />
-                <circle cx="128" cy="154" r="6" />
-                <circle cx="192" cy="154" r="6" />
-                <circle cx="32" cy="180" r="6" />
-                <circle cx="96" cy="180" r="6" />
-                <circle cx="160" cy="180" r="6" />
-                <circle cx="224" cy="180" r="6" />
-                <circle cx="64" cy="206" r="6" />
-                <circle cx="128" cy="206" r="6" />
-                <circle cx="192" cy="206" r="6" />
-                <circle cx="32" cy="232" r="6" />
-                <circle cx="96" cy="232" r="6" />
-                <circle cx="160" cy="232" r="6" />
-                <circle cx="224" cy="232" r="6" />
-              </g>
-            </svg>
-          </button>
-        </div><button aria-label="Ambient Audio State"
-          class="w-8 h-8 rounded-lg bg-surface-container/80 hover:bg-surface-container-high flex items-center justify-center text-primary-container transition-colors"
-          type="button"><span class="material-symbols-outlined text-[18px]">graphic_eq</span></button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-6 bg-[#090a0f]/95 border-b border-white/10 backdrop-blur-3xl animate-in slide-in-from-top duration-300">
+      <div class="flex flex-col gap-2 pt-2">
+        <a href="#hizmetler" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>Hizmetler &amp; Paketler</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a href="#projeler" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>Seçilmiş Projeler</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a href="#github" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>Canlı GitHub Repoları</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a href="#hakkimda" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>Hakkımda &amp; Yetkinlikler</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a href="#iletisim" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>İletişim &amp; Teklif Formu</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a href="#teklif" class="mobile-nav-link mt-2 w-full py-3 rounded-xl bg-gradient-to-r from-primary to-accent text-void font-bold text-center text-sm uppercase tracking-wider shadow-lg shadow-primary/30">
+          Hemen Proje Teklifi Al ↗
+        </a>
       </div>
     </div>
   </header>
-  <main class="w-full pt-20 bg-surface relative z-10">
-    <div class="flex flex-col w-full relative">
-      <!-- THREE.JS 3D DIGITAL UNIVERSE ORGANISM -->
-      <div class="fixed inset-0 w-full h-full pointer-events-none z-0 opacity-45" style="display:block;">
-        <div id="threejs-container-ANIMATION_2" style="width:100%;height:100%"></div>
+
+  <!-- =========================================================================
+       MAIN SINGLE-PAGE CONTENT (All sections sequentially layered)
+       ========================================================================= -->
+  <main class="relative z-10 w-full pt-20">
+
+    <!-- =======================================================================
+         SECTION 1: HERO (High-Impact Agency Value Proposition)
+         ======================================================================= -->
+    <section id="hero" class="min-h-[calc(100vh-5rem)] flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 relative">
+      <div class="max-w-5xl mx-auto w-full flex flex-col items-center text-center">
+        
+        <!-- Live Badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-surface-card/90 border border-primary/30 backdrop-blur-xl shadow-lg shadow-primary/10 mb-8 animate-pulse">
+          <span class="w-2 h-2 rounded-full bg-emerald"></span>
+          <span class="font-mono text-xs uppercase tracking-wider text-gray-200">
+            Yeni Nesil Dijital Deneyimler &amp; Özel Yazılımlar // <span class="text-primary font-bold">2026</span>
+          </span>
+        </div>
+
+        <!-- Hero Headline -->
+        <h1 class="font-headline font-bold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.1] mb-6">
+          Markanızı Büyüten <br class="hidden sm:inline" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-white to-accent">Scrollytelling Web Siteleri</span><br />
+          ve <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent via-cyan-300 to-primary">Özel Yazılımlar</span>
+        </h1>
+
+        <!-- Hero Subtitle -->
+        <p class="font-sans text-base sm:text-xl text-gray-300 max-w-3xl leading-relaxed mb-10 font-normal">
+          Hazır şablonların sınırlarını aşın. Sayfa kaydırdıkça hayat bulan <strong class="text-white font-medium">60 FPS tam ekran canvas animasyonlu</strong> kurumsal web siteleri, yüksek verimli müşteri portalları ve işletmenizi otomatik pilota bağlayan yapay zeka sistemleri inşa ediyorum.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto mb-16">
+          <a href="#teklif" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-void font-bold text-sm uppercase tracking-wider shadow-2xl shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all">
+            <span>Hemen Proje Teklifi Al</span>
+            <span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+          </a>
+          <a href="#projeler" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-surface-card/80 hover:bg-surface-highlight border border-white/10 text-white font-semibold text-sm uppercase tracking-wider backdrop-blur-xl hover:border-primary/40 transition-all">
+            <span>Projeleri &amp; GitHub'ı İncele</span>
+            <span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+          </a>
+        </div>
+
+        <!-- Quick Proof Points Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl pt-6 border-t border-white/10">
+          <div class="flex flex-col items-center p-3 rounded-xl bg-surface-card/40 border border-white/5 backdrop-blur-md">
+            <span class="font-headline font-bold text-2xl sm:text-3xl text-primary">720+</span>
+            <span class="font-mono text-[11px] text-gray-400 uppercase tracking-wider mt-1">Kare Scrollytelling</span>
+          </div>
+          <div class="flex flex-col items-center p-3 rounded-xl bg-surface-card/40 border border-white/5 backdrop-blur-md">
+            <span class="font-headline font-bold text-2xl sm:text-3xl text-accent">20+</span>
+            <span class="font-mono text-[11px] text-gray-400 uppercase tracking-wider mt-1">Canlı Proje &amp; Repo</span>
+          </div>
+          <div class="flex flex-col items-center p-3 rounded-xl bg-surface-card/40 border border-white/5 backdrop-blur-md">
+            <span class="font-headline font-bold text-2xl sm:text-3xl text-emerald">&lt; 2 Saat</span>
+            <span class="font-mono text-[11px] text-gray-400 uppercase tracking-wider mt-1">Telegram Yanıt Hızı</span>
+          </div>
+          <div class="flex flex-col items-center p-3 rounded-xl bg-surface-card/40 border border-white/5 backdrop-blur-md">
+            <span class="font-headline font-bold text-2xl sm:text-3xl text-white">100%</span>
+            <span class="font-mono text-[11px] text-gray-400 uppercase tracking-wider mt-1">Özel &amp; Temiz Kod</span>
+          </div>
+        </div>
+
       </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
-      <script src="assets/js/universe.js"></script>
-      <script src="assets/js/i18n.js"></script>
-      <script src="assets/js/main.js"></script>
-      <!-- SECTION 1: HERO (THE OPENING / STATE 01: CREATION) -->
-      <section
-        class="relative min-h-[942px] flex flex-col justify-between px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-xl overflow-hidden">
-        <div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-md z-10">
-          <div
-            class="flex items-center gap-space-xs bg-surface-container-low/80 backdrop-blur-md px-space-md py-space-2xs rounded-full">
-            <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
-            <span class="font-label-telemetry text-label-telemetry text-primary tracking-widest uppercase"><span
-                data-i18n="home-hero-state">AŞAMA 01 // SİSTEM OLUŞUMU</span></span>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 2: WEB TASARIM & YAZILIM HİZMETLERİ (Satış Vitrini - 3 Paket)
+         ======================================================================= -->
+    <section id="hizmetler" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Title & Lead -->
+        <div class="flex flex-col items-center text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-xs uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            <span>Çözümlerimiz &amp; Paketler</span>
           </div>
-          <div class="flex items-center gap-space-md font-label-telemetry text-label-telemetry text-on-surface-variant">
-            <span><span data-i18n="home-hero-loc">KONUM // 40°47'17.8"K 29°22'07.8"D</span></span>
-            <span class="hidden sm:inline opacity-30">/</span>
-            <span class="hidden sm:inline"><span data-i18n="home-hero-cycle">DÖNGÜ // 2026.04</span></span>
-            <span class="hidden md:inline opacity-30">/</span>
-            <span class="hidden md:inline text-primary"><span data-i18n="home-hero-organism">YAPI:
-                SENTETİK</span></span>
+          <h2 class="font-headline font-bold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+            İşletmenizi Dönüştüren <span class="text-primary">3 Ana Hizmet Paketi</span>
+          </h2>
+          <p class="font-sans text-gray-400 max-w-2xl text-base sm:text-lg">
+            İster sıfırdan prestijli bir marka vitrini, ister karmaşık bir operasyon paneli veya yapay zeka otomasyonu: Doğrudan sonuca odaklı çözümler.
+          </p>
+        </div>
+
+        <!-- 3 Modern Service Package Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+
+          <!-- PAKET 1: Animasyonlu Kurumsal Web & Scrollytelling Siteler -->
+          <div class="flex flex-col justify-between p-8 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/50 shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-primary/15 rounded-full blur-3xl group-hover:bg-primary/25 transition-all"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary shadow-lg shadow-primary/20">
+                  <span class="material-symbols-outlined text-[32px]">view_in_ar</span>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary font-mono text-[11px] uppercase tracking-wider font-semibold">
+                  Maksimum Prestij
+                </span>
+              </div>
+
+              <h3 class="font-headline font-bold text-2xl text-white tracking-tight mb-3">
+                Animasyonlu Kurumsal Web &amp; Scrollytelling
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                Ziyaretçiyi büyüleyen, tam ekran 60 FPS WebP/Canvas animasyonları ve GSAP akışlarıyla markanızın hikayesini aktaran yüksek dönüşümlü web siteleri.
+              </p>
+
+              <!-- Feature Highlights -->
+              <ul class="space-y-3 mb-8 text-xs sm:text-sm text-gray-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>60 FPS Scrollytelling:</strong> Kullanıcı kaydırdıkça akan sinematik görsel anlatım.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>GEO &amp; SEO Optimizasyonu:</strong> AI motorları (Perplexity, ChatGPT) ve Google'da üst sıralar.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Ultra Sayfa Hızı:</strong> 95+ Core Web Vitals skoru ve sıfır gecikme.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Mobil &amp; Tablet Uyumu:</strong> Her cihazda kusursuz akıcı responsive deneyim.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Button -->
+            <button type="button" onclick="selectServiceAndScroll('Animasyonlu Kurumsal Web Sitesi')" class="w-full py-3.5 px-6 rounded-xl bg-primary text-void font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:bg-cyan-300 transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <span>Bu Hizmet İçin Teklif Al</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+            </button>
+          </div>
+
+          <!-- PAKET 2: Özel Müşteri Portalı & İş Takip Sistemleri -->
+          <div class="flex flex-col justify-between p-8 rounded-2xl bg-surface-card/90 border border-accent/40 shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden ring-1 ring-accent/30">
+            <div class="absolute top-0 right-0 px-4 py-1 bg-gradient-to-r from-primary to-accent text-void font-bold text-[10px] uppercase tracking-widest rounded-bl-xl shadow-md">
+              En Çok Tercih Edilen
+            </div>
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-accent/20 rounded-full blur-3xl group-hover:bg-accent/30 transition-all"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent shadow-lg shadow-accent/20">
+                  <span class="material-symbols-outlined text-[32px]">admin_panel_settings</span>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-accent/15 border border-accent/30 text-accent font-mono text-[11px] uppercase tracking-wider font-semibold">
+                  Operasyonel Güç
+                </span>
+              </div>
+
+              <h3 class="font-headline font-bold text-2xl text-white tracking-tight mb-3">
+                Özel Müşteri Portalı &amp; İş Takip Sistemleri
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                Şirket içi operasyonlarınızı, müşteri ilişkilerinizi ve süreç takiplerinizi tek bir güvenli, modern ve rol bazlı yönetim panelinde birleştirin.
+              </p>
+
+              <!-- Feature Highlights -->
+              <ul class="space-y-3 mb-8 text-xs sm:text-sm text-gray-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-accent text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Rol &amp; Yetki Yönetimi:</strong> Güvenli JWT / Session ve çok kullanıcılı yetkilendirme.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-accent text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Dinamik Dashboard &amp; Metrikler:</strong> Gerçek zamanlı grafikler ve analitik raporlar.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-accent text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Express &amp; PostgreSQL:</strong> Ölçeklenebilir, test edilmiş ve güvenli veri mimarisi.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-accent text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Özel İş Mantığı (Logic):</strong> Şirketinize özel iş akışları, onay mekanizmaları.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Button -->
+            <button type="button" onclick="selectServiceAndScroll('Özel Müşteri Portalı / CRM')" class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-primary to-accent text-void font-bold text-xs uppercase tracking-wider shadow-lg shadow-accent/25 hover:shadow-accent/40 transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <span>Bu Hizmet İçin Teklif Al</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+            </button>
+          </div>
+
+          <!-- PAKET 3: Yapay Zeka (AI) & İş Akışı Otomasyonları -->
+          <div class="flex flex-col justify-between p-8 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-emerald/50 shadow-2xl backdrop-blur-2xl transition-all duration-300 hover:-translate-y-2 group relative overflow-hidden">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-emerald/15 rounded-full blur-3xl group-hover:bg-emerald/25 transition-all"></div>
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-14 h-14 rounded-2xl bg-emerald/10 border border-emerald/30 flex items-center justify-center text-emerald shadow-lg shadow-emerald/20">
+                  <span class="material-symbols-outlined text-[32px]">smart_toy</span>
+                </div>
+                <span class="px-3 py-1 rounded-full bg-emerald/15 border border-emerald/30 text-emerald font-mono text-[11px] uppercase tracking-wider font-semibold">
+                  Sıfır Manuel İş
+                </span>
+              </div>
+
+              <h3 class="font-headline font-bold text-2xl text-white tracking-tight mb-3">
+                Yapay Zeka (AI) &amp; İş Akışı Otomasyonları
+              </h3>
+              <p class="text-sm text-gray-300 leading-relaxed mb-6">
+                Tekrarlayan iş süreçlerinizi LLM modelleri (Gemini / OpenAI), Telegram/Slack botları ve arka plan veri boru hatlarıyla 7/24 otomatikleştirin.
+              </p>
+
+              <!-- Feature Highlights -->
+              <ul class="space-y-3 mb-8 text-xs sm:text-sm text-gray-300">
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-emerald text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>AI Model Entegrasyonları:</strong> Doküman analizi, özetleme ve karar motorları.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-emerald text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Telegram &amp; Slack Botları:</strong> Bildirim, müşteri takibi ve uzaktan yönetim.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-emerald text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>Otomatik Veri Kazıma:</strong> Web sitelerinden veri çekme, dönüştürme ve raporlama.</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <span class="material-symbols-outlined text-emerald text-[18px] shrink-0 mt-0.5">check_circle</span>
+                  <span><strong>7/24 Kesintisiz Daemon:</strong> Linux üzerinde POSIX/Python kesintisiz arka plan servisleri.</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Button -->
+            <button type="button" onclick="selectServiceAndScroll('Yapay Zeka & İş Akışı Otomasyonu')" class="w-full py-3.5 px-6 rounded-xl bg-emerald hover:bg-emerald/90 text-void font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald/20 hover:shadow-emerald/40 transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <span>Bu Hizmet İçin Teklif Al</span>
+              <span class="material-symbols-outlined text-[16px]">arrow_downward</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 3: SEÇİLMİŞ PROJELER & VİTRİN
+         ======================================================================= -->
+    <section id="projeler" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent font-mono text-xs uppercase tracking-widest mb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+              <span>Çalışmalar &amp; Portfolyo</span>
+            </div>
+            <h2 class="font-headline font-bold text-3xl sm:text-5xl text-white tracking-tight">
+              Seçilmiş Projeler &amp; Mühendislik Çalışmaları
+            </h2>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md">
+            Üretim ortamında çalışan, açık kaynak topluluğuna katkı sunan ve mimari kararlılıkla tasarlanan projeler.
+          </p>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2 mb-10 pb-2 overflow-x-auto">
+          <button type="button" onclick="filterProjects('all', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-primary text-void shadow-md transition-all">
+            Tümü
+          </button>
+          <button type="button" onclick="filterProjects('web', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-surface-card hover:bg-surface-highlight text-gray-300 hover:text-white transition-all">
+            Web &amp; Portallar
+          </button>
+          <button type="button" onclick="filterProjects('backend', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-surface-card hover:bg-surface-highlight text-gray-300 hover:text-white transition-all">
+            Backend &amp; API
+          </button>
+          <button type="button" onclick="filterProjects('automation', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-surface-card hover:bg-surface-highlight text-gray-300 hover:text-white transition-all">
+            Otomasyon &amp; AI
+          </button>
+          <button type="button" onclick="filterProjects('system', this)" class="project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-surface-card hover:bg-surface-highlight text-gray-300 hover:text-white transition-all">
+            Sistem &amp; Araçlar
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-container">
+
+          <!-- Project 1: Public All-in-One -->
+          <article class="project-item flex flex-col justify-between p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5" data-category="automation web">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-primary font-semibold">Python • Streamlit</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald/15 text-emerald font-mono text-[10px] uppercase font-bold">Canlı Demo Aktif</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-white tracking-tight mb-2 notranslate">
+                public-all-in-one
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                Gerçek zamanlı çok amaçlı Streamlit araç seti: SteamID çözümleyici, dinamik QR kod motoru ve Pillow ile asenkron toplu görsel işleme paketi.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6 font-mono text-[11px] text-gray-400">
+                <span class="px-2 py-0.5 rounded bg-white/5">Streamlit</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Pillow</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Httpx</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <a href="https://all-in-public.streamlit.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-cyan-300 transition-colors">
+                <span>Canlı Uygulamayı Aç</span>
+                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+              </a>
+              <a href="https://github.com/sinan-keskin/public-all-in-one" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-white transition-colors">
+                <span>GitHub</span>
+                <span class="material-symbols-outlined text-[14px]">code</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Bash Tools -->
+          <article class="project-item flex flex-col justify-between p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5" data-category="automation system">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-primary font-semibold">Shell • POSIX</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono text-[10px] uppercase font-bold">Prodüksiyon Kiti</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-white tracking-tight mb-2 notranslate">
+                bash-tools
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                Yapılandırılmış JSON loglama, exponential backoff yeniden deneme algoritmaları ve sıfır dış bağımlılıkla çalışan prodüksiyon seviyesi Linux otomasyon araçları.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6 font-mono text-[11px] text-gray-400">
+                <span class="px-2 py-0.5 rounded bg-white/5">POSIX Bash</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Telemetry</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Daemon Runner</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <a href="https://github.com/sinan-keskin/bash-tools" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-cyan-300 transition-colors">
+                <span>GitHub Reposunu İncele</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+              <span class="font-mono text-xs text-gray-400">v2.4.0</span>
+            </div>
+          </article>
+
+          <!-- Project 3: Node API Microservice -->
+          <article class="project-item flex flex-col justify-between p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5" data-category="backend">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-accent font-semibold">Node.js • TypeScript</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-primary/10 text-primary font-mono text-[10px] uppercase font-bold">%98.4 Test Kapsamı</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-white tracking-tight mb-2 notranslate">
+                node-api
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                Zod şema doğrulaması, token-bucket rate limiting ve otomatik Vitest birim test entegrasyonuna sahip güçlendirilmiş Express REST API altyapısı.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6 font-mono text-[11px] text-gray-400">
+                <span class="px-2 py-0.5 rounded bg-white/5">Express</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Zod Schema</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Vitest</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <a href="https://github.com/sinan-keskin/node-api" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-cyan-300 transition-colors">
+                <span>Depoyu İncele</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+              <span class="font-mono text-xs text-gray-400">JWT Auth</span>
+            </div>
+          </article>
+
+          <!-- Project 4: Zula CRM & Test Management -->
+          <article class="project-item flex flex-col justify-between p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-accent/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5" data-category="web backend">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-accent font-semibold">TypeScript • Fullstack</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-accent/15 text-accent font-mono text-[10px] uppercase font-bold">Portal &amp; CRM</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-white tracking-tight mb-2 notranslate">
+                zula-test-management-crm
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                Rol ve yetki bazlı test süreçleri yönetim paneli. Görev atamaları, dinamik ilerleme metrikleri ve ekip koordinasyonu sağlayan portal çözümü.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6 font-mono text-[11px] text-gray-400">
+                <span class="px-2 py-0.5 rounded bg-white/5">CRM Architecture</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Role Based Auth</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">TypeScript</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <a href="https://github.com/sinan-keskin/zula-test-management-crm" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-cyan-300 transition-colors">
+                <span>Detayları İncele</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+              <span class="font-mono text-xs text-gray-400">Enterprise</span>
+            </div>
+          </article>
+
+          <!-- Project 5: TC Identity Verification -->
+          <article class="project-item flex flex-col justify-between p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5" data-category="backend system">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-primary font-semibold">JavaScript • Node.js</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300 font-mono text-[10px] uppercase font-bold">Doğrulama Motoru</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-white tracking-tight mb-2 notranslate">
+                tc-identity-verification
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                Çevrimdışı algoritmik kontrol ve çevrimiçi servis entegrasyonu sağlayan, modern kullanıcı arayüzü ve Node.js backend motoruna sahip kimlik doğrulama mimarisi.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6 font-mono text-[11px] text-gray-400">
+                <span class="px-2 py-0.5 rounded bg-white/5">Algorithmic Check</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Express Backend</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Offline Validation</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <a href="https://github.com/sinan-keskin/tc-identity-verification" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-cyan-300 transition-colors">
+                <span>Depoyu İncele</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+              <span class="font-mono text-xs text-gray-400">Validation API</span>
+            </div>
+          </article>
+
+          <!-- Project 6: RDR2 Auto Translator Desktop -->
+          <article class="project-item flex flex-col justify-between p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-emerald/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1.5" data-category="system">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="font-mono text-xs text-emerald font-semibold">C# • .NET</span>
+                <span class="px-2.5 py-0.5 rounded-full bg-emerald/15 text-emerald font-mono text-[10px] uppercase font-bold">Masaüstü Otomasyon</span>
+              </div>
+              <h3 class="font-headline font-bold text-xl text-white tracking-tight mb-2 notranslate">
+                Red-Dead-Redemption-2-Turkce-Yama
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300 leading-relaxed mb-4">
+                Oyun dizinini otomatik tespit eden, tek tıkla dosya hash kontrolü yaparak Türkçe yama kurup kaldıran ve orijinal dosyalara dönüş sağlayan araç.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-6 font-mono text-[11px] text-gray-400">
+                <span class="px-2 py-0.5 rounded bg-white/5">C# Desktop</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">Auto Path Detection</span>
+                <span class="px-2 py-0.5 rounded bg-white/5">File Hash Check</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10">
+              <a href="https://github.com/sinan-keskin/Red-Dead-Redemption-2-Turkce-Yama" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-cyan-300 transition-colors">
+                <span>GitHub Reposu</span>
+                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+              </a>
+              <span class="font-mono text-xs text-gray-400">★ 3 Yıldız</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 4: CANLI GITHUB REPOLARI & DİL DAĞILIMI
+         ======================================================================= -->
+    <section id="github" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header with Live Pill -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/30 text-emerald font-mono text-xs uppercase tracking-widest mb-3">
+              <span class="w-2 h-2 rounded-full bg-emerald animate-ping"></span>
+              <span>Canlı GitHub Senkronizasyonu</span>
+            </div>
+            <h2 class="font-headline font-bold text-3xl sm:text-5xl text-white tracking-tight">
+              Açık Kaynak Kod Depoları
+            </h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <button type="button" id="refresh-repos-btn" onclick="fetchLiveGithubRepos(true)" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-card hover:bg-surface-highlight border border-white/10 text-xs font-semibold text-gray-200 hover:text-primary transition-all">
+              <span class="material-symbols-outlined text-[16px]">sync</span>
+              <span>Repoları Güncelle</span>
+            </button>
+            <a href="https://github.com/sinan-keskin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-primary text-void font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-md">
+              <span class="notranslate">@sinan-keskin</span>
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
           </div>
         </div>
-        <div class="my-auto py-space-3xl flex flex-col z-10 pointer-events-none">
-          <div class="flex flex-col max-w-7xl">
-            <div class="flex items-center gap-space-sm mb-space-sm">
-              <span class="font-label-md text-label-md text-primary-container tracking-widest uppercase"><span
-                  data-i18n="home-hero-intro-tag">[ 01 / GİRİŞ ]</span></span>
-              <div class="h-px w-16 bg-primary-container/40"></div>
-              <span
-                class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase tracking-widest"><span
-                  data-i18n="home-hero-role">YAZILIM GELİŞTİRİCİ &amp; SİSTEM MİMARI</span></span>
-            </div>
-            <h1 class="font-headline-hero text-headline-hero tracking-tighter uppercase text-on-surface select-none">
-              <span class="block hover:text-primary transition-colors duration-500 pointer-events-auto">SINAN</span>
-              <span
-                class="block text-outline/20 hover:text-outline/70 transition-colors duration-500 pointer-events-auto -mt-space-lg md:-mt-space-2xl">KESKIN</span>
-            </h1>
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mt-space-xl pointer-events-auto">
-              <div class="lg:col-span-6 flex flex-col justify-end">
-                <p class="font-body-xl text-body-xl text-on-surface-variant max-w-xl leading-relaxed"
-                  data-i18n="home-hero-subtitle">Yüksek eşzamanlı sistemler, otomasyon altyapıları, dayanıklı API'ler ve
-                  modern web mimarileri üzerinde; performans odaklı araçlar ve dijital deneyimler geliştiriyorum.</p>
-              </div>
-              <div class="lg:col-span-6 flex flex-col justify-end items-start lg:items-end gap-space-xs">
-                <div class="font-label-telemetry text-label-telemetry text-outline/60 uppercase"><span
-                    data-i18n="home-hero-stack-label">ÇEKİRDEK TEKNOLOJİ YIĞINI</span></div>
-                <div
-                  class="font-label-md text-label-md text-primary tracking-wider uppercase bg-surface-container-high/60 backdrop-blur-md px-space-sm py-space-2xs rounded"
-                  data-i18n="home-hero-stack-items">NODE // PYTHON // DOCKER // DAĞITIK MOTORLAR</div>
-              </div>
-            </div>
+
+        <!-- Language Distribution Bar -->
+        <div class="mb-10 p-6 rounded-2xl bg-surface-card/60 border border-white/10 backdrop-blur-xl">
+          <div class="flex items-center justify-between mb-3 text-xs font-mono text-gray-300">
+            <span class="uppercase tracking-wider font-semibold text-primary">Teknoloji &amp; Dil Dağılımı (Canlı)</span>
+            <span id="repo-count-badge" class="text-gray-400">Yükleniyor...</span>
+          </div>
+          <div class="w-full h-3 rounded-full overflow-hidden flex bg-white/5" id="languages-bar">
+            <!-- Dynamic segments inserted via JS -->
+            <div class="h-full bg-primary animate-pulse w-full"></div>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 mt-3 text-xs font-mono" id="languages-legend">
+            <!-- Dynamic language dots inserted via JS -->
           </div>
         </div>
-        <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-space-md z-10 pt-space-lg">
-          <div class="flex items-center gap-space-sm group cursor-pointer" id="scroll-prompt">
-            <div
-              class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-on-primary-container transition-all">
-              <span class="material-symbols-outlined text-[16px] animate-bounce">south</span>
-            </div>
-            <div class="flex flex-col">
-              <span
-                class="font-label-telemetry text-label-telemetry text-primary-container tracking-widest uppercase"><span
-                  data-i18n="home-hero-scroll">MİMARİYİ KEŞFETMEK İÇİN KAYDIRIN</span></span>
-              <span class="font-label-telemetry text-label-telemetry text-on-surface-variant"><span
-                  data-i18n="home-manifesto-stage">AŞAMA 02 // SİSTEM YENİDEN YAPILANDIRMASI</span></span>
-            </div>
-          </div>
-          <div class="hidden lg:flex items-center gap-space-2xl font-label-telemetry text-label-telemetry text-outline">
-            <div data-i18n="home-manifesto-fps">[ FPS: 60.00 ]</div>
-            <div data-i18n="home-manifesto-latency">[ GECİKME: 12ms ]</div>
-            <div data-i18n="home-manifesto-threads">[ İŞ PARÇACIĞI: ÇOK ÇEKİRDEK ]</div>
-          </div>
+
+        <!-- Live Repositories Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="github-repos-grid">
+          <!-- Skeleton Loader Cards (Replaced dynamically by JS) -->
+          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
+          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
+          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
         </div>
-      </section>
-      <!-- SECTION 2: ABOUT (STATE 02: UNDERSTANDING) -->
-      <section
-        class="relative z-10 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-4xl mt-space-4xl">
-        <div class="max-w-7xl mx-auto flex flex-col">
-          <div class="flex items-center justify-between gap-space-md mb-space-3xl">
-            <div class="flex items-center gap-space-xs">
-              <span class="font-label-md text-label-md text-primary tracking-widest"><span
-                  data-i18n="home-manifesto-tag">[ 02 / MÜHENDİSLİK DİSİPLİNİ ]</span></span>
-              <span class="text-outline/40">/</span>
-              <span class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase"><span
-                  data-i18n="home-manifesto-subhead">YAZILIM MİMARİSİ VE YAKLAŞIM</span></span>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 5: HAKKIMDA & TEKNOLOJİ YETKİNLİKLERİ
+         ======================================================================= -->
+    <section id="hakkimda" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left Bio Card -->
+          <div class="lg:col-span-5 flex flex-col">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-xs uppercase tracking-widest mb-4 w-fit">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              <span>Yazılım Mimarı &amp; Ajans Kurucusu</span>
             </div>
-            <div class="font-label-telemetry text-label-telemetry text-outline/60 hidden sm:block">0x416C676F726974686D
-            </div>
-          </div>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-2xl">
-            <div class="lg:col-span-8 flex flex-col">
-              <h2
-                class="font-headline-xl text-headline-xl tracking-tight uppercase text-on-surface mb-space-xl leading-none"
-                data-i18n="home-manifesto-title">NASIL ÇALIŞTIKLARINI DERİNDEN ANLAMAK İÇİN ÜRETİYORUM.</h2>
-              <div class="space-y-space-lg text-on-surface-variant font-body-xl text-body-xl max-w-3xl">
-                <p data-i18n="home-manifesto-p1">Karmaşık yazılım katmanlarının altında yatan derin mekanizmaları
-                  keşfetmeye odaklanan bir mühendisim. Çatıları (framework) kapalı kutular olarak görmek yerine;
-                  protokolleri inceler, bellek optimizasyonlu servisler inşa eder ve temel prensiplerden hareketle
-                  yüksek verimli otomasyon hatları kurarım.</p>
-                <p class="text-on-surface font-body-lg text-body-lg" data-i18n="home-manifesto-p2">Mühendislik
-                  disiplinim; deterministik arka yüz araçlarından asenkron olay döngülerine, otonom yapay zeka
-                  entegrasyonlarından konteyner tabanlı bulut altyapılarına ve düşük gecikmeli dijital arayüzlere kadar
-                  geniş bir yelpazeyi kapsar.</p>
-              </div>
-            </div>
-            <div class="lg:col-span-4 flex flex-col justify-between gap-space-xl">
-              <div
-                class="bg-surface-container/70 backdrop-blur-xl p-space-xl rounded-xl shadow-xl flex flex-col gap-space-lg">
-                <div class="flex items-center justify-between">
-                  <span class="font-label-telemetry text-label-telemetry text-outline uppercase tracking-widest"><span
-                      data-i18n="home-manifesto-telemetry-hdr">METRİK TELEMETRİSİ</span></span>
-                  <span class="material-symbols-outlined text-primary-container text-[18px]">query_stats</span>
-                </div>
-                <div class="flex flex-col gap-space-md">
-                  <div class="flex flex-col bg-surface-container-high/50 p-space-md rounded-lg">
-                    <span class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight">400+</span>
-                    <span
-                      class="font-label-telemetry text-label-telemetry text-on-surface-variant tracking-wider uppercase"><span
-                        data-i18n="home-manifesto-stat1">DOĞRULANMIŞ ÜRETİM COMMİTLERİ</span></span>
-                  </div>
-                  <div class="flex flex-col bg-surface-container-high/50 p-space-md rounded-lg">
-                    <span class="font-headline-lg text-headline-lg font-bold text-secondary tracking-tight">100%</span>
-                    <span
-                      class="font-label-telemetry text-label-telemetry text-on-surface-variant tracking-wider uppercase"><span
-                        data-i18n="home-manifesto-stat2">OTONOM &amp; SÜREKLİ GELİŞİM</span></span>
-                  </div>
-                  <div class="flex flex-col bg-surface-container-high/50 p-space-md rounded-lg">
-                    <div class="flex items-center gap-space-2xs">
-                      <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                      <span class="font-label-md text-label-md text-on-surface font-semibold uppercase"><span
-                          data-i18n="home-manifesto-stat3">TEMİZ VE SAĞLAM MİMARİ</span></span>
-                    </div>
-                    <span
-                      class="font-label-telemetry text-label-telemetry text-outline tracking-wider uppercase mt-space-2xs"><span
-                        data-i18n="home-manifesto-stat4">GEREKSİZ SOYUTLAMALARDAN ARINMIŞ KOD</span></span>
-                  </div>
-                </div>
-                <div
-                  class="p-space-sm bg-surface-container-lowest/80 rounded font-label-telemetry text-label-telemetry text-outline-variant flex items-center justify-between">
-                  <span><span data-i18n="home-manifesto-uptime">ÇALIŞMA ORANI: %99.98</span></span>
-                  <span class="text-primary-container"><span data-i18n="home-manifesto-status-nominal">SİSTEM DURUMU:
-                      NORMAL</span></span>
-                </div>
-              </div>
-              <div
-                class="p-space-lg rounded-xl bg-surface-container-lowest/60 backdrop-blur-md flex flex-col gap-space-xs">
-                <span class="font-label-telemetry text-label-telemetry text-primary-container uppercase"><span
-                    data-i18n="home-manifesto-quote-title">TEMEL FELSEFE</span></span>
-                <p class="font-label-md text-label-md text-on-surface italic" data-i18n="home-manifesto-quote-text">
-                  "Bilgisayarlar sihirli kutular değildir; kum ve elektrikten oluşan hassas saat mekanizmalarıdır.
-                  Bozulabilen her şey anlaşılabilir, çözülebilir ve daha güçlü biçimde yeniden inşa edilebilir."</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- SECTION 3: <span data-i18n="home-tech-title">TEKNOLOJİ EKOSİSTEMİ</span> (STATE 03: CONSTELLATION) -->
-      <section
-        class="relative z-10 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-4xl mt-space-4xl overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-3xl">
-            <div class="flex flex-col">
-              <div class="flex items-center gap-space-xs mb-space-xs">
-                <span class="font-label-md text-label-md text-primary tracking-widest"><span
-                    data-i18n="home-tech-stage">[ 03 / TEKNOLOJİ AĞI ]</span></span>
-                <span class="text-outline/40">/</span>
-                <span class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase"><span
-                    data-i18n="home-tech-synapse">BAĞLANTI DÜĞÜMLERİ</span></span>
-              </div>
-              <h2 class="font-headline-xl text-headline-xl tracking-tight uppercase text-on-surface">
-                <span data-i18n="home-tech-title">TEKNOLOJİ EKOSİSTEMİ</span>
-              </h2>
-            </div>
-            <p class="font-body-md text-body-md text-on-surface-variant max-w-sm" data-i18n="home-tech-subtitle">
-              Birbiriyle bağlantılı mantık katmanları, çalışma zamanları, veri tabanları ve modern görselleştirme
-              motorlarından oluşan dinamik topoloji.</p>
-          </div>
-          <!-- Dynamic Interactive Constellation Board -->
-          <div
-            class="relative w-full rounded-2xl bg-surface-container-lowest/80 backdrop-blur-2xl p-space-lg md:p-space-3xl shadow-2xl min-h-[580px] flex flex-col justify-between"
-            id="constellation-container">
-            <!-- SVG Synapse Lines -->
-            <svg class="absolute inset-0 w-full h-full pointer-events-none opacity-25"
-              xmlns="http://www.w3.org/2000/svg">
-              <line class="text-primary-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"
-                x1="20%" x2="45%" y1="30%" y2="25%"></line>
-              <line class="text-primary-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"
-                x1="45%" x2="75%" y1="25%" y2="35%"></line>
-              <line class="text-primary-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"
-                x1="45%" x2="50%" y1="25%" y2="65%"></line>
-              <line class="text-primary-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"
-                x1="20%" x2="50%" y1="75%" y2="65%"></line>
-              <line class="text-primary-container" stroke="currentColor" stroke-dasharray="4 4" stroke-width="1"
-                x1="50%" x2="80%" y1="65%" y2="75%"></line>
-              <circle class="text-primary-container" cx="45%" cy="25%" fill="currentColor" r="3"></circle>
-              <circle class="text-primary" cx="50%" cy="65%" fill="currentColor" r="3"></circle>
-            </svg>
-            <!-- Top Cluster HUD Bar -->
-            <div class="relative z-10 flex flex-wrap items-center justify-between gap-space-sm pb-space-lg">
-              <div class="flex items-center gap-space-md">
-                <span class="font-label-telemetry text-label-telemetry text-primary-container"><span
-                    data-i18n="home-tech-network-status">DÜĞÜM AĞI: AKTİF</span></span>
-                <span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
-                <span class="font-label-telemetry text-label-telemetry text-outline"><span
-                    data-i18n="home-tech-active-weight">AKTİF YIĞIN: 16 TEMEL TEKNOLOJİ</span></span>
-              </div>
-              <div class="font-label-md text-label-md text-primary font-semibold tracking-wider uppercase"
-                id="node-inspector-title" data-i18n="home-tech-proto-desc-hdr">[ DETAYLARI İNCELEMEK İÇİN BİR DÜĞÜME
-                DOKUNUN VEYA ÜZERİNE GELİN ]</div>
-            </div>
-            <!-- Node Grids arranged organically in quadrants -->
-            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl my-space-lg">
-              <!-- CLUSTER 1: BACKEND & LOGIC -->
-              <div class="flex flex-col gap-space-md">
-                <div class="flex items-center gap-space-xs">
-                  <span class="w-1 h-3 bg-primary-container rounded"></span>
-                  <span
-                    class="font-label-telemetry text-label-telemetry text-on-surface font-semibold tracking-wider uppercase"><span
-                      data-i18n="home-tech-cat-backend">BACKEND &amp; İŞ MANTIĞI</span></span>
-                </div>
-                <div class="flex flex-wrap gap-space-xs">
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Automated scripts, algorithmic workflows, backend ingestion engines, and neural wrappers."
-                    data-tech="PYTHON" type="button">
-                    PYTHON
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Event-driven asynchronous services, high-throughput microservices, and socket controllers."
-                    data-tech="NODE.JS" type="button">
-                    NODE.JS
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Strict typing structures, concurrent data architectures, and algorithmic modeling."
-                    data-tech="JAVA" type="button">
-                    JAVA
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Minimalist HTTP routing layers and JSON API payloads." data-tech="EXPRESS" type="button">
-                    EXPRESS
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Automated environment bootstrapping, cron execution, and server orchestration."
-                    data-tech="BASH" type="button">
-                    BASH / SHELL
-                  </button>
-                </div>
-              </div>
-              <!-- CLUSTER 2: SYSTEMS & STORAGE -->
-              <div class="flex flex-col gap-space-md">
-                <div class="flex items-center gap-space-xs">
-                  <span class="w-1 h-3 bg-secondary rounded"></span>
-                  <span
-                    class="font-label-telemetry text-label-telemetry text-on-surface font-semibold tracking-wider uppercase"><span
-                      data-i18n="home-tech-cat-systems">SİSTEMLER &amp; VERİTABANI</span></span>
-                </div>
-                <div class="flex flex-wrap gap-space-xs">
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Containerized micro-architectures, idempotent deploy chains, and reproducible runtime environments."
-                    data-tech="DOCKER" type="button">
-                    DOCKER
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Relational integrity, ACID compliance, optimized indexing, and JSONB document hybrid schemas."
-                    data-tech="POSTGRESQL" type="button">
-                    POSTGRESQL
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Kernel space tuning, SSH tunnels, permission hierarchies, and headless VPS daemon monitoring."
-                    data-tech="LINUX" type="button">
-                    LINUX
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Atomic revisions, trunk-based releases, rebase workflows, and repository governance."
-                    data-tech="GIT" type="button">
-                    GIT // VCS
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Clean OpenAPI 3.0 contracts, rate limiting, tokenized auth, and webhooks."
-                    data-tech="REST APIS" type="button">
-                    REST / WEBSOCKETS
-                  </button>
-                </div>
-              </div>
-              <!-- CLUSTER 3: MODERN INTERFACES -->
-              <div class="flex flex-col gap-space-md">
-                <div class="flex items-center gap-space-xs">
-                  <span class="w-1 h-3 bg-tertiary-fixed-dim rounded"></span>
-                  <span
-                    class="font-label-telemetry text-label-telemetry text-on-surface font-semibold tracking-wider uppercase"><span
-                      data-i18n="home-tech-cat-interfaces">MODERN ARAYÜZLER</span></span>
-                </div>
-                <div class="flex flex-wrap gap-space-xs">
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="State machines, reactive lifecycles, functional components, and modular interface primitives."
-                    data-tech="REACT" type="button">
-                    REACT
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Static type verification, zero-runtime bugs, interfaces, and expressive contract guarantees."
-                    data-tech="TYPESCRIPT" type="button">
-                    TYPESCRIPT
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Design token enforcement, sub-atomic styling primitives, and responsive layout fidelity."
-                    data-tech="TAILWINDCSS" type="button">
-                    TAILWIND CSS
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="GPU fragment shaders, vertex manipulations, camera matrices, and generative organism rendering."
-                    data-tech="WEBGL / THREE.JS" type="button">
-                    WEBGL / 3D
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Rapid telemetry dashboards, model evaluation canvases, and automated analytical monitors."
-                    data-tech="STREAMLIT" type="button">
-                    STREAMLIT
-                  </button>
-                </div>
-              </div>
-              <!-- CLUSTER 4: INTELLIGENCE & AUTOMATION -->
-              <div class="flex flex-col gap-space-md">
-                <div class="flex items-center gap-space-xs">
-                  <span class="w-1 h-3 bg-primary rounded"></span>
-                  <span
-                    class="font-label-telemetry text-label-telemetry text-on-surface font-semibold tracking-wider uppercase"><span
-                      data-i18n="home-tech-cat-intelligence">YAPAY ZEKA &amp; OTOMASYON</span></span>
-                </div>
-                <div class="flex flex-wrap gap-space-xs">
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Embeddings, structured JSON outputs, semantic vector synthesis, and inference routing."
-                    data-tech="OPENAI API" type="button">
-                    OPENAI API
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="Tool-calling loops, multi-agent goal resolution, autonomous task supervisors, and state recovery."
-                    data-tech="AGENTS" type="button">
-                    AUTONOMOUS AGENTS
-                  </button>
-                  <button
-                    class="tech-node px-space-md py-space-xs rounded bg-surface-container hover:bg-primary-container hover:text-on-primary-container font-label-md text-label-md transition-all text-left"
-                    data-desc="ETL batch scripts, continuous data transformations, CSV/JSON scrapers, and sanitizers."
-                    data-tech="DATA PIPELINES" type="button">
-                    DATA PIPELINES
-                  </button>
-                </div>
-              </div>
-            </div>
-            <!-- Live Node Narrative HUD output panel -->
-            <div
-              class="relative z-10 mt-space-lg bg-surface-container-high/60 backdrop-blur-md p-space-md rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
-              <div class="flex items-center gap-space-sm">
-                <span class="material-symbols-outlined text-primary-container text-[20px]">radar</span>
+            <h2 class="font-headline font-bold text-3xl sm:text-4xl text-white tracking-tight mb-6">
+              "Bilgisayarlar sihirli kutular değil; kum ve elektrikten oluşan hassas saat mekanizmalarıdır."
+            </h2>
+            <p class="text-sm sm:text-base text-gray-300 leading-relaxed mb-6">
+              Karmaşık yazılım katmanlarının altında yatan derin mekanizmaları keşfetmeye ve bunları işletmeler için karlı, prestijli ve güvenilir sistemlere dönüştürmeye odaklanan bir yazılım mimarıyım.
+            </p>
+            <p class="text-sm sm:text-base text-gray-300 leading-relaxed mb-8">
+              Kocaeli, Türkiye merkezli olarak; Türkiye ve globaldeki kurumsal markalara <strong class="text-white">scrollytelling web vitrinleri</strong>, <strong class="text-white">özel müşteri portalları</strong> ve <strong class="text-white">yapay zeka otomasyonları</strong> üretiyorum.
+            </p>
+
+            <div class="p-4 rounded-xl bg-surface-card/80 border border-white/10 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-[24px]">location_on</span>
                 <div class="flex flex-col">
-                  <span class="font-label-telemetry text-label-telemetry text-outline uppercase tracking-wider"><span
-                      data-i18n="home-tech-proto-desc-hdr" id="node-inspector-title">SEÇİLEN TEKNOLOJİ
-                      ÖZETİ</span></span>
-                  <span class="font-body-md text-body-md text-on-surface" id="node-inspector-desc"><span
-                      data-i18n="home-tech-default-desc" id="node-inspector-desc">Aktif yazılım yığınındaki kullanım
-                      alanını ve mimari rolünü görüntülemek için yukarıdaki teknolojilerden birinin üzerine gelin veya
-                      dokunun.</span></span>
+                  <span class="text-xs font-bold text-white uppercase tracking-wider">Konum &amp; Koordinat</span>
+                  <span class="font-mono text-xs text-gray-400">Kocaeli, Türkiye (40°47'N 29°22'E)</span>
                 </div>
               </div>
-              <div
-                class="flex items-center gap-space-xs font-label-telemetry text-label-telemetry text-primary-container whitespace-nowrap">
-                <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                <span><span data-i18n="home-tech-status-active">DURUM: PROJELERDE AKTİF</span></span>
-              </div>
+              <a href="https://maps.app.goo.gl/UR2mtEtMEnvP8igw5" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-primary hover:underline">
+                Harita ↗
+              </a>
             </div>
           </div>
+
+          <!-- Right Tech Stack Grid -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="p-6 rounded-2xl bg-surface-card/70 border border-white/10 hover:border-primary/30 transition-all backdrop-blur-xl">
+              <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-4">
+                <span class="material-symbols-outlined text-[22px]">devices</span>
+              </div>
+              <h4 class="font-headline font-bold text-lg text-white mb-2">Modern Frontend &amp; Scrollytelling</h4>
+              <p class="text-xs text-gray-400 mb-4">60 FPS canvas akışları, mikro etkileşimler ve semantik erişilebilirlik.</p>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-primary notranslate">
+                <span class="px-2 py-1 rounded bg-white/5">GSAP ScrollTrigger</span>
+                <span class="px-2 py-1 rounded bg-white/5">HTML5 Canvas</span>
+                <span class="px-2 py-1 rounded bg-white/5">Tailwind CSS</span>
+                <span class="px-2 py-1 rounded bg-white/5">TypeScript</span>
+                <span class="px-2 py-1 rounded bg-white/5">Three.js</span>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-surface-card/70 border border-white/10 hover:border-accent/30 transition-all backdrop-blur-xl">
+              <div class="w-10 h-10 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent mb-4">
+                <span class="material-symbols-outlined text-[22px]">dns</span>
+              </div>
+              <h4 class="font-headline font-bold text-lg text-white mb-2">Backend &amp; API Mimarisi</h4>
+              <p class="text-xs text-gray-400 mb-4">Yüksek eşzamanlılık, deterministik veri akışı ve güvenli oturum yönetimi.</p>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-accent notranslate">
+                <span class="px-2 py-1 rounded bg-white/5">Node.js</span>
+                <span class="px-2 py-1 rounded bg-white/5">Express</span>
+                <span class="px-2 py-1 rounded bg-white/5">Zod Validation</span>
+                <span class="px-2 py-1 rounded bg-white/5">PostgreSQL</span>
+                <span class="px-2 py-1 rounded bg-white/5">REST / WebSockets</span>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-surface-card/70 border border-white/10 hover:border-emerald/30 transition-all backdrop-blur-xl">
+              <div class="w-10 h-10 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center text-emerald mb-4">
+                <span class="material-symbols-outlined text-[22px]">smart_toy</span>
+              </div>
+              <h4 class="font-headline font-bold text-lg text-white mb-2">Yapay Zeka &amp; Otomasyon</h4>
+              <p class="text-xs text-gray-400 mb-4">LLM API entegrasyonları, Telegram botları ve veri boru hatları.</p>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-emerald notranslate">
+                <span class="px-2 py-1 rounded bg-white/5">Gemini API</span>
+                <span class="px-2 py-1 rounded bg-white/5">OpenAI</span>
+                <span class="px-2 py-1 rounded bg-white/5">Python</span>
+                <span class="px-2 py-1 rounded bg-white/5">Streamlit</span>
+                <span class="px-2 py-1 rounded bg-white/5">Telegram Bot API</span>
+              </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-surface-card/70 border border-white/10 hover:border-cyan-400/30 transition-all backdrop-blur-xl">
+              <div class="w-10 h-10 rounded-xl bg-cyan-400/10 border border-cyan-400/20 flex items-center justify-center text-cyan-400 mb-4">
+                <span class="material-symbols-outlined text-[22px]">terminal</span>
+              </div>
+              <h4 class="font-headline font-bold text-lg text-white mb-2">Sistem &amp; Altyapı</h4>
+              <p class="text-xs text-gray-400 mb-4">Kesintisiz 7/24 çalışma, POSIX standartları ve CI/CD süreçleri.</p>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-cyan-400 notranslate">
+                <span class="px-2 py-1 rounded bg-white/5">Linux / POSIX</span>
+                <span class="px-2 py-1 rounded bg-white/5">Bash Daemons</span>
+                <span class="px-2 py-1 rounded bg-white/5">Docker</span>
+                <span class="px-2 py-1 rounded bg-white/5">Git Actions CI/CD</span>
+                <span class="px-2 py-1 rounded bg-white/5">C++20</span>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-      </section>
-      <!-- SECTION 4: GITHUB ACTIVITY (STATE 05: <span data-i18n="home-lab-title">GELİŞTİRME TELEMETRİSİ</span>) -->
-      <section
-        class="relative z-10 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-4xl mt-space-4xl">
-        <div class="max-w-7xl mx-auto flex flex-col">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-2xl">
-            <div class="flex flex-col">
-              <div class="flex items-center gap-space-xs mb-space-xs">
-                <span class="font-label-md text-label-md text-primary tracking-widest"><span
-                    data-i18n="home-lab-stage">[ 04 / VERİ MANZARASI ]</span></span>
-                <span class="text-outline/40">/</span>
-                <span class="font-label-telemetry text-label-telemetry text-on-surface-variant uppercase"><span
-                    data-i18n="home-lab-tag">KOD VE GELİŞTİRME AKTİVİTESİ</span></span>
-              </div>
-              <h2 class="font-headline-xl text-headline-xl tracking-tight uppercase text-on-surface">
-                <span data-i18n="home-lab-title">GELİŞTİRME TELEMETRİSİ</span>
-              </h2>
-            </div>
-            <div class="flex items-center gap-space-sm bg-surface-container px-space-md py-space-xs rounded-lg">
-              <span class="material-symbols-outlined text-primary text-[18px]">terminal</span>
-              <span class="font-label-md text-label-md text-on-surface tracking-wider">github.com/sinan-keskin</span>
-            </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 6: HIZLI TEKLİF & İLETİŞİM ALANI
+         ======================================================================= -->
+    <section id="teklif" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+      <div class="max-w-6xl mx-auto" id="iletisim">
+        
+        <!-- Section Title -->
+        <div class="flex flex-col items-center text-center mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-xs uppercase tracking-widest mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            <span>İletişim &amp; Teklif Talebi</span>
           </div>
-          <!-- GitHub Architecture Bento Grid -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
-            <!-- Left 8-col: Native Contribution Matrix & Language Distribution -->
-            <div class="lg:col-span-8 flex flex-col gap-space-lg">
-              <!-- Matrix Panel -->
-              <div
-                class="bg-surface-container/70 backdrop-blur-xl p-space-xl rounded-xl shadow-xl flex flex-col gap-space-lg">
-                <div class="flex flex-wrap items-center justify-between gap-space-sm">
-                  <div class="flex items-center gap-space-xs">
-                    <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                    <span class="font-label-md text-label-md text-on-surface uppercase tracking-wider"><span
-                        data-i18n="home-lab-matrix-hdr">YILLIK KATKI VE AKTİVİTE MATRİSİ</span></span>
-                  </div>
-                  <span class="font-label-telemetry text-label-telemetry text-outline"><span
-                      data-i18n="home-lab-contrib-count">487 KATKI // SON 365 GÜN</span></span>
+          <h2 class="font-headline font-bold text-3xl sm:text-5xl text-white tracking-tight mb-4">
+            Birlikte Sıra Dışı Bir Sistem <span class="text-primary">İnşa Edelim</span>
+          </h2>
+          <p class="font-sans text-gray-400 max-w-xl text-sm sm:text-base">
+            Projenizi, hedeflerinizi ve bütçenizi iletin; 24 saat içinde detaylı teknik yol haritası ve teklifle dönüş yapalım.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <!-- Left Column: Fast Relays (Telegram, Email, Location) -->
+          <div class="lg:col-span-5 flex flex-col gap-4">
+            
+            <!-- Telegram Fast Relay -->
+            <a href="https://t.me/sinankeeeee" target="_blank" rel="noopener noreferrer" class="p-6 rounded-2xl bg-surface-card/90 border border-primary/30 hover:border-primary shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 group flex items-start justify-between">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-primary/15 border border-primary/30 flex items-center justify-center text-primary shrink-0">
+                  <span class="material-symbols-outlined text-[26px]">send</span>
                 </div>
-                <!-- Heatmap Visualization Grid -->
-                <div class="w-full overflow-x-auto pb-space-xs">
-                  <div class="grid grid-flow-col grid-rows-7 gap-1 min-w-[640px]">
-                    <!-- Generated mock blocks representing deterministic contribution levels -->
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/70"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/20"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/50"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/60"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/70"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/60"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/90"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/50"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/70"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/50"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/20"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/60"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/20"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/70"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/90"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/90"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/70"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/20"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/60"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/90"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/50"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/30"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/60"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/40"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container"></div>
-                    <div class="w-3 h-3 rounded-xs bg-primary-container/80"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
-                    <div class="w-3 h-3 rounded-xs bg-surface-container-high"></div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-2">
+                    <span class="font-mono text-xs uppercase tracking-wider text-primary font-semibold">Doğrudan İletişim</span>
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse"></span>
                   </div>
-                </div>
-                <!-- Matrix Telemetry Legend -->
-                <div
-                  class="flex items-center justify-between font-label-telemetry text-label-telemetry text-outline-variant pt-space-xs">
-                  <span><span data-i18n="home-lab-less">AZ</span></span>
-                  <div class="flex items-center gap-1">
-                    <span class="w-2.5 h-2.5 rounded-xs bg-surface-container-high"></span>
-                    <span class="w-2.5 h-2.5 rounded-xs bg-primary-container/30"></span>
-                    <span class="w-2.5 h-2.5 rounded-xs bg-primary-container/60"></span>
-                    <span class="w-2.5 h-2.5 rounded-xs bg-primary-container"></span>
-                  </div>
-                  <span><span data-i18n="home-lab-more">ÇOK</span></span>
+                  <span class="font-headline font-bold text-xl text-white mt-1 notranslate">@sinankeeeee</span>
+                  <span class="text-xs text-gray-400 mt-1">Telegram ile mesaj gönderin • Yanıt &lt; 2 saat</span>
                 </div>
               </div>
-              <!-- Language Distribution Bar -->
-              <div
-                class="bg-surface-container/70 backdrop-blur-xl p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md">
-                <div class="flex items-center justify-between">
-                  <span class="font-label-md text-label-md text-on-surface uppercase tracking-wider"><span
-                      data-i18n="home-lab-volumetrics-hdr">KOD TABANI DİL DAĞILIMI</span></span>
-                  <span class="font-label-telemetry text-label-telemetry text-outline"><span
-                      data-i18n="home-lab-loc-label">KOD SATIRI HACMİNE GÖRE</span></span>
+              <span class="material-symbols-outlined text-gray-400 group-hover:text-primary transition-colors text-[20px]">north_east</span>
+            </a>
+
+            <!-- Email Fast Relay -->
+            <div class="p-6 rounded-2xl bg-surface-card/90 border border-white/10 hover:border-accent/40 shadow-xl backdrop-blur-xl transition-all duration-300 flex items-start justify-between">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent shrink-0">
+                  <span class="material-symbols-outlined text-[26px]">mail</span>
                 </div>
-                <!-- Distribution Progress Bar -->
-                <div class="w-full h-3 rounded-full bg-surface-container-lowest overflow-hidden flex">
-                  <div class="h-full bg-primary-container" style="width: 44%;" title="Python 44%"></div>
-                  <div class="h-full bg-secondary" style="width: 28%;" title="TypeScript 28%"></div>
-                  <div class="h-full bg-tertiary-fixed" style="width: 14%;" title="JavaScript / Node 14%"></div>
-                  <div class="h-full bg-primary" style="width: 8%;" title="Shell / Docker 8%"></div>
-                  <div class="h-full bg-outline" style="width: 6%;" title="Other 6%"></div>
-                </div>
-                <!-- Distribution Legend -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm pt-space-2xs">
-                  <div class="flex items-center gap-space-xs">
-                    <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                    <span class="font-label-telemetry text-label-telemetry text-on-surface">PYTHON (44%)</span>
-                  </div>
-                  <div class="flex items-center gap-space-xs">
-                    <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                    <span class="font-label-telemetry text-label-telemetry text-on-surface">TYPESCRIPT (28%)</span>
-                  </div>
-                  <div class="flex items-center gap-space-xs">
-                    <span class="w-2 h-2 rounded-full bg-tertiary-fixed"></span>
-                    <span class="font-label-telemetry text-label-telemetry text-on-surface">JAVASCRIPT (14%)</span>
-                  </div>
-                  <div class="flex items-center gap-space-xs">
-                    <span class="w-2 h-2 rounded-full bg-primary"></span>
-                    <span class="font-label-telemetry text-label-telemetry text-on-surface">DOCKER / SH (8%)</span>
-                  </div>
+                <div class="flex flex-col">
+                  <span class="font-mono text-xs uppercase tracking-wider text-accent font-semibold">Resmi E-Posta</span>
+                  <span class="font-headline font-bold text-lg text-white mt-1 notranslate select-all">info@sinankeskin.com.tr</span>
+                  <span class="text-xs text-gray-400 mt-1">Sözleşmeler ve kurumsal teklifler için birincil kanal</span>
                 </div>
               </div>
-            </div>
-            <!-- Right 4-col: Live Telemetry & Featured Repos -->
-            <div class="lg:col-span-4 flex flex-col justify-between gap-space-lg">
-              <!-- Live Telemetry Card -->
-              <div
-                class="bg-surface-container/70 backdrop-blur-xl p-space-xl rounded-xl shadow-xl flex flex-col gap-space-md">
-                <div class="flex items-center justify-between">
-                  <span class="font-label-telemetry text-label-telemetry text-outline uppercase tracking-wider"><span
-                      data-i18n="home-lab-feed-hdr">CANLI SİSTEM AKIŞI</span></span>
-                  <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-                </div>
-                <div class="space-y-space-sm">
-                  <div class="p-space-sm rounded bg-surface-container-high/60 flex flex-col gap-space-2xs">
-                    <div
-                      class="flex items-center justify-between font-label-telemetry text-label-telemetry text-primary-container">
-                      <span><span data-i18n="home-lab-pulse-title">SİSTEM NABZI</span></span>
-                      <span><span data-i18n="home-lab-synced">GÜNCEL</span></span>
-                    </div>
-                    <div class="font-label-md text-label-md text-on-surface font-semibold">Latest Commit: "feat: add
-                      vectorized similarity matrix"</div>
-                    <span class="font-label-telemetry text-label-telemetry text-outline"><span
-                        data-i18n="home-lab-commit-time">2 saat önce (main dalı)</span></span>
-                  </div>
-                  <div class="p-space-sm rounded bg-surface-container-high/60 flex flex-col gap-space-2xs">
-                    <div
-                      class="flex items-center justify-between font-label-telemetry text-label-telemetry text-secondary">
-                      <span><span data-i18n="home-lab-pipeline-agent">OTOMATİK CI/CD</span></span>
-                      <span><span data-i18n="home-lab-pipeline-status">BAŞARILI</span></span>
-                    </div>
-                    <div class="font-label-md text-label-md text-on-surface font-semibold"><span
-                        data-i18n="home-lab-pipeline-time">CI/CD Pipeline 44 saniyede tamamlandı</span></div>
-                    <span class="font-label-telemetry text-label-telemetry text-outline"><span
-                        data-i18n="home-lab-pipeline-tests">18 birim test başarıyla doğrulandı</span></span>
-                  </div>
-                </div>
-              </div>
-              <!-- Direct CTA Journey to Projects -->
-              <div
-                class="bg-surface-container-high p-space-xl rounded-xl shadow-xl flex flex-col justify-between gap-space-lg relative overflow-hidden group">
-                <div
-                  class="absolute -right-12 -bottom-12 w-40 h-40 bg-primary-container/10 rounded-full blur-3xl pointer-events-none group-hover:bg-primary-container/20 transition-all duration-500">
-                </div>
-                <div class="flex flex-col gap-space-xs relative z-10">
-                  <span
-                    class="font-label-telemetry text-label-telemetry text-primary-container uppercase tracking-widest"><span
-                      data-i18n="home-lab-bottom-tag">[ ESERLER VE PROJELER ]</span></span>
-                  <h3 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight"><span
-                      data-i18n="home-lab-bottom-title">YAŞAYAN KOD ARŞİVİ</span></h3>
-                  <p class="font-body-md text-body-md text-on-surface-variant" data-i18n="home-lab-bottom-desc">Canlıya
-                    alınmış otomasyon altyapılarını, yapay zeka iş akışlarını ve görsel hesaplama araçlarını keşfedin.
-                  </p>
-                </div>
-                <a class="relative z-10 inline-flex items-center justify-center gap-space-xs px-space-xl py-space-md rounded bg-primary-container text-on-primary-container font-headline-md text-[15px] font-bold uppercase tracking-wider hover:bg-secondary transition-all shadow-lg hover:shadow-[0_0_24px_rgba(56,225,255,0.4)]"
-                  data-path="projects" href="/projects">
-                  <span><span data-i18n="home-lab-bottom-cta">PROJELERİ İNCELE</span></span>
-                  <span class="material-symbols-outlined text-[20px]">arrow_outward</span>
+              <div class="flex items-center gap-1.5">
+                <button type="button" onclick="copyEmailToClipboard(this)" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-colors" title="E-postayı Kopyala">
+                  <span class="material-symbols-outlined text-[18px]">content_copy</span>
+                </button>
+                <a href="mailto:info@sinankeskin.com.tr" class="p-2 rounded-lg bg-accent text-void font-bold hover:bg-blue-400 transition-colors" title="E-posta Gönder">
+                  <span class="material-symbols-outlined text-[18px]">north_east</span>
                 </a>
               </div>
             </div>
+
+            <!-- Location & Mini Map -->
+            <div class="p-6 rounded-2xl bg-surface-card/90 border border-white/10 shadow-xl backdrop-blur-xl">
+              <div class="flex items-center justify-between mb-3">
+                <span class="font-mono text-xs uppercase tracking-wider text-gray-300 font-semibold">Lokasyon &amp; Çalışma Alanı</span>
+                <span class="font-mono text-[10px] text-primary">Kocaeli, TR</span>
+              </div>
+              <div class="w-full h-36 rounded-xl overflow-hidden border border-white/10 relative">
+                <iframe
+                  title="Sinan Keskin Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.468249652579!2d29.368845!3d40.7882636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cadffbbd59ffe1%3A0x7f486649f402b0d4!2sSinan%20Keskin!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
+                  style="border:0; position:absolute; top:-40px; left:0; width:100%; height:calc(100% + 50px); filter: invert(90%) hue-rotate(180deg) contrast(1.1) brightness(0.9);"
+                  allowfullscreen=""
+                  loading="lazy">
+                </iframe>
+              </div>
+            </div>
+
           </div>
+
+          <!-- Right Column: Interactive Modern Quote Form -->
+          <div class="lg:col-span-7 p-8 rounded-3xl bg-surface-card/95 border border-white/10 shadow-2xl backdrop-blur-2xl relative" id="quote-form-card">
+            <h3 class="font-headline font-bold text-2xl text-white tracking-tight mb-2">Hızlı Teklif Formu</h3>
+            <p class="text-xs text-gray-400 mb-6">İhtiyaçlarınıza uygun seçenekleri işaretleyin, teklifinizi anında oluşturalım.</p>
+
+            <form id="quote-form" onsubmit="handleQuoteSubmit(event)" class="space-y-5">
+              
+              <!-- 1. Hizmet Seçimi (Pills) -->
+              <div>
+                <label class="block font-mono text-xs uppercase tracking-wider text-gray-300 mb-2">
+                  1 // İhtiyacınız Olan Hizmet Türü
+                </label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="service-options">
+                  <button type="button" onclick="selectFormService(this, 'Animasyonlu Kurumsal Web Sitesi')" class="service-pill py-2.5 px-3 rounded-xl border border-primary bg-primary/10 text-primary font-semibold text-xs text-left transition-all">
+                    ✓ Animasyonlu Web Sitesi
+                  </button>
+                  <button type="button" onclick="selectFormService(this, 'Özel Müşteri Portalı / CRM')" class="service-pill py-2.5 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-semibold text-xs text-left transition-all">
+                    Özel Müşteri Portalı / CRM
+                  </button>
+                  <button type="button" onclick="selectFormService(this, 'Yapay Zeka & İş Akışı Otomasyonu')" class="service-pill py-2.5 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-semibold text-xs text-left transition-all">
+                    Yapay Zeka &amp; Otomasyon
+                  </button>
+                  <button type="button" onclick="selectFormService(this, 'Özel Yazılım Mimarisi')" class="service-pill py-2.5 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-semibold text-xs text-left transition-all">
+                    Özel Yazılım Mimarisi
+                  </button>
+                </div>
+                <input type="hidden" id="selected-service-input" name="service" value="Animasyonlu Kurumsal Web Sitesi" />
+              </div>
+
+              <!-- 2. Bütçe Skalası (Pills) -->
+              <div>
+                <label class="block font-mono text-xs uppercase tracking-wider text-gray-300 mb-2">
+                  2 // Tahmini Bütçe Aralığınız
+                </label>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2" id="budget-options">
+                  <button type="button" onclick="selectFormBudget(this, '₺15.000 - ₺35.000')" class="budget-pill py-2 px-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 font-semibold text-xs text-center transition-all">
+                    ₺15k - ₺35k
+                  </button>
+                  <button type="button" onclick="selectFormBudget(this, '₺35.000 - ₺75.000')" class="budget-pill py-2 px-2.5 rounded-xl border border-accent bg-accent/15 text-accent font-semibold text-xs text-center transition-all">
+                    ✓ ₺35k - ₺75k
+                  </button>
+                  <button type="button" onclick="selectFormBudget(this, '₺75.000+')" class="budget-pill py-2 px-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 font-semibold text-xs text-center transition-all">
+                    ₺75k+
+                  </button>
+                  <button type="button" onclick="selectFormBudget(this, 'Görüşelim')" class="budget-pill py-2 px-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 font-semibold text-xs text-center transition-all">
+                    Görüşelim
+                  </button>
+                </div>
+                <input type="hidden" id="selected-budget-input" name="budget" value="₺35.000 - ₺75.000" />
+              </div>
+
+              <!-- 3. Ad Soyad & Kurum -->
+              <div>
+                <label for="caller-name" class="block font-mono text-xs uppercase tracking-wider text-gray-300 mb-1.5">
+                  3 // Adınız &amp; Şirket Adınız
+                </label>
+                <input type="text" id="caller-name" required placeholder="Örn: Sinan Keskin / Şirket A.Ş." class="w-full px-4 py-3 rounded-xl bg-void/80 border border-white/10 focus:border-primary focus:outline-none text-white text-sm placeholder-gray-500 transition-colors" />
+              </div>
+
+              <!-- 4. İletişim Bilgisi -->
+              <div>
+                <label for="caller-contact" class="block font-mono text-xs uppercase tracking-wider text-gray-300 mb-1.5">
+                  4 // İletişim Bilginiz (E-posta, Telefon veya Telegram)
+                </label>
+                <input type="text" id="caller-contact" required placeholder="Örn: iletisim@sirket.com veya @telegram_kullanici" class="w-full px-4 py-3 rounded-xl bg-void/80 border border-white/10 focus:border-primary focus:outline-none text-white text-sm placeholder-gray-500 transition-colors" />
+              </div>
+
+              <!-- 5. Proje Detayı -->
+              <div>
+                <label for="caller-message" class="block font-mono text-xs uppercase tracking-wider text-gray-300 mb-1.5">
+                  5 // Proje Detayları &amp; Beklentileriniz
+                </label>
+                <textarea id="caller-message" rows="4" required placeholder="Projenizin hedefleri, mevcut sisteminiz veya istediğiniz özellikler hakkında kısaca bilgi verin..." class="w-full px-4 py-3 rounded-xl bg-void/80 border border-white/10 focus:border-primary focus:outline-none text-white text-sm placeholder-gray-500 transition-colors resize-none"></textarea>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" id="quote-submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-primary to-accent text-void font-bold text-sm uppercase tracking-wider shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:scale-[1.01] transition-all flex items-center justify-center gap-2 cursor-pointer">
+                <span>Teklif Talebini İlet</span>
+                <span class="material-symbols-outlined text-[18px]">send</span>
+              </button>
+
+            </form>
+
+            <!-- Success / Action Modal -->
+            <div id="quote-success-modal" class="hidden absolute inset-0 rounded-3xl bg-surface-card/95 backdrop-blur-2xl p-8 flex flex-col items-center justify-center text-center z-20">
+              <div class="w-16 h-16 rounded-full bg-emerald/15 border border-emerald/30 flex items-center justify-center text-emerald mb-4">
+                <span class="material-symbols-outlined text-[36px]">check_circle</span>
+              </div>
+              <h4 class="font-headline font-bold text-2xl text-white mb-2">Talebiniz Başarıyla Hazırlandı!</h4>
+              <p class="text-sm text-gray-300 max-w-md mb-6" id="quote-summary-text">
+                Proje detaylarınız derlendi. En hızlı geri dönüş için doğrudan Telegram veya e-posta ile iletebilirsiniz:
+              </p>
+              <div class="flex flex-col sm:flex-row gap-3 w-full max-w-sm">
+                <a id="modal-telegram-btn" href="#" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-4 rounded-xl bg-primary text-void font-bold text-xs uppercase tracking-wider shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                  <span>Telegram İle Gönder</span>
+                  <span class="material-symbols-outlined text-[16px]">send</span>
+                </a>
+                <a id="modal-email-btn" href="#" class="flex-1 py-3 px-4 rounded-xl bg-accent text-void font-bold text-xs uppercase tracking-wider shadow-lg shadow-accent/20 flex items-center justify-center gap-2">
+                  <span>E-Posta İle Gönder</span>
+                  <span class="material-symbols-outlined text-[16px]">mail</span>
+                </a>
+              </div>
+              <button type="button" onclick="closeQuoteModal()" class="mt-6 text-xs text-gray-400 hover:text-white underline">
+                Yeni Bir Talep Oluştur
+              </button>
+            </div>
+
+          </div>
+
         </div>
-      </section>
-      <!-- Script for Interactive Constellation Nodes -->
-      <script>
-          (function () {
-            const nodes = document.querySelectorAll('.tech-node');
-            const titleEl = document.getElementById('node-inspector-title');
-            const descEl = document.getElementById('node-inspector-desc');
 
-            nodes.forEach(node => {
-              node.addEventListener('mouseenter', () => {
-                const tech = node.getAttribute('data-tech');
-                const desc = node.getAttribute('data-desc');
-                if (titleEl && descEl) {
-                  titleEl.textContent = `[ ACTIVE NODE // ${tech} ]`;
-                  descEl.textContent = `${tech}: ${desc}`;
-                }
-              });
+      </div>
+    </section>
 
-              node.addEventListener('click', () => {
-                const tech = node.getAttribute('data-tech');
-                const desc = node.getAttribute('data-desc');
-                if (titleEl && descEl) {
-                  titleEl.textContent = `[ PINNED NODE // ${tech} ]`;
-                  descEl.textContent = `${tech}: ${desc}`;
-                }
-              });
-            });
-
-            const scrollPrompt = document.getElementById('scroll-prompt');
-            if (scrollPrompt) {
-              scrollPrompt.addEventListener('click', () => {
-                window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' });
-              });
-            }
-          })();
-      </script>
-    </div>
   </main>
-  <footer
-    class="w-full bg-surface-container-lowest/80 backdrop-blur-xl py-space-xl relative z-10 shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
-    <div
-      class="w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md">
-      <div class="flex flex-wrap items-center gap-space-md"><span class="font-label-telemetry text-label-telemetry"><span data-i18n="footer-rights">© 2026 SİNAN KESKİN. TÜM HAKLARI SAKLIDIR.</span></span>
-        <div class="flex items-center gap-space-xs px-space-xs py-space-2xs rounded bg-surface-container-low"><span
-            class="w-1.5 h-1.5 rounded-full bg-primary-container"></span><span
-            class="font-label-telemetry text-label-telemetry text-primary"><span data-i18n="footer-sync">GITHUB SENKRON
-              // SH-2849F</span></span></div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="relative z-10 border-t border-white/10 bg-[#090a0f]/95 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Logo & Bio -->
+      <div class="flex items-center gap-3">
+        <img src="assets/img/logo.png" alt="Sinan Keskin Logo" class="w-8 h-8 rounded-lg object-contain" />
+        <span class="font-headline font-bold text-white tracking-tight notranslate">Sinan Keskin</span>
+        <span class="text-xs text-gray-500 font-mono">| Web &amp; Yazılım Ajansı</span>
       </div>
-      <div class="flex flex-wrap items-center gap-space-md font-label-telemetry text-label-telemetry">
-        <div class="flex items-center gap-space-md">
-          <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="home" href="/"><span data-i18n="footer-index">İNDEKS</span></a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="projects" href="/projects"><span data-i18n="footer-repo">DEPO</span></a>
-          <a class="text-on-surface-variant hover:text-primary transition-colors uppercase" data-path="contact" href="/contact"><span data-i18n="footer-transmit">İLETİŞİM</span></a>
-        </div>
-        <div class="flex items-center gap-space-xs">
-          <a class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-all uppercase text-[11px] font-mono tracking-wider flex items-center gap-1.5 shadow-sm" href="/privacy">
-            <span class="material-symbols-outlined text-[14px] text-primary-container">shield</span>
-            <span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span>
-          </a>
-          <a class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high border border-outline-variant/30 text-on-surface-variant hover:text-primary transition-all uppercase text-[11px] font-mono tracking-wider flex items-center gap-1.5 shadow-sm" href="/terms">
-            <span class="material-symbols-outlined text-[14px] text-primary-container">description</span>
-            <span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span>
-          </a>
-        </div>
+
+      <!-- Quick Nav -->
+      <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-gray-400">
+        <a href="#hizmetler" class="hover:text-primary transition-colors">Hizmetler</a>
+        <a href="#projeler" class="hover:text-primary transition-colors">Projeler</a>
+        <a href="#github" class="hover:text-primary transition-colors">GitHub</a>
+        <a href="#teklif" class="hover:text-primary transition-colors">Teklif Al</a>
+        <a href="privacy.html" class="hover:text-primary transition-colors">Gizlilik Politikası</a>
+        <a href="terms.html" class="hover:text-primary transition-colors">Kullanım Şartları</a>
       </div>
+
+      <!-- Copyright -->
+      <div class="text-xs font-mono text-gray-500">
+        &copy; 2026 <span class="notranslate text-gray-400">Sinan Keskin</span> • Tüm Hakları Saklıdır.
+      </div>
+
     </div>
   </footer>
-  <!-- Mobile Navigation Drawer -->
-  <div id="mobile-nav-backdrop"
-    class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden opacity-0 transition-opacity duration-300"></div>
-  <div id="mobile-nav-drawer"
-    class="fixed top-0 right-0 bottom-0 w-72 max-w-[85vw] bg-surface-container-lowest/95 border-l border-outline-variant/30 backdrop-blur-2xl z-50 p-6 flex flex-col justify-between translate-x-full mobile-nav-drawer">
-    <div class="flex flex-col gap-6">
-      <div class="flex items-center justify-between pb-4 border-b border-outline-variant/20">
-        <div class="flex items-center gap-2">
-          <img src="assets/img/logo.png" alt="Sinan Keskin Logo" class="w-8 h-8 rounded-lg object-contain shadow-md" />
-          <span class="font-mono text-xs font-semibold tracking-wider text-on-surface"><span
-              data-i18n="drawer-nav">NAVİGASYON</span></span>
-        </div>
-        <button id="mobile-menu-close" aria-label="Close menu"
-          class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-primary">
-          <span class="material-symbols-outlined text-[18px]">close</span>
-        </button>
-      </div>
-      <nav class="flex flex-col gap-2">
-        <a href="/"
-          class="px-4 py-3 rounded-lg font-mono text-sm tracking-wider uppercase transition-colors bg-primary-container text-on-primary-container font-bold"><span
-            data-i18n="drawer-home">01 // ANA SAYFA</span></a>
-        <a href="/projects"
-          class="px-4 py-3 rounded-lg font-mono text-sm tracking-wider uppercase transition-colors text-on-surface-variant hover:text-on-surface"><span
-            data-i18n="drawer-projects">02 // PROJELER</span></a>
-        <a href="/contact"
-          class="px-4 py-3 rounded-lg font-mono text-sm tracking-wider uppercase transition-colors text-on-surface-variant hover:text-on-surface"><span
-            data-i18n="drawer-contact">03 // İLETİŞİM</span></a>
-      </nav>
-    </div>
-    <div class="flex flex-col gap-3 pt-6 border-t border-outline-variant/20">
-      <div class="font-mono text-[10px] text-outline tracking-widest uppercase"><span data-i18n="drawer-channels">İLETİM
-          KANALLARI</span></div>
-      <div class="flex items-center gap-4 text-on-surface-variant">
-        <a href="https://github.com/sinan-keskin" target="_blank" rel="noopener noreferrer" target="_blank"
-          rel="noopener noreferrer" class="hover:text-primary transition-colors text-xs font-mono"><span
-            data-i18n="drawer-link-github">GITHUB</span></a>
-        <a href="https://t.me/sinankeeeee" target="_blank" rel="noopener noreferrer" target="_blank"
-          rel="noopener noreferrer" class="hover:text-primary transition-colors text-xs font-mono"><span
-            data-i18n="drawer-link-telegram">TELEGRAM</span></a>
-        <a href="mailto:info@sinankeskin.com.tr" class="hover:text-primary transition-colors text-xs font-mono"><span
-            data-i18n="drawer-link-email">E-POSTA</span></a>
-      </div>
-      <div class="flex items-center gap-2 pt-2 text-[10px] font-mono text-outline border-t border-outline-variant/10">
-        <a href="/privacy" class="hover:text-primary transition-colors"><span data-i18n="footer-privacy">GİZLİLİK POLİTİKASI</span></a>
-        <span>•</span>
-        <a href="/terms" class="hover:text-primary transition-colors"><span data-i18n="footer-terms">KULLANICI SÖZLEŞMESİ</span></a>
-      </div>
-      <div class="font-mono text-[9px] text-outline/60"><span data-i18n="drawer-sys-version">SİSTEM_AKTİF //
-          v2026.4</span></div>
-    </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-notify" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl bg-surface-card/95 border border-primary/40 text-primary font-mono text-xs tracking-wider shadow-2xl backdrop-blur-xl transition-all duration-300 translate-y-12 opacity-0 pointer-events-none">
+    Bildirim
   </div>
 
-</body>
+  <!-- =========================================================================
+       INTERACTIVE APPLICATION SCRIPTS:
+       1. GSAP Canvas Scrollytelling Engine
+       2. Dynamic GitHub Repos & Language Bar
+       3. Interactive Quote Form & Relay Handlers
+       ========================================================================= -->
+  <script>
+    // -------------------------------------------------------------------------
+    // 1. MOBILE MENU TOGGLE
+    // -------------------------------------------------------------------------
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+      });
+    }
 
+    // -------------------------------------------------------------------------
+    // 2. FULLSCREEN SCROLLYTELLING CANVAS ENGINE (GSAP ScrollTrigger)
+    // -------------------------------------------------------------------------
+    (function initScrollytelling() {
+      const canvas = document.getElementById('scrolly-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      const isMobile = window.innerWidth < 768;
+      const frameCount = isMobile ? 600 : 720;
+      const frameDir = isMobile ? 'assets/frames_mobile' : 'assets/frames';
+
+      const images = new Array(frameCount + 1);
+      const loadingSet = new Set();
+      let lastRenderedIndex = -1;
+
+      function getFrameSrc(index) {
+        return `${frameDir}/frame_${String(index).padStart(4, '0')}.webp`;
+      }
+
+      function drawCover(img) {
+        if (!img || !img.complete || img.naturalWidth === 0) return;
+        const cw = canvas.width;
+        const ch = canvas.height;
+        const iw = img.naturalWidth;
+        const ih = img.naturalHeight;
+
+        const scale = Math.max(cw / iw, ch / ih);
+        const nw = iw * scale;
+        const nh = ih * scale;
+        const nx = (cw - nw) / 2;
+        const ny = (ch - nh) / 2;
+
+        ctx.clearRect(0, 0, cw, ch);
+        ctx.drawImage(img, nx, ny, nw, nh);
+      }
+
+      function renderFrame(index) {
+        const safeIdx = Math.max(1, Math.min(frameCount, Math.round(index)));
+        const img = images[safeIdx];
+
+        if (img && img.complete && img.naturalWidth > 0) {
+          drawCover(img);
+          lastRenderedIndex = safeIdx;
+        } else {
+          // Preload this frame
+          loadFrame(safeIdx, () => {
+            if (lastRenderedIndex === -1 || Math.abs(safeIdx - lastRenderedIndex) <= 3) {
+              drawCover(images[safeIdx]);
+              lastRenderedIndex = safeIdx;
+            }
+          });
+          // Keep displaying the most recent valid frame without flicker
+          if (lastRenderedIndex > 0 && images[lastRenderedIndex]) {
+            drawCover(images[lastRenderedIndex]);
+          }
+        }
+
+        // Lookahead prefetching window: 8 frames ahead, 4 behind
+        const lookAhead = 8;
+        const lookBehind = 4;
+        for (let i = 1; i <= lookAhead; i++) {
+          if (safeIdx + i <= frameCount) loadFrame(safeIdx + i);
+        }
+        for (let j = 1; j <= lookBehind; j++) {
+          if (safeIdx - j >= 1) loadFrame(safeIdx - j);
+        }
+      }
+
+      function loadFrame(idx, onLoaded) {
+        if (images[idx] || loadingSet.has(idx)) {
+          if (images[idx] && images[idx].complete && onLoaded) onLoaded();
+          return;
+        }
+        loadingSet.add(idx);
+        const img = new Image();
+        img.src = getFrameSrc(idx);
+        img.onload = () => {
+          images[idx] = img;
+          loadingSet.delete(idx);
+          if (onLoaded) onLoaded();
+        };
+        img.onerror = () => {
+          loadingSet.delete(idx);
+        };
+      }
+
+      function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        if (lastRenderedIndex > 0 && images[lastRenderedIndex]) {
+          drawCover(images[lastRenderedIndex]);
+        }
+      }
+
+      window.addEventListener('resize', resize, { passive: true });
+      resize();
+
+      // Immediate preloader for initial 25 frames
+      for (let i = 1; i <= 25; i++) {
+        loadFrame(i, () => {
+          if (i === 1 && lastRenderedIndex === -1) {
+            drawCover(images[1]);
+            lastRenderedIndex = 1;
+          }
+        });
+      }
+
+      // GSAP ScrollTrigger Sequence
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const frameTimeline = { frame: 1 };
+        gsap.to(frameTimeline, {
+          frame: frameCount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: document.body,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: 0.8,
+            onUpdate: () => {
+              renderFrame(frameTimeline.frame);
+            }
+          }
+        });
+      }
+    })();
+
+    // -------------------------------------------------------------------------
+    // 3. LIVE GITHUB REPOSITORIES & CACHED FETCHER
+    // -------------------------------------------------------------------------
+    const GITHUB_CACHE_KEY = 'sinan_gh_repos_v2';
+    const GITHUB_CACHE_EXPIRY = 60 * 60 * 1000; // 1 Hour
+
+    const LANG_COLORS = {
+      'Python': '#3572A5',
+      'JavaScript': '#f1e05a',
+      'TypeScript': '#3178c6',
+      'C#': '#178600',
+      'Shell': '#89e051',
+      'C++': '#f34b7d',
+      'HTML': '#e34c26',
+      'CSS': '#563d7c',
+      'Java': '#b07219',
+      'default': '#38e1ff'
+    };
+
+    async function fetchLiveGithubRepos(forceRefresh = false) {
+      const grid = document.getElementById('github-repos-grid');
+      const langBar = document.getElementById('languages-bar');
+      const langLegend = document.getElementById('languages-legend');
+      const countBadge = document.getElementById('repo-count-badge');
+
+      let repos = [];
+      const cached = localStorage.getItem(GITHUB_CACHE_KEY);
+
+      if (!forceRefresh && cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          if (Date.now() - parsed.timestamp < GITHUB_CACHE_EXPIRY && parsed.data && parsed.data.length) {
+            repos = parsed.data;
+          }
+        } catch (e) {}
+      }
+
+      if (!repos.length) {
+        try {
+          const res = await fetch('https://api.github.com/users/sinan-keskin/repos?per_page=30&sort=updated');
+          if (res.ok) {
+            const data = await res.json();
+            repos = data.filter(r => !r.fork);
+            localStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify({
+              timestamp: Date.now(),
+              data: repos
+            }));
+            showToast('GitHub repoları canlı olarak güncellendi.');
+          }
+        } catch (e) {
+          console.warn('GitHub API live fetch error, using fallback:', e);
+        }
+      }
+
+      // Fallback data if still empty (rate-limit or offline)
+      if (!repos.length) {
+        repos = [
+          { name: 'Red-Dead-Redemption-2-Turkce-Yama', description: 'Red Dead Redemption 2 için otomatik Türkçe yama kurup kaldırma aracı.', stargazers_count: 3, language: 'C#', html_url: 'https://github.com/sinan-keskin/Red-Dead-Redemption-2-Turkce-Yama' },
+          { name: 'public-all-in-one', description: 'SteamID çözümleyici, dinamik QR ve görsel dönüştürücüler içeren Streamlit paketi.', stargazers_count: 1, language: 'Python', html_url: 'https://github.com/sinan-keskin/public-all-in-one' },
+          { name: 'node-api', description: 'Zod şema doğrulaması ve rate limiting içeren Express REST API altyapısı.', stargazers_count: 1, language: 'JavaScript', html_url: 'https://github.com/sinan-keskin/node-api' },
+          { name: 'bash-tools', description: 'Yapılandırılmış JSON loglama ve exponential backoff ile Bash otomasyon kiti.', stargazers_count: 1, language: 'Shell', html_url: 'https://github.com/sinan-keskin/bash-tools' },
+          { name: 'zula-test-management-crm', description: 'Rol bazlı test süreçleri ve müşteri yönetim platformu.', stargazers_count: 0, language: 'TypeScript', html_url: 'https://github.com/sinan-keskin/zula-test-management-crm' },
+          { name: 'tc-identity-verification', description: 'T.C. Kimlik Numarası çevrimdışı ve çevrimiçi doğrulama sistemi.', stargazers_count: 1, language: 'JavaScript', html_url: 'https://github.com/sinan-keskin/tc-identity-verification' }
+        ];
+      }
+
+      if (countBadge) countBadge.textContent = `${repos.length} Açık Kaynak Proje`;
+
+      // Calculate language breakdown
+      const langCounts = {};
+      let totalLang = 0;
+      repos.forEach(r => {
+        if (r.language) {
+          langCounts[r.language] = (langCounts[r.language] || 0) + 1;
+          totalLang++;
+        }
+      });
+
+      // Render Language Bar
+      if (langBar && totalLang > 0) {
+        langBar.innerHTML = '';
+        Object.entries(langCounts)
+          .sort((a, b) => b[1] - a[1])
+          .forEach(([lang, count]) => {
+            const pct = ((count / totalLang) * 100).toFixed(1);
+            const color = LANG_COLORS[lang] || LANG_COLORS.default;
+            const seg = document.createElement('div');
+            seg.className = 'h-full transition-all duration-500 hover:opacity-80';
+            seg.style.width = `${pct}%`;
+            seg.style.backgroundColor = color;
+            seg.title = `${lang}: %${pct}`;
+            langBar.appendChild(seg);
+          });
+      }
+
+      // Render Language Legend
+      if (langLegend && totalLang > 0) {
+        langLegend.innerHTML = '';
+        Object.entries(langCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 6)
+          .forEach(([lang, count]) => {
+            const pct = ((count / totalLang) * 100).toFixed(0);
+            const color = LANG_COLORS[lang] || LANG_COLORS.default;
+            const item = document.createElement('div');
+            item.className = 'flex items-center gap-1.5 text-gray-300';
+            item.innerHTML = `<span class="w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span><span class="notranslate">${lang}</span> <span class="text-gray-500">(%${pct})</span>`;
+            langLegend.appendChild(item);
+          });
+      }
+
+      // Render Repos Grid
+      if (grid) {
+        grid.innerHTML = '';
+        repos.slice(0, 9).forEach(repo => {
+          const lang = repo.language || 'Genel';
+          const color = LANG_COLORS[lang] || LANG_COLORS.default;
+          const stars = repo.stargazers_count || 0;
+          const desc = repo.description || 'Açık kaynak yazılım ve sistem geliştirme deposu.';
+
+          const card = document.createElement('article');
+          card.className = 'p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between';
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-1.5 font-mono text-xs text-gray-300">
+                  <span class="w-2 h-2 rounded-full" style="background-color: ${color}"></span>
+                  <span class="notranslate font-medium">${lang}</span>
+                </div>
+                <div class="flex items-center gap-1 font-mono text-xs text-primary font-semibold">
+                  <span class="material-symbols-outlined text-[14px]">star</span>
+                  <span>${stars}</span>
+                </div>
+              </div>
+              <h4 class="font-headline font-bold text-lg text-white mb-2 tracking-tight notranslate truncate" title="${repo.name}">
+                ${repo.name}
+              </h4>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                ${desc}
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono">
+              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-300 flex items-center gap-1 font-semibold transition-colors">
+                <span>Depoya Git</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+              </a>
+              <span class="text-gray-500">Açık Kaynak</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. PROJECT CATEGORY FILTER
+    // -------------------------------------------------------------------------
+    function filterProjects(category, buttonEl) {
+      document.querySelectorAll('.project-filter-btn').forEach(b => {
+        b.className = 'project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-surface-card hover:bg-surface-highlight text-gray-300 hover:text-white transition-all';
+      });
+      if (buttonEl) {
+        buttonEl.className = 'project-filter-btn px-4 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider bg-primary text-void shadow-md transition-all';
+      }
+
+      const items = document.querySelectorAll('.project-item');
+      items.forEach(item => {
+        const cat = item.getAttribute('data-category') || '';
+        if (category === 'all' || cat.includes(category)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. SERVICES CARDS TO QUOTE FORM AUTO-SELECT & SMOOTH SCROLL
+    // -------------------------------------------------------------------------
+    function selectServiceAndScroll(serviceName) {
+      const quoteSection = document.getElementById('teklif');
+      if (quoteSection) {
+        quoteSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // Update the hidden input
+      const input = document.getElementById('selected-service-input');
+      if (input) input.value = serviceName;
+
+      // Update pills appearance
+      document.querySelectorAll('.service-pill').forEach(pill => {
+        if (pill.textContent.includes(serviceName) || serviceName.includes(pill.textContent.trim().replace('✓ ', ''))) {
+          pill.className = 'service-pill py-2.5 px-3 rounded-xl border border-primary bg-primary/10 text-primary font-semibold text-xs text-left transition-all';
+          if (!pill.textContent.startsWith('✓')) pill.textContent = '✓ ' + pill.textContent;
+        } else {
+          pill.className = 'service-pill py-2.5 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-semibold text-xs text-left transition-all';
+          pill.textContent = pill.textContent.replace('✓ ', '');
+        }
+      });
+
+      // Highlight the quote form card briefly
+      const formCard = document.getElementById('quote-form-card');
+      if (formCard) {
+        formCard.classList.add('ring-2', 'ring-primary');
+        setTimeout(() => formCard.classList.remove('ring-2', 'ring-primary'), 1200);
+      }
+
+      showToast(`Hizmet seçildi: ${serviceName}`);
+    }
+
+    function selectFormService(pillBtn, serviceName) {
+      const input = document.getElementById('selected-service-input');
+      if (input) input.value = serviceName;
+
+      document.querySelectorAll('.service-pill').forEach(p => {
+        p.className = 'service-pill py-2.5 px-3 rounded-xl border border-white/10 bg-white/5 text-gray-300 hover:text-white font-semibold text-xs text-left transition-all';
+        p.textContent = p.textContent.replace('✓ ', '');
+      });
+
+      pillBtn.className = 'service-pill py-2.5 px-3 rounded-xl border border-primary bg-primary/10 text-primary font-semibold text-xs text-left transition-all';
+      if (!pillBtn.textContent.startsWith('✓')) pillBtn.textContent = '✓ ' + pillBtn.textContent;
+    }
+
+    function selectFormBudget(pillBtn, budgetVal) {
+      const input = document.getElementById('selected-budget-input');
+      if (input) input.value = budgetVal;
+
+      document.querySelectorAll('.budget-pill').forEach(p => {
+        p.className = 'budget-pill py-2 px-2.5 rounded-xl border border-white/10 bg-white/5 text-gray-300 font-semibold text-xs text-center transition-all';
+        p.textContent = p.textContent.replace('✓ ', '');
+      });
+
+      pillBtn.className = 'budget-pill py-2 px-2.5 rounded-xl border border-accent bg-accent/15 text-accent font-semibold text-xs text-center transition-all';
+      if (!pillBtn.textContent.startsWith('✓')) pillBtn.textContent = '✓ ' + pillBtn.textContent;
+    }
+
+    // -------------------------------------------------------------------------
+    // 6. QUOTE FORM SUBMISSION & RELAY TRIGGER
+    // -------------------------------------------------------------------------
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('caller-name').value.trim();
+      const contact = document.getElementById('caller-contact').value.trim();
+      const service = document.getElementById('selected-service-input').value;
+      const budget = document.getElementById('selected-budget-input').value;
+      const message = document.getElementById('caller-message').value.trim();
+
+      if (!name || !contact || !message) {
+        showToast('Lütfen tüm zorunlu alanları doldurunuz.');
+        return;
+      }
+
+      const telegramMsg = encodeURIComponent(
+        `🚀 [YENİ PROJE TEKLİF TALEBİ]\n\n` +
+        `👤 Ad & Şirket: ${name}\n` +
+        `📞 İletişim: ${contact}\n` +
+        `🛠 Hizmet: ${service}\n` +
+        `💰 Bütçe: ${budget}\n\n` +
+        `📝 Detaylar:\n${message}\n\n` +
+        `🌐 Kaynak: sinankeskin.com.tr`
+      );
+
+      const emailSubject = encodeURIComponent(`[Proje Teklifi] ${service} - ${name}`);
+      const emailBody = encodeURIComponent(
+        `Merhaba Sinan Bey,\n\n` +
+        `Aşağıdaki proje için teklif almak istiyorum:\n\n` +
+        `Ad & Kurum: ${name}\n` +
+        `İletişim: ${contact}\n` +
+        `Seçilen Hizmet: ${service}\n` +
+        `Tahmini Bütçe: ${budget}\n\n` +
+        `Proje Detayları:\n${message}\n\n` +
+        `İyi çalışmalar.`
+      );
+
+      // Set links in modal
+      const tgBtn = document.getElementById('modal-telegram-btn');
+      const emBtn = document.getElementById('modal-email-btn');
+      if (tgBtn) tgBtn.href = `https://t.me/sinankeeeee?text=${telegramMsg}`;
+      if (emBtn) emBtn.href = `mailto:info@sinankeskin.com.tr?subject=${emailSubject}&body=${emailBody}`;
+
+      // Show modal
+      const modal = document.getElementById('quote-success-modal');
+      if (modal) modal.classList.remove('hidden');
+
+      showToast('Teklif talebiniz hazırlandı!');
+    }
+
+    function closeQuoteModal() {
+      const modal = document.getElementById('quote-success-modal');
+      if (modal) modal.classList.add('hidden');
+      document.getElementById('quote-form').reset();
+    }
+
+    // -------------------------------------------------------------------------
+    // 7. TOAST NOTIFICATION UTILITY
+    // -------------------------------------------------------------------------
+    function showToast(text) {
+      const toast = document.getElementById('toast-notify');
+      if (!toast) return;
+      toast.textContent = text;
+      toast.classList.remove('translate-y-12', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+      clearTimeout(toast._timeout);
+      toast._timeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-12', 'opacity-0');
+      }, 3000);
+    }
+
+    function copyEmailToClipboard(btn) {
+      navigator.clipboard.writeText('info@sinankeskin.com.tr').then(() => {
+        showToast('E-posta panoya kopyalandı: info@sinankeskin.com.tr');
+        if (btn) {
+          const original = btn.innerHTML;
+          btn.innerHTML = `<span class="material-symbols-outlined text-[18px] text-emerald">check</span>`;
+          setTimeout(() => btn.innerHTML = original, 2000);
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 8. INITIALIZE ON DOM READY
+    // -------------------------------------------------------------------------
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchLiveGithubRepos();
+    });
+  </script>
+
+</body>
 </html>
