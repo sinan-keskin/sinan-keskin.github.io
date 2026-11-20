@@ -1100,8 +1100,8 @@
         <a href="#projeler" class="hover:text-primary transition-colors">Projeler</a>
         <a href="#github" class="hover:text-primary transition-colors">GitHub</a>
         <a href="#teklif" class="hover:text-primary transition-colors">Teklif Al</a>
-        <a href="privacy.html" class="hover:text-primary transition-colors">Gizlilik Politikası</a>
-        <a href="terms.html" class="hover:text-primary transition-colors">Kullanım Şartları</a>
+        <button type="button" onclick="openLegalModal('privacy')" class="hover:text-primary transition-colors cursor-pointer">Gizlilik Politikası</button>
+        <button type="button" onclick="openLegalModal('terms')" class="hover:text-primary transition-colors cursor-pointer">Kullanım Şartları</button>
       </div>
 
       <!-- Copyright -->
@@ -1115,6 +1115,60 @@
   <!-- Toast Notification Container -->
   <div id="toast-notify" class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-xl bg-surface-card/95 border border-primary/40 text-primary font-mono text-xs tracking-wider shadow-2xl backdrop-blur-xl transition-all duration-300 translate-y-12 opacity-0 pointer-events-none">
     Bildirim
+  </div>
+
+  <!-- =========================================================================
+       LEGAL PROTOCOL MODAL (GİZLİLİK POLİTİKASI & KULLANIM ŞARTLARI)
+       ========================================================================= -->
+  <div id="legal-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center p-3 sm:p-6 transition-all duration-300" role="dialog" aria-modal="true" aria-labelledby="legal-modal-title">
+    <!-- Backdrop Blur Overlay (Click to close) -->
+    <div id="legal-modal-backdrop" class="fixed inset-0 bg-black/85 backdrop-blur-md cursor-pointer transition-opacity" onclick="closeLegalModal()"></div>
+
+    <!-- Modal Content Card -->
+    <div class="relative w-full max-w-3xl max-h-[88vh] bg-[#121318]/95 border border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl backdrop-blur-2xl flex flex-col z-10 overflow-hidden" onclick="event.stopPropagation()">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-white/[0.02]">
+        <div class="flex items-center gap-2.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+          <span id="legal-modal-tag" class="font-mono text-xs uppercase tracking-widest text-primary font-semibold">
+            [ HUKUKİ PROTOKOL // GİZLİLİK ]
+          </span>
+        </div>
+        <button type="button" onclick="closeLegalModal()" aria-label="Kapat" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white transition-colors cursor-pointer">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </div>
+
+      <!-- Modal Title & Tab Switcher -->
+      <div class="px-6 pt-5 pb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/5">
+        <h3 id="legal-modal-title" class="font-headline font-bold text-xl sm:text-2xl text-white tracking-tight">
+          Gizlilik Politikası &amp; Veri Güvenliği
+        </h3>
+        <div class="flex items-center gap-1 p-1 bg-white/5 rounded-xl border border-white/10 w-fit">
+          <button type="button" id="tab-privacy-btn" onclick="switchLegalModalTab('privacy')" class="px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-void font-bold shadow-sm cursor-pointer">
+            Gizlilik Politikası
+          </button>
+          <button type="button" id="tab-terms-btn" onclick="switchLegalModalTab('terms')" class="px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all text-gray-400 hover:text-white cursor-pointer">
+            Kullanıcı Sözleşmesi
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body (Scrollable with overscroll-contain) -->
+      <div id="legal-modal-body" class="overflow-y-auto px-6 py-6 space-y-6 text-sm text-gray-300 font-sans leading-relaxed overscroll-contain">
+        <!-- Content dynamically injected via switchLegalModalTab -->
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 border-t border-white/10 bg-white/[0.02] flex items-center justify-between text-xs font-mono text-gray-400">
+        <span>Yürürlük // 2026 • KVKK &amp; GDPR Uyumlu</span>
+        <button type="button" onclick="closeLegalModal()" class="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold uppercase tracking-wider transition-colors cursor-pointer">
+          Kapat
+        </button>
+      </div>
+
+    </div>
   </div>
 
   <!-- =========================================================================
@@ -1592,10 +1646,233 @@
     }
 
     // -------------------------------------------------------------------------
-    // 8. INITIALIZE ON DOM READY
+    // 8. LEGAL PROTOCOL MODALS (Gizlilik Politikası & Kullanıcı Sözleşmesi)
+    // -------------------------------------------------------------------------
+    const LEGAL_CONTENT = {
+      privacy: {
+        tag: '[ HUKUKİ PROTOKOL // GİZLİLİK ]',
+        title: 'Gizlilik Politikası & Veri Güvenliği',
+        body: `
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-primary font-mono text-xs">01 //</span> VERİ SORUMLUSU
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") ve Avrupa Birliği Genel Veri Koruma Tüzüğü ("GDPR") uyarınca, 
+                <strong>sinankeskin.com.tr</strong> web sitesi üzerinden gerçekleştirilen veri işleme faaliyetlerinde Veri Sorumlusu 
+                <strong>Sinan Keskin</strong>'dir. İletişim: <a href="mailto:info@sinankeskin.com.tr" class="text-primary underline">info@sinankeskin.com.tr</a>.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-primary font-mono text-xs">02 //</span> İŞLENEN VERİLER & TOPLAMA YÖNTEMLERİ
+              </h4>
+              <ul class="list-disc list-inside space-y-1.5 text-xs sm:text-sm text-gray-300">
+                <li><strong>Teklif & İletişim:</strong> Teklif ve iletişim formunu doldurarak ilettiğiniz ad, kurum bilgisi, e-posta veya Telegram bilgileriniz yalnızca teklif hazırlığı ve doğrudan iletişim amacıyla işlenir.</li>
+                <li><strong>Zorunlu Teknik Önbellek:</strong> Dil tercihiniz ve oturum durumunuz cihazınızın yerel depolama (<code class="text-primary bg-white/10 px-1 rounded">localStorage</code>) alanında saklanır.</li>
+                <li><strong>Anonim İstatistikler:</strong> Google Analytics (IP anonimleştirme etkin) aracılığıyla genel ziyaret performansı ölçülür; kişisel kimlik tespiti yapılmaz.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-primary font-mono text-xs">03 //</span> ÇEREZLER & İZLEME POLİTİKASI
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                Sitemizde kullanıcıları profillemeye veya reklam hedeflemeye yönelik üçüncü taraf ticari takip çerezleri kesinlikle kullanılmaz.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-primary font-mono text-xs">04 //</span> ÜÇÜNCÜ TARAF SERVİSLERİ
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                Sistem; Google Maps (lokasyon gösterimi), GitHub Pages (statik dağıtım) ve Cloudflare (DDoS koruması) global güvenli altyapılarını kullanmaktadır.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-primary font-mono text-xs">05 //</span> KVKK VE GDPR HAKLARINIZ
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                KVKK 11. maddesi ve GDPR uyarınca verilerinizin silinmesini, güncellenmesini veya bilgi talebini dilediğiniz zaman 
+                <a href="mailto:info@sinankeskin.com.tr" class="text-primary underline">info@sinankeskin.com.tr</a> adresine yazılı ileterek gerçekleştirebilirsiniz.
+              </p>
+            </div>
+          </div>
+        `
+      },
+      terms: {
+        tag: '[ HUKUKİ PROTOKOL // KULLANICI SÖZLEŞMESİ ]',
+        title: 'Kullanıcı Sözleşmesi & Hizmet Şartları',
+        body: `
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-accent font-mono text-xs">01 //</span> KABUL VE TARAFLAR
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                <strong>sinankeskin.com.tr</strong> web sitesini ziyaret eden, teklif formunu kullanan veya sitede sergilenen açık kaynak kodları inceleyen her kullanıcı, işbu sözleşmede yer alan şartları kabul etmiş sayılır.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-accent font-mono text-xs">02 //</span> FİKRİ MÜLKİYET & MARKA HAKLARI
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                Bu web sitesinde yer alan grafik arayüz, scrollytelling motoru, logo ve marka unsurları Sinan Keskin'e aittir. 
+                GitHub üzerinde açık kaynak olarak lisanslanan projeler (<code class="text-accent bg-white/10 px-1 rounded">bash-tools</code>, <code class="text-accent bg-white/10 px-1 rounded">public-all-in-one</code> vb.) kendi açık kaynak lisans kurallarına tabidir.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-accent font-mono text-xs">03 //</span> KULLANIM VE GÜVENLİK KURALLARI
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                Ziyaretçiler site altyapısına, iletişim ve teklif formuna aşırı yük bindirecek (DDoS/Spam), güvenlik açıklarını test etmeye veya verileri izinsiz kazımaya (scraping) yönelik zararlı aktivitelerde bulunamaz.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-accent font-mono text-xs">04 //</span> GARANTİ REDDİ (SORUMLULUK SINIRI)
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                Sitede sergilenen deneysel projeler, API örnekleri ve araçlar "OLDUĞU GİBİ" sunulur. Kesintisiz veya hatasız çalışma konusunda zımni garanti verilmez; projelerin kullanımından doğacak dolaylı sonuçlardan geliştirici sorumlu tutulamaz.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/5">
+              <h4 class="font-headline font-bold text-base text-white mb-1.5 flex items-center gap-2">
+                <span class="text-accent font-mono text-xs">05 //</span> UYGULANACAK HUKUK VE YETKİ
+              </h4>
+              <p class="text-xs sm:text-sm text-gray-300">
+                İşbu sözleşmenin uygulanmasında ve doğabilecek ihtilaflarda Türkiye Cumhuriyeti Hukuku uygulanır. Uyuşmazlıkların çözümünde Kocaeli Mahkemeleri ve İcra Daireleri yetkilidir.
+              </p>
+            </div>
+          </div>
+        `
+      }
+    };
+
+    let scrollLockPosition = 0;
+
+    function lockBodyScroll() {
+      scrollLockPosition = window.pageYOffset || document.documentElement.scrollTop;
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollLockPosition}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
+      document.body.style.width = '100%';
+    }
+
+    function unlockBodyScroll() {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.left = '';
+      document.body.style.right = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      window.scrollTo({ top: scrollLockPosition, behavior: 'instant' });
+    }
+
+    // Prevent wheel and touchmove events from bubbling to background when modal is open
+    const legalModalEl = document.getElementById('legal-modal');
+    if (legalModalEl) {
+      legalModalEl.addEventListener('wheel', (e) => {
+        const scrollBody = document.getElementById('legal-modal-body');
+        if (!scrollBody || !scrollBody.contains(e.target)) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+
+      legalModalEl.addEventListener('touchmove', (e) => {
+        const scrollBody = document.getElementById('legal-modal-body');
+        if (!scrollBody || !scrollBody.contains(e.target)) {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    }
+
+    function openLegalModal(type = 'privacy') {
+      const modal = document.getElementById('legal-modal');
+      if (!modal) return;
+      switchLegalModalTab(type);
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lockBodyScroll();
+    }
+
+    function closeLegalModal() {
+      const modal = document.getElementById('legal-modal');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      unlockBodyScroll();
+    }
+
+    function switchLegalModalTab(type) {
+      const tagEl = document.getElementById('legal-modal-tag');
+      const titleEl = document.getElementById('legal-modal-title');
+      const bodyEl = document.getElementById('legal-modal-body');
+      const privBtn = document.getElementById('tab-privacy-btn');
+      const termsBtn = document.getElementById('tab-terms-btn');
+
+      const data = LEGAL_CONTENT[type] || LEGAL_CONTENT.privacy;
+
+      if (tagEl) tagEl.textContent = data.tag;
+      if (titleEl) titleEl.textContent = data.title;
+      if (bodyEl) {
+        bodyEl.innerHTML = data.body;
+        bodyEl.scrollTop = 0;
+      }
+
+      if (type === 'privacy') {
+        if (privBtn) {
+          privBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-primary text-void font-bold shadow-sm cursor-pointer';
+        }
+        if (termsBtn) {
+          termsBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all text-gray-400 hover:text-white cursor-pointer';
+        }
+      } else {
+        if (privBtn) {
+          privBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all text-gray-400 hover:text-white cursor-pointer';
+        }
+        if (termsBtn) {
+          termsBtn.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all bg-accent text-void font-bold shadow-sm cursor-pointer';
+        }
+      }
+    }
+
+    // Keyboard ESC to close modal
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeLegalModal();
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 9. INITIALIZE ON DOM READY
     // -------------------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
       fetchLiveGithubRepos();
+
+      // Check URL hash for modal trigger (#privacy or #terms)
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#privacy') {
+        openLegalModal('privacy');
+      } else if (hash === '#terms') {
+        openLegalModal('terms');
+      }
     });
   </script>
 
