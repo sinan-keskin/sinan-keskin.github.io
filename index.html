@@ -209,7 +209,7 @@
       <nav class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-surface/70 border border-white/10 backdrop-blur-xl">
         <a href="#hizmetler" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hizmetler</a>
         <a href="#projeler" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Projeler</a>
-        <a href="#github" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">GitHub Repoları</a>
+        <a href="#demo" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Canlı Demo</a>
         <a href="#hakkimda" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hakkımda</a>
         <a href="#iletisim" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">İletişim</a>
       </nav>
@@ -240,8 +240,8 @@
           <span>Seçilmiş Projeler</span>
           <span class="material-symbols-outlined text-[18px]">chevron_right</span>
         </a>
-        <a href="#github" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
-          <span>Canlı GitHub Repoları</span>
+        <a href="#demo" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>Canlı Proje Demosu (Gümrük)</span>
           <span class="material-symbols-outlined text-[18px]">chevron_right</span>
         </a>
         <a href="#hakkimda" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
@@ -721,55 +721,119 @@
     </section>
 
     <!-- =======================================================================
-         SECTION 4: CANLI GITHUB REPOLARI & DİL DAĞILIMI
+         SECTION 4: CANLI PROJE DEMOSU (GÜMRÜK MÜŞAVİRLİĞİ WEB VİTRİNİ)
          ======================================================================= -->
-    <section id="github" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+    <section id="demo" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
       <div class="max-w-7xl mx-auto">
         
-        <!-- Section Header with Live Pill -->
+        <!-- Section Header with Live Status Pill -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/30 text-emerald font-mono text-xs uppercase tracking-widest mb-3">
-              <span class="w-2 h-2 rounded-full bg-emerald animate-ping"></span>
-              <span>Canlı GitHub Senkronizasyonu</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/30 text-primary font-mono text-xs uppercase tracking-widest mb-3">
+              <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+              <span>Canlı Proje Demosu // Web Vitrini</span>
             </div>
             <h2 class="font-headline font-bold text-3xl sm:text-5xl text-white tracking-tight">
-              Açık Kaynak Kod Depoları
+              Canlı Proje Demosu: <span class="text-primary">Gümrük Müşavirliği</span>
             </h2>
           </div>
           <div class="flex items-center gap-3">
-            <button type="button" id="refresh-repos-btn" onclick="fetchLiveGithubRepos(true)" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-card hover:bg-surface-highlight border border-white/10 text-xs font-semibold text-gray-200 hover:text-primary transition-all">
-              <span class="material-symbols-outlined text-[16px]">sync</span>
-              <span>Repoları Güncelle</span>
-            </button>
-            <a href="https://github.com/sinan-keskin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-primary text-void font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-md">
-              <span class="notranslate">@sinan-keskin</span>
+            <a href="https://gumruk.sinankeskin.com.tr" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-accent text-void font-bold text-xs uppercase tracking-wider hover:opacity-95 transition-all shadow-lg shadow-primary/25 cursor-pointer">
+              <span>Yeni Sekmede Tam Ekran Aç</span>
               <span class="material-symbols-outlined text-[16px]">open_in_new</span>
             </a>
           </div>
         </div>
 
-        <!-- Language Distribution Bar -->
-        <div class="mb-10 p-6 rounded-2xl bg-surface-card/60 border border-white/10 backdrop-blur-xl">
-          <div class="flex items-center justify-between mb-3 text-xs font-mono text-gray-300">
-            <span class="uppercase tracking-wider font-semibold text-primary">Teknoloji &amp; Dil Dağılımı (Canlı)</span>
-            <span id="repo-count-badge" class="text-gray-400">Yükleniyor...</span>
+        <p class="text-sm sm:text-base text-gray-300 max-w-3xl mb-8 leading-relaxed">
+          Gümrük ve dış ticaret sektörüne özel olarak tasarladığımız kurumsal web vitrini mimarisini aşağıdaki etkileşimli pencerede doğrudan test edebilirsiniz. Menüler, responsive düzenler ve form akışları tamamen işlevseldir.
+        </p>
+
+        <!-- Interactive Browser / Device Mockup Window -->
+        <div class="rounded-2xl sm:rounded-3xl bg-surface-card/90 border border-white/10 shadow-2xl backdrop-blur-2xl overflow-hidden transition-all duration-300" id="demo-mockup-container">
+          
+          <!-- Mockup Top Window Toolbar -->
+          <div class="px-4 sm:px-6 py-3.5 bg-[#090a0f]/90 border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Window Control Dots -->
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block"></span>
+              <span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block"></span>
+              <span class="hidden sm:inline-block font-mono text-[11px] text-gray-500 ml-2">Chrome // Safari Web Engine</span>
+            </div>
+
+            <!-- Address URL Pill -->
+            <div class="flex-1 max-w-md mx-auto hidden md:flex items-center justify-between px-3.5 py-1.5 rounded-full bg-black/40 border border-white/10 text-xs font-mono text-gray-300">
+              <div class="flex items-center gap-2 truncate">
+                <span class="material-symbols-outlined text-emerald text-[14px]">lock</span>
+                <span class="text-gray-200 truncate notranslate">https://gumruk.sinankeskin.com.tr</span>
+              </div>
+              <button type="button" onclick="reloadDemoIframe()" class="text-gray-400 hover:text-primary transition-colors ml-2 cursor-pointer" title="Yenile">
+                <span class="material-symbols-outlined text-[14px]">refresh</span>
+              </button>
+            </div>
+
+            <!-- Device Mode Switcher (Desktop vs Mobile Frame) -->
+            <div class="flex items-center gap-1 p-1 bg-white/5 rounded-xl border border-white/10">
+              <button type="button" id="demo-device-desktop" onclick="setDemoDevice('desktop')" class="px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 bg-primary text-void shadow-sm transition-all cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">desktop_windows</span>
+                <span>Masaüstü</span>
+              </button>
+              <button type="button" id="demo-device-mobile" onclick="setDemoDevice('mobile')" class="px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 text-gray-400 hover:text-white transition-all cursor-pointer">
+                <span class="material-symbols-outlined text-[14px]">smartphone</span>
+                <span>Mobil</span>
+              </button>
+            </div>
+
           </div>
-          <div class="w-full h-3 rounded-full overflow-hidden flex bg-white/5" id="languages-bar">
-            <!-- Dynamic segments inserted via JS -->
-            <div class="h-full bg-primary animate-pulse w-full"></div>
+
+          <!-- Iframe Viewport Area -->
+          <div class="w-full bg-[#0d0e14] flex items-center justify-center p-0 transition-all duration-300" id="demo-viewport-wrapper">
+            <div class="w-full transition-all duration-300 overflow-hidden" id="demo-frame-container" style="max-width: 100%;">
+              <iframe
+                id="demo-iframe"
+                src="https://gumruk.sinankeskin.com.tr"
+                title="Gümrük Müşavirliği Canlı Web Demosu"
+                class="w-full h-[620px] sm:h-[720px] bg-white border-0 block shadow-inner"
+                loading="lazy">
+              </iframe>
+            </div>
           </div>
-          <div class="flex flex-wrap items-center gap-4 mt-3 text-xs font-mono" id="languages-legend">
-            <!-- Dynamic language dots inserted via JS -->
-          </div>
+
         </div>
 
-        <!-- Live Repositories Grid Container -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="github-repos-grid">
-          <!-- Skeleton Loader Cards (Replaced dynamically by JS) -->
-          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
-          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
-          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
+        <!-- 3 Feature Cards below Demo -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          <div class="p-6 rounded-2xl bg-surface-card/60 border border-white/10 backdrop-blur-xl">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mb-3">
+              <span class="material-symbols-outlined text-[20px]">corporate_fare</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-white mb-2">Kurumsal Kimlik &amp; Prestij</h4>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              Gümrük ve lojistik sektörüne özel kurumsal renk paleti, tipografi hiyerarşisi ve güven veren marka dili.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-card/60 border border-white/10 backdrop-blur-xl">
+            <div class="w-10 h-10 rounded-xl bg-accent/15 border border-accent/20 flex items-center justify-center text-accent mb-3">
+              <span class="material-symbols-outlined text-[20px]">bolt</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-white mb-2">Hızlı Teklif &amp; İletişim Kanalları</h4>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              İthalat/ihracat süreçleri için optimize edilmiş teklif alma formları ve tek tıkla doğrudan mesajlaşma hatları.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-surface-card/60 border border-white/10 backdrop-blur-xl">
+            <div class="w-10 h-10 rounded-xl bg-emerald/10 border border-emerald/20 flex items-center justify-center text-emerald mb-3">
+              <span class="material-symbols-outlined text-[20px]">speed</span>
+            </div>
+            <h4 class="font-headline font-bold text-base text-white mb-2">Google Core Web Vitals 95+</h4>
+            <p class="text-xs text-gray-400 leading-relaxed">
+              Temiz HTML5/CSS mimarisi, SEO/GEO uyumluluğu ve mobil cihazlarda sıfır takılmayla açılan yüksek sayfa hızı.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -1098,7 +1162,7 @@
       <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-mono text-gray-400">
         <a href="#hizmetler" class="hover:text-primary transition-colors">Hizmetler</a>
         <a href="#projeler" class="hover:text-primary transition-colors">Projeler</a>
-        <a href="#github" class="hover:text-primary transition-colors">GitHub</a>
+        <a href="#demo" class="hover:text-primary transition-colors">Canlı Demo</a>
         <a href="#teklif" class="hover:text-primary transition-colors">Teklif Al</a>
         <button type="button" onclick="openLegalModal('privacy')" class="hover:text-primary transition-colors cursor-pointer">Gizlilik Politikası</button>
         <button type="button" onclick="openLegalModal('terms')" class="hover:text-primary transition-colors cursor-pointer">Kullanım Şartları</button>
@@ -1326,156 +1390,34 @@
     })();
 
     // -------------------------------------------------------------------------
-    // 3. LIVE GITHUB REPOSITORIES & CACHED FETCHER
+    // 3. INTERACTIVE LIVE DEMO CONTROLLER (Gümrük Müşavirliği)
     // -------------------------------------------------------------------------
-    const GITHUB_CACHE_KEY = 'sinan_gh_repos_v2';
-    const GITHUB_CACHE_EXPIRY = 60 * 60 * 1000; // 1 Hour
+    function setDemoDevice(mode) {
+      const container = document.getElementById('demo-frame-container');
+      const deskBtn = document.getElementById('demo-device-desktop');
+      const mobBtn = document.getElementById('demo-device-mobile');
+      if (!container) return;
 
-    const LANG_COLORS = {
-      'Python': '#3572A5',
-      'JavaScript': '#f1e05a',
-      'TypeScript': '#3178c6',
-      'C#': '#178600',
-      'Shell': '#89e051',
-      'C++': '#f34b7d',
-      'HTML': '#e34c26',
-      'CSS': '#563d7c',
-      'Java': '#b07219',
-      'default': '#38e1ff'
-    };
-
-    async function fetchLiveGithubRepos(forceRefresh = false) {
-      const grid = document.getElementById('github-repos-grid');
-      const langBar = document.getElementById('languages-bar');
-      const langLegend = document.getElementById('languages-legend');
-      const countBadge = document.getElementById('repo-count-badge');
-
-      let repos = [];
-      const cached = localStorage.getItem(GITHUB_CACHE_KEY);
-
-      if (!forceRefresh && cached) {
-        try {
-          const parsed = JSON.parse(cached);
-          if (Date.now() - parsed.timestamp < GITHUB_CACHE_EXPIRY && parsed.data && parsed.data.length) {
-            repos = parsed.data;
-          }
-        } catch (e) {}
+      if (mode === 'mobile') {
+        container.style.maxWidth = '400px';
+        container.classList.add('rounded-2xl', 'border', 'border-white/20', 'my-4', 'shadow-2xl');
+        if (mobBtn) mobBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 bg-primary text-void shadow-sm transition-all cursor-pointer';
+        if (deskBtn) deskBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 text-gray-400 hover:text-white transition-all cursor-pointer';
+        showToast('Mobil cihaz görünümüne geçildi.');
+      } else {
+        container.style.maxWidth = '100%';
+        container.classList.remove('rounded-2xl', 'border', 'border-white/20', 'my-4', 'shadow-2xl');
+        if (deskBtn) deskBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 bg-primary text-void shadow-sm transition-all cursor-pointer';
+        if (mobBtn) mobBtn.className = 'px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 text-gray-400 hover:text-white transition-all cursor-pointer';
+        showToast('Masaüstü görünümüne geçildi.');
       }
+    }
 
-      if (!repos.length) {
-        try {
-          const res = await fetch('https://api.github.com/users/sinan-keskin/repos?per_page=30&sort=updated');
-          if (res.ok) {
-            const data = await res.json();
-            repos = data.filter(r => !r.fork);
-            localStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify({
-              timestamp: Date.now(),
-              data: repos
-            }));
-            showToast('GitHub repoları canlı olarak güncellendi.');
-          }
-        } catch (e) {
-          console.warn('GitHub API live fetch error, using fallback:', e);
-        }
-      }
-
-      // Fallback data if still empty (rate-limit or offline)
-      if (!repos.length) {
-        repos = [
-          { name: 'Red-Dead-Redemption-2-Turkce-Yama', description: 'Red Dead Redemption 2 için otomatik Türkçe yama kurup kaldırma aracı.', stargazers_count: 3, language: 'C#', html_url: 'https://github.com/sinan-keskin/Red-Dead-Redemption-2-Turkce-Yama' },
-          { name: 'public-all-in-one', description: 'SteamID çözümleyici, dinamik QR ve görsel dönüştürücüler içeren Streamlit paketi.', stargazers_count: 1, language: 'Python', html_url: 'https://github.com/sinan-keskin/public-all-in-one' },
-          { name: 'node-api', description: 'Zod şema doğrulaması ve rate limiting içeren Express REST API altyapısı.', stargazers_count: 1, language: 'JavaScript', html_url: 'https://github.com/sinan-keskin/node-api' },
-          { name: 'bash-tools', description: 'Yapılandırılmış JSON loglama ve exponential backoff ile Bash otomasyon kiti.', stargazers_count: 1, language: 'Shell', html_url: 'https://github.com/sinan-keskin/bash-tools' },
-          { name: 'zula-test-management-crm', description: 'Rol bazlı test süreçleri ve müşteri yönetim platformu.', stargazers_count: 0, language: 'TypeScript', html_url: 'https://github.com/sinan-keskin/zula-test-management-crm' },
-          { name: 'tc-identity-verification', description: 'T.C. Kimlik Numarası çevrimdışı ve çevrimiçi doğrulama sistemi.', stargazers_count: 1, language: 'JavaScript', html_url: 'https://github.com/sinan-keskin/tc-identity-verification' }
-        ];
-      }
-
-      if (countBadge) countBadge.textContent = `${repos.length} Açık Kaynak Proje`;
-
-      // Calculate language breakdown
-      const langCounts = {};
-      let totalLang = 0;
-      repos.forEach(r => {
-        if (r.language) {
-          langCounts[r.language] = (langCounts[r.language] || 0) + 1;
-          totalLang++;
-        }
-      });
-
-      // Render Language Bar
-      if (langBar && totalLang > 0) {
-        langBar.innerHTML = '';
-        Object.entries(langCounts)
-          .sort((a, b) => b[1] - a[1])
-          .forEach(([lang, count]) => {
-            const pct = ((count / totalLang) * 100).toFixed(1);
-            const color = LANG_COLORS[lang] || LANG_COLORS.default;
-            const seg = document.createElement('div');
-            seg.className = 'h-full transition-all duration-500 hover:opacity-80';
-            seg.style.width = `${pct}%`;
-            seg.style.backgroundColor = color;
-            seg.title = `${lang}: %${pct}`;
-            langBar.appendChild(seg);
-          });
-      }
-
-      // Render Language Legend
-      if (langLegend && totalLang > 0) {
-        langLegend.innerHTML = '';
-        Object.entries(langCounts)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 6)
-          .forEach(([lang, count]) => {
-            const pct = ((count / totalLang) * 100).toFixed(0);
-            const color = LANG_COLORS[lang] || LANG_COLORS.default;
-            const item = document.createElement('div');
-            item.className = 'flex items-center gap-1.5 text-gray-300';
-            item.innerHTML = `<span class="w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span><span class="notranslate">${lang}</span> <span class="text-gray-500">(%${pct})</span>`;
-            langLegend.appendChild(item);
-          });
-      }
-
-      // Render Repos Grid
-      if (grid) {
-        grid.innerHTML = '';
-        repos.slice(0, 9).forEach(repo => {
-          const lang = repo.language || 'Genel';
-          const color = LANG_COLORS[lang] || LANG_COLORS.default;
-          const stars = repo.stargazers_count || 0;
-          const desc = repo.description || 'Açık kaynak yazılım ve sistem geliştirme deposu.';
-
-          const card = document.createElement('article');
-          card.className = 'p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between';
-          card.innerHTML = `
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-1.5 font-mono text-xs text-gray-300">
-                  <span class="w-2 h-2 rounded-full" style="background-color: ${color}"></span>
-                  <span class="notranslate font-medium">${lang}</span>
-                </div>
-                <div class="flex items-center gap-1 font-mono text-xs text-primary font-semibold">
-                  <span class="material-symbols-outlined text-[14px]">star</span>
-                  <span>${stars}</span>
-                </div>
-              </div>
-              <h4 class="font-headline font-bold text-lg text-white mb-2 tracking-tight notranslate truncate" title="${repo.name}">
-                ${repo.name}
-              </h4>
-              <p class="text-xs text-gray-400 leading-relaxed mb-6 line-clamp-3">
-                ${desc}
-              </p>
-            </div>
-            <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono">
-              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-300 flex items-center gap-1 font-semibold transition-colors">
-                <span>Depoya Git</span>
-                <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-              </a>
-              <span class="text-gray-500">Açık Kaynak</span>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
+    function reloadDemoIframe() {
+      const iframe = document.getElementById('demo-iframe');
+      if (iframe) {
+        iframe.src = iframe.src;
+        showToast('Demo ekranı yeniden yüklendi.');
       }
     }
 
@@ -1864,8 +1806,6 @@
     // 9. INITIALIZE ON DOM READY
     // -------------------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
-      fetchLiveGithubRepos();
-
       // Check URL hash for modal trigger (#privacy or #terms)
       const hash = window.location.hash.toLowerCase();
       if (hash === '#privacy') {
