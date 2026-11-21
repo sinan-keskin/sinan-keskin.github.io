@@ -45,6 +45,10 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="manifest" href="manifest.json" />
 
+  <!-- High Priority Preloads for Instant First Frame Render -->
+  <link rel="preload" as="image" href="assets/frames/frame_0001.webp" type="image/webp" media="(min-width: 768px)" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/frames_mobile/frame_0001.webp" type="image/webp" media="(max-width: 767px)" fetchpriority="high" />
+
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1319,11 +1323,12 @@
 
     // -------------------------------------------------------------------------
     // 2. FULLSCREEN SCROLLYTELLING CANVAS ENGINE (GSAP ScrollTrigger)
+    // High-performance milestone preloading + dynamic closest-frame rendering
     // -------------------------------------------------------------------------
     (function initScrollytelling() {
       const canvas = document.getElementById('scrolly-canvas');
       if (!canvas) return;
-      const ctx = canvas.getContext('2d');
+      const ctx = canvas.getContext('2d', { alpha: false });
       if (!ctx) return;
 
       const isMobile = window.innerWidth < 768;
@@ -1332,7 +1337,9 @@
 
       const images = new Array(frameCount + 1);
       const loadingSet = new Set();
+      const callbacks = {};
       let lastRenderedIndex = -1;
+      let currentTargetFrame = 1;
 
       function getFrameSrc(index) {
         return `${frameDir}/frame_${String(index).padStart(4, '0')}.webp`;
@@ -1351,57 +1358,100 @@
         const nx = (cw - nw) / 2;
         const ny = (ch - nh) / 2;
 
-        ctx.clearRect(0, 0, cw, ch);
         ctx.drawImage(img, nx, ny, nw, nh);
+      }
+
+      // Finds the closest loaded frame to targetIdx (searches outward)
+      function findClosestLoadedFrame(targetIdx) {
+        if (images[targetIdx] && images[targetIdx].complete && images[targetIdx].naturalWidth > 0) {
+          return targetIdx;
+        }
+        for (let delta = 1; delta <= frameCount; delta++) {
+          const prev = targetIdx - delta;
+          if (prev >= 1 && images[prev] && images[prev].complete && images[prev].naturalWidth > 0) {
+            return prev;
+          }
+          const next = targetIdx + delta;
+          if (next <= frameCount && images[next] && images[next].complete && images[next].naturalWidth > 0) {
+            return next;
+          }
+        }
+        return -1;
       }
 
       function renderFrame(index) {
         const safeIdx = Math.max(1, Math.min(frameCount, Math.round(index)));
-        const img = images[safeIdx];
+        currentTargetFrame = safeIdx;
 
-        if (img && img.complete && img.naturalWidth > 0) {
-          drawCover(img);
-          lastRenderedIndex = safeIdx;
+        // If the exact target frame is already fully loaded, render it directly
+        const currentImg = images[safeIdx];
+        if (currentImg && currentImg.complete && currentImg.naturalWidth > 0) {
+          if (lastRenderedIndex !== safeIdx) {
+            drawCover(currentImg);
+            lastRenderedIndex = safeIdx;
+          }
         } else {
-          // Preload this frame
-          loadFrame(safeIdx, () => {
-            if (lastRenderedIndex === -1 || Math.abs(safeIdx - lastRenderedIndex) <= 3) {
-              drawCover(images[safeIdx]);
-              lastRenderedIndex = safeIdx;
+          // Immediately show the closest already-loaded frame (never stays stuck!)
+          const closest = findClosestLoadedFrame(safeIdx);
+          if (closest !== -1 && closest !== lastRenderedIndex) {
+            drawCover(images[closest]);
+            lastRenderedIndex = closest;
+          }
+
+          // Prioritize loading the exact target frame
+          loadFrame(safeIdx, (img, loadedIdx) => {
+            const currentDist = lastRenderedIndex === -1 ? 999999 : Math.abs(lastRenderedIndex - currentTargetFrame);
+            const newDist = Math.abs(loadedIdx - currentTargetFrame);
+            if (newDist <= currentDist) {
+              drawCover(images[loadedIdx]);
+              lastRenderedIndex = loadedIdx;
             }
           });
-          // Keep displaying the most recent valid frame without flicker
-          if (lastRenderedIndex > 0 && images[lastRenderedIndex]) {
-            drawCover(images[lastRenderedIndex]);
-          }
         }
 
-        // Lookahead prefetching window: 8 frames ahead, 4 behind
-        const lookAhead = 8;
-        const lookBehind = 4;
-        for (let i = 1; i <= lookAhead; i++) {
+        // Prefetch adjacent frames around current scroll position
+        const ahead = 8;
+        const behind = 4;
+        for (let i = 1; i <= ahead; i++) {
           if (safeIdx + i <= frameCount) loadFrame(safeIdx + i);
         }
-        for (let j = 1; j <= lookBehind; j++) {
+        for (let j = 1; j <= behind; j++) {
           if (safeIdx - j >= 1) loadFrame(safeIdx - j);
         }
       }
 
       function loadFrame(idx, onLoaded) {
-        if (images[idx] || loadingSet.has(idx)) {
-          if (images[idx] && images[idx].complete && onLoaded) onLoaded();
+        if (idx < 1 || idx > frameCount) return;
+
+        if (images[idx] && images[idx].complete && images[idx].naturalWidth > 0) {
+          if (onLoaded) onLoaded(images[idx], idx);
           return;
         }
+
+        if (onLoaded) {
+          if (!callbacks[idx]) callbacks[idx] = [];
+          callbacks[idx].push(onLoaded);
+        }
+
+        if (loadingSet.has(idx)) {
+          return;
+        }
+
         loadingSet.add(idx);
         const img = new Image();
         img.src = getFrameSrc(idx);
         img.onload = () => {
           images[idx] = img;
           loadingSet.delete(idx);
-          if (onLoaded) onLoaded();
+          if (callbacks[idx]) {
+            const cbs = callbacks[idx];
+            delete callbacks[idx];
+            cbs.forEach(cb => cb(img, idx));
+          }
         };
         img.onerror = () => {
           loadingSet.delete(idx);
+          delete callbacks[idx];
         };
       }
 
@@ -1419,15 +1469,59 @@
       window.addEventListener('resize', resize, { passive: true });
       resize();
 
-      // Immediate preloader for initial 25 frames
-      for (let i = 1; i <= 25; i++) {
-        loadFrame(i, () => {
-          if (i === 1 && lastRenderedIndex === -1) {
-            drawCover(images[1]);
-            lastRenderedIndex = 1;
-          }
-        });
+      // Preload milestone keyframes across the whole animation range in the background
+      // This guarantees that any fast scroll down immediately finds a milestone frame
+      function preloadMilestones() {
+        const step = isMobile ? 12 : 16;
+        const milestones = [];
+        for (let i = 1; i <= frameCount; i += step) {
+          milestones.push(i);
+        }
+        if (milestones[milestones.length - 1] !== frameCount) {
+          milestones.push(frameCount);
+        }
+
+        let mIdx = 0;
+        function loadNextBatch() {
+          if (mIdx >= milestones.length) return;
+          const batch = milestones.slice(mIdx, mIdx + 4);
+          mIdx += 4;
+          let loadedInBatch = 0;
+          batch.forEach(idx => {
+            loadFrame(idx, () => {
+              loadedInBatch++;
+              // If user is currently closer to this milestone than the displayed frame, update immediately!
+              if (Math.abs(idx - currentTargetFrame) < Math.abs(lastRenderedIndex - currentTargetFrame)) {
+                drawCover(images[idx]);
+                lastRenderedIndex = idx;
+              }
+              if (loadedInBatch === batch.length) {
+                if ('requestIdleCallback' in window) {
+                  requestIdleCallback(() => loadNextBatch(), { timeout: 150 });
+                } else {
+                  setTimeout(loadNextBatch, 50);
+                }
+              }
+            });
+          });
+        }
+
+        loadNextBatch();
       }
+
+      // 1. Immediate loading of frame 1 (Hero background)
+      loadFrame(1, (img) => {
+        if (lastRenderedIndex === -1) {
+          drawCover(img);
+          lastRenderedIndex = 1;
+        }
+        // 2. Immediate burst of next 15 frames for initial smooth scroll
+        for (let i = 2; i <= 15; i++) {
+          loadFrame(i);
+        }
+        // 3. Background milestone loading across entire scroll
+        preloadMilestones();
+      });
 
       // GSAP ScrollTrigger Sequence
       if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -1441,7 +1535,7 @@
             trigger: document.body,
             start: "top top",
             end: "bottom bottom",
-            scrub: 0.8,
+            scrub: 0.5,
             onUpdate: () => {
               renderFrame(frameTimeline.frame);
             }
