@@ -207,11 +207,12 @@
 
       <!-- Desktop Nav Links -->
       <nav class="hidden md:flex items-center gap-1 p-1.5 rounded-full bg-surface/70 border border-white/10 backdrop-blur-xl">
-        <a href="#hizmetler" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hizmetler</a>
-        <a href="#projeler" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Projeler</a>
-        <a href="#demo" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Canlı Demo</a>
-        <a href="#hakkimda" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hakkımda</a>
-        <a href="#iletisim" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">İletişim</a>
+        <a href="#hizmetler" class="px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hizmetler</a>
+        <a href="#projeler" class="px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Projeler</a>
+        <a href="#demo" class="px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Canlı Demo</a>
+        <a href="#github" class="px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">GitHub</a>
+        <a href="#hakkimda" class="px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">Hakkımda</a>
+        <a href="#iletisim" class="px-3.5 py-2 rounded-full text-xs font-semibold uppercase tracking-wider text-gray-300 hover:text-white hover:bg-white/5 transition-all">İletişim</a>
       </nav>
 
       <!-- Header CTA & Mobile Toggle -->
@@ -242,6 +243,10 @@
         </a>
         <a href="#demo" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
           <span>Canlı Proje Demosu (Gümrük)</span>
+          <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+        </a>
+        <a href="#github" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
+          <span>Canlı GitHub Repoları</span>
           <span class="material-symbols-outlined text-[18px]">chevron_right</span>
         </a>
         <a href="#hakkimda" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-semibold text-gray-200 hover:bg-white/5 hover:text-primary transition-colors flex items-center justify-between">
@@ -840,7 +845,62 @@
     </section>
 
     <!-- =======================================================================
-         SECTION 5: HAKKIMDA & TEKNOLOJİ YETKİNLİKLERİ
+         SECTION 5: CANLI GITHUB REPOLARI & DİL DAĞILIMI
+         ======================================================================= -->
+    <section id="github" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header with Live Pill -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald/10 border border-emerald/30 text-emerald font-mono text-xs uppercase tracking-widest mb-3">
+              <span class="w-2 h-2 rounded-full bg-emerald animate-ping"></span>
+              <span>Canlı GitHub Senkronizasyonu</span>
+            </div>
+            <h2 class="font-headline font-bold text-3xl sm:text-5xl text-white tracking-tight">
+              Canlı GitHub Repoları
+            </h2>
+          </div>
+          <div class="flex items-center gap-3">
+            <button type="button" id="refresh-repos-btn" onclick="fetchLiveGithubRepos(true)" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-card hover:bg-surface-highlight border border-white/10 text-xs font-semibold text-gray-200 hover:text-primary transition-all cursor-pointer">
+              <span class="material-symbols-outlined text-[16px]">sync</span>
+              <span>Repoları Güncelle</span>
+            </button>
+            <a href="https://github.com/sinan-keskin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-primary text-void font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-all shadow-md">
+              <span class="notranslate">@sinan-keskin</span>
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Language Distribution Bar -->
+        <div class="mb-10 p-6 rounded-2xl bg-surface-card/60 border border-white/10 backdrop-blur-xl">
+          <div class="flex items-center justify-between mb-3 text-xs font-mono text-gray-300">
+            <span class="uppercase tracking-wider font-semibold text-primary">Teknoloji &amp; Dil Dağılımı (Canlı)</span>
+            <span id="repo-count-badge" class="text-gray-400">Yükleniyor...</span>
+          </div>
+          <div class="w-full h-3 rounded-full overflow-hidden flex bg-white/5" id="languages-bar">
+            <!-- Dynamic segments inserted via JS -->
+            <div class="h-full bg-primary animate-pulse w-full"></div>
+          </div>
+          <div class="flex flex-wrap items-center gap-4 mt-3 text-xs font-mono" id="languages-legend">
+            <!-- Dynamic language dots inserted via JS -->
+          </div>
+        </div>
+
+        <!-- Live Repositories Grid Container -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="github-repos-grid">
+          <!-- Skeleton Loader Cards (Replaced dynamically by JS) -->
+          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
+          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
+          <div class="p-6 rounded-2xl bg-surface-card/40 border border-white/5 animate-pulse h-48"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         SECTION 6: HAKKIMDA & TEKNOLOJİ YETKİNLİKLERİ
          ======================================================================= -->
     <section id="hakkimda" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
       <div class="max-w-7xl mx-auto">
@@ -946,7 +1006,7 @@
     </section>
 
     <!-- =======================================================================
-         SECTION 6: HIZLI TEKLİF & İLETİŞİM ALANI
+         SECTION 7: HIZLI TEKLİF & İLETİŞİM ALANI
          ======================================================================= -->
     <section id="teklif" class="py-24 px-4 sm:px-6 lg:px-8 relative scroll-mt-20">
       <div class="max-w-6xl mx-auto" id="iletisim">
@@ -1163,6 +1223,7 @@
         <a href="#hizmetler" class="hover:text-primary transition-colors">Hizmetler</a>
         <a href="#projeler" class="hover:text-primary transition-colors">Projeler</a>
         <a href="#demo" class="hover:text-primary transition-colors">Canlı Demo</a>
+        <a href="#github" class="hover:text-primary transition-colors">GitHub Repoları</a>
         <a href="#teklif" class="hover:text-primary transition-colors">Teklif Al</a>
         <button type="button" onclick="openLegalModal('privacy')" class="hover:text-primary transition-colors cursor-pointer">Gizlilik Politikası</button>
         <button type="button" onclick="openLegalModal('terms')" class="hover:text-primary transition-colors cursor-pointer">Kullanım Şartları</button>
@@ -1422,7 +1483,161 @@
     }
 
     // -------------------------------------------------------------------------
-    // 4. PROJECT CATEGORY FILTER
+    // 4. LIVE GITHUB REPOSITORIES & CACHED FETCHER
+    // -------------------------------------------------------------------------
+    const GITHUB_CACHE_KEY = 'sinan_gh_repos_v2';
+    const GITHUB_CACHE_EXPIRY = 60 * 60 * 1000; // 1 Hour
+
+    const LANG_COLORS = {
+      'Python': '#3572A5',
+      'JavaScript': '#f1e05a',
+      'TypeScript': '#3178c6',
+      'C#': '#178600',
+      'Shell': '#89e051',
+      'C++': '#f34b7d',
+      'HTML': '#e34c26',
+      'CSS': '#563d7c',
+      'Java': '#b07219',
+      'default': '#38e1ff'
+    };
+
+    async function fetchLiveGithubRepos(forceRefresh = false) {
+      const grid = document.getElementById('github-repos-grid');
+      const langBar = document.getElementById('languages-bar');
+      const langLegend = document.getElementById('languages-legend');
+      const countBadge = document.getElementById('repo-count-badge');
+
+      let repos = [];
+      const cached = localStorage.getItem(GITHUB_CACHE_KEY);
+
+      if (!forceRefresh && cached) {
+        try {
+          const parsed = JSON.parse(cached);
+          if (Date.now() - parsed.timestamp < GITHUB_CACHE_EXPIRY && parsed.data && parsed.data.length) {
+            repos = parsed.data;
+          }
+        } catch (e) {}
+      }
+
+      if (!repos.length) {
+        try {
+          const res = await fetch('https://api.github.com/users/sinan-keskin/repos?per_page=30&sort=updated');
+          if (res.ok) {
+            const data = await res.json();
+            repos = data.filter(r => !r.fork);
+            localStorage.setItem(GITHUB_CACHE_KEY, JSON.stringify({
+              timestamp: Date.now(),
+              data: repos
+            }));
+            showToast('GitHub repoları canlı olarak güncellendi.');
+          }
+        } catch (e) {
+          console.warn('GitHub API live fetch error, using fallback:', e);
+        }
+      }
+
+      // Fallback data if still empty (rate-limit or offline)
+      if (!repos.length) {
+        repos = [
+          { name: 'Red-Dead-Redemption-2-Turkce-Yama', description: 'Red Dead Redemption 2 için otomatik Türkçe yama kurup kaldırma aracı.', stargazers_count: 3, language: 'C#', html_url: 'https://github.com/sinan-keskin/Red-Dead-Redemption-2-Turkce-Yama' },
+          { name: 'public-all-in-one', description: 'SteamID çözümleyici, dinamik QR ve görsel dönüştürücüler içeren Streamlit paketi.', stargazers_count: 1, language: 'Python', html_url: 'https://github.com/sinan-keskin/public-all-in-one' },
+          { name: 'node-api', description: 'Zod şema doğrulaması ve rate limiting içeren Express REST API altyapısı.', stargazers_count: 1, language: 'JavaScript', html_url: 'https://github.com/sinan-keskin/node-api' },
+          { name: 'bash-tools', description: 'Yapılandırılmış JSON loglama ve exponential backoff ile Bash otomasyon kiti.', stargazers_count: 1, language: 'Shell', html_url: 'https://github.com/sinan-keskin/bash-tools' },
+          { name: 'zula-test-management-crm', description: 'Rol bazlı test süreçleri ve müşteri yönetim platformu.', stargazers_count: 0, language: 'TypeScript', html_url: 'https://github.com/sinan-keskin/zula-test-management-crm' },
+          { name: 'tc-identity-verification', description: 'T.C. Kimlik Numarası çevrimdışı ve çevrimiçi doğrulama sistemi.', stargazers_count: 1, language: 'JavaScript', html_url: 'https://github.com/sinan-keskin/tc-identity-verification' }
+        ];
+      }
+
+      if (countBadge) countBadge.textContent = `${repos.length} GitHub Deposu`;
+
+      // Calculate language breakdown
+      const langCounts = {};
+      let totalLang = 0;
+      repos.forEach(r => {
+        if (r.language) {
+          langCounts[r.language] = (langCounts[r.language] || 0) + 1;
+          totalLang++;
+        }
+      });
+
+      // Render Language Bar
+      if (langBar && totalLang > 0) {
+        langBar.innerHTML = '';
+        Object.entries(langCounts)
+          .sort((a, b) => b[1] - a[1])
+          .forEach(([lang, count]) => {
+            const pct = ((count / totalLang) * 100).toFixed(1);
+            const color = LANG_COLORS[lang] || LANG_COLORS.default;
+            const seg = document.createElement('div');
+            seg.className = 'h-full transition-all duration-500 hover:opacity-80';
+            seg.style.width = `${pct}%`;
+            seg.style.backgroundColor = color;
+            seg.title = `${lang}: %${pct}`;
+            langBar.appendChild(seg);
+          });
+      }
+
+      // Render Language Legend
+      if (langLegend && totalLang > 0) {
+        langLegend.innerHTML = '';
+        Object.entries(langCounts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 6)
+          .forEach(([lang, count]) => {
+            const pct = ((count / totalLang) * 100).toFixed(0);
+            const color = LANG_COLORS[lang] || LANG_COLORS.default;
+            const item = document.createElement('div');
+            item.className = 'flex items-center gap-1.5 text-gray-300';
+            item.innerHTML = `<span class="w-2.5 h-2.5 rounded-full" style="background-color: ${color}"></span><span class="notranslate">${lang}</span> <span class="text-gray-500">(%${pct})</span>`;
+            langLegend.appendChild(item);
+          });
+      }
+
+      // Render Repos Grid
+      if (grid) {
+        grid.innerHTML = '';
+        repos.slice(0, 9).forEach(repo => {
+          const lang = repo.language || 'Genel';
+          const color = LANG_COLORS[lang] || LANG_COLORS.default;
+          const stars = repo.stargazers_count || 0;
+          const desc = repo.description || 'GitHub yazılım ve sistem geliştirme deposu.';
+
+          const card = document.createElement('article');
+          card.className = 'p-6 rounded-2xl bg-surface-card/80 border border-white/10 hover:border-primary/40 shadow-xl backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between';
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center gap-1.5 font-mono text-xs text-gray-300">
+                  <span class="w-2 h-2 rounded-full" style="background-color: ${color}"></span>
+                  <span class="notranslate font-medium">${lang}</span>
+                </div>
+                <div class="flex items-center gap-1 font-mono text-xs text-primary font-semibold">
+                  <span class="material-symbols-outlined text-[14px]">star</span>
+                  <span>${stars}</span>
+                </div>
+              </div>
+              <h4 class="font-headline font-bold text-lg text-white mb-2 tracking-tight notranslate truncate" title="${repo.name}">
+                ${repo.name}
+              </h4>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                ${desc}
+              </p>
+            </div>
+            <div class="flex items-center justify-between pt-4 border-t border-white/10 text-xs font-mono">
+              <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-cyan-300 flex items-center gap-1 font-semibold transition-colors">
+                <span>Depoya Git</span>
+                <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+              </a>
+              <span class="text-gray-500 font-mono">GitHub Deposu</span>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // 5. PROJECT CATEGORY FILTER
     // -------------------------------------------------------------------------
     function filterProjects(category, buttonEl) {
       document.querySelectorAll('.project-filter-btn').forEach(b => {
@@ -1444,7 +1659,7 @@
     }
 
     // -------------------------------------------------------------------------
-    // 5. SERVICES CARDS TO QUOTE FORM AUTO-SELECT & SMOOTH SCROLL
+    // 6. SERVICES CARDS TO QUOTE FORM AUTO-SELECT & SMOOTH SCROLL
     // -------------------------------------------------------------------------
     function selectServiceAndScroll(serviceName) {
       const quoteSection = document.getElementById('teklif');
@@ -1504,7 +1719,7 @@
     }
 
     // -------------------------------------------------------------------------
-    // 6. QUOTE FORM SUBMISSION & RELAY TRIGGER
+    // 7. QUOTE FORM SUBMISSION & RELAY TRIGGER
     // -------------------------------------------------------------------------
     function handleQuoteSubmit(e) {
       e.preventDefault();
@@ -1561,7 +1776,7 @@
     }
 
     // -------------------------------------------------------------------------
-    // 7. TOAST NOTIFICATION UTILITY
+    // 8. TOAST NOTIFICATION UTILITY
     // -------------------------------------------------------------------------
     function showToast(text) {
       const toast = document.getElementById('toast-notify');
@@ -1588,7 +1803,7 @@
     }
 
     // -------------------------------------------------------------------------
-    // 8. LEGAL PROTOCOL MODALS (Gizlilik Politikası & Kullanıcı Sözleşmesi)
+    // 9. LEGAL PROTOCOL MODALS (Gizlilik Politikası & Kullanıcı Sözleşmesi)
     // -------------------------------------------------------------------------
     const LEGAL_CONTENT = {
       privacy: {
@@ -1803,9 +2018,11 @@
     });
 
     // -------------------------------------------------------------------------
-    // 9. INITIALIZE ON DOM READY
+    // 10. INITIALIZE ON DOM READY
     // -------------------------------------------------------------------------
     document.addEventListener('DOMContentLoaded', () => {
+      fetchLiveGithubRepos();
+
       // Check URL hash for modal trigger (#privacy or #terms)
       const hash = window.location.hash.toLowerCase();
       if (hash === '#privacy') {
